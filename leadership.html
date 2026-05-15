@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/styles.css?v=46" />
+<link rel="stylesheet" href="assets/styles.css?v=47" />
 <style id="xt-overrides">
 /* Header logo - smaller, no distortion */
 header .brand img { height: 38px !important; width: auto !important; max-width: none !important; flex-shrink: 0 !important; }
@@ -113,51 +113,133 @@ nav.primary > .nav-item > a.cta-btn {
 nav.primary > .nav-item > a.cta-btn:hover { background: #1a2740 !important; }
 nav.primary > .nav-item > a.cta-btn::after { display: none !important; }
 
-/* MOBILE — Axios-style polish */
+/* MOBILE — Axios-style polish (v2 — robust) */
+
+/* GLOBAL: kill horizontal scroll bug on every page */
+html, body { overflow-x: hidden !important; max-width: 100vw !important; }
+body * { max-width: 100vw; }
+img, video, iframe, svg { max-width: 100% !important; height: auto; }
+
 @media (max-width: 900px) {
-  /* Topbar: single line, hide tagline + locations, MEMBERS button stays right-flush */
+  /* === TOPBAR: single thin line, no wrap, no locations === */
+  .topbar { min-height: 34px !important; }
+  .topbar .container {
+    padding: 0 0 0 14px !important;
+    min-height: 34px !important;
+    height: 34px !important;
+    gap: 8px !important;
+    align-items: stretch !important;
+    flex-wrap: nowrap !important;
+    overflow: hidden !important;
+  }
   .topbar .container > span:first-child {
-    font-size: 11px !important;
+    font-size: 10.5px !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    max-width: 60% !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
   .topbar .topbar-right .locations { display: none !important; }
-  .topbar .container { padding: 0 0 0 16px !important; min-height: 36px !important; }
-  .topbar .member-portal-btn { padding: 0 16px !important; font-size: 10.5px !important; letter-spacing: .14em !important; }
+  .topbar .topbar-right { gap: 0 !important; flex: 0 0 auto !important; }
+  .topbar .member-portal-btn {
+    padding: 0 14px !important;
+    font-size: 10px !important;
+    letter-spacing: .12em !important;
+    height: 34px !important;
+  }
 
-  /* Header: slimmer on mobile */
-  header.site-header .nav-wrap { padding: 14px 16px !important; }
-  header .brand img { height: 30px !important; }
+  /* === HEADER: slim, no wrap === */
+  header.site-header .nav-wrap {
+    padding: 12px 16px !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+  header .brand img { height: 28px !important; }
 
-  /* Hamburger button visible & properly sized */
+  /* === HAMBURGER BUTTON: 44x44 explicit hit target, iOS-safe === */
   button.mobile-toggle {
     display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     background: transparent !important;
     color: #0A0A0A !important;
     border: 0 !important;
-    padding: 8px 12px !important;
-    font-size: 0 !important; /* hide "Menu" text, only show icon */
+    padding: 0 !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    z-index: 1100 !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.06) !important;
+    touch-action: manipulation !important;
+    cursor: pointer !important;
   }
-  button.mobile-toggle::before { font-size: 22px !important; color: #0A0A0A !important; }
-  body.menu-open button.mobile-toggle { color: #0A0A0A !important; background: transparent !important; }
+  button.mobile-toggle::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 22px !important;
+    height: 16px !important;
+    background-image:
+      linear-gradient(#0A0A0A,#0A0A0A),
+      linear-gradient(#0A0A0A,#0A0A0A),
+      linear-gradient(#0A0A0A,#0A0A0A) !important;
+    background-size: 22px 2px !important;
+    background-position: 0 0, 0 7px, 0 14px !important;
+    background-repeat: no-repeat !important;
+    text-indent: 0 !important;
+    font-size: 0 !important;
+  }
+  body.menu-open button.mobile-toggle::before {
+    width: 22px !important;
+    height: 22px !important;
+    background-image:
+      linear-gradient(#0A0A0A,#0A0A0A),
+      linear-gradient(#0A0A0A,#0A0A0A) !important;
+    background-size: 22px 2px !important;
+    background-position: center center, center center !important;
+    background-repeat: no-repeat !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  body.menu-open button.mobile-toggle::before {
+    background:
+      linear-gradient(45deg, transparent 45%, #0A0A0A 45%, #0A0A0A 55%, transparent 55%),
+      linear-gradient(-45deg, transparent 45%, #0A0A0A 45%, #0A0A0A 55%, transparent 55%) !important;
+    width: 22px !important;
+    height: 22px !important;
+  }
 
-  /* Slide-in panel — force all submenu items visible */
+  /* === MOBILE MENU DRAWER === */
   nav.primary.mobile-open {
     background: #FFFFFF !important;
-    padding: 72px 24px 32px !important;
+    padding: 72px 22px 40px !important;
     width: min(380px, 100vw) !important;
+    z-index: 999 !important;
+  }
+  nav.primary.mobile-open > .nav-item {
+    width: 100% !important;
+    border-bottom: 1px solid rgba(0,0,0,.08) !important;
   }
   nav.primary.mobile-open > .nav-item > a {
     display: block !important;
     color: #0A0A0A !important;
-    font-size: 14px !important;
+    font-size: 13.5px !important;
     font-weight: 600 !important;
     letter-spacing: .08em !important;
-    padding: 18px 0 !important;
+    padding: 16px 0 !important;
     text-transform: uppercase !important;
-    border-bottom: 1px solid rgba(0,0,0,.08) !important;
+    border-bottom: 0 !important;
+    background: transparent !important;
   }
   nav.primary.mobile-open > .nav-item > a::after { display: none !important; }
   nav.primary.mobile-open .mega {
@@ -177,26 +259,30 @@ nav.primary > .nav-item > a.cta-btn::after { display: none !important; }
   nav.primary.mobile-open .mega-grid.three {
     display: block !important;
     grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    min-width: 0 !important;
   }
   nav.primary.mobile-open .mega-grid a {
     display: block !important;
-    padding: 10px 12px !important;
+    padding: 11px 14px !important;
     font-size: 12.5px !important;
-    color: #555 !important;
+    color: #444 !important;
     text-transform: none !important;
     letter-spacing: 0 !important;
     border-bottom: 0 !important;
-    background: rgba(0,0,0,.02) !important;
+    background: rgba(0,0,0,.025) !important;
     margin-bottom: 4px !important;
     border-radius: 2px !important;
+    font-weight: 500 !important;
   }
+  nav.primary.mobile-open .mega-grid a:hover { background: rgba(212,175,109,.12) !important; color: #0A0A0A !important; }
   nav.primary.mobile-open .mega-grid a .label {
     display: block !important;
-    font-size: 10.5px !important;
+    font-size: 10px !important;
     color: #999 !important;
     margin-top: 2px !important;
+    font-weight: 400 !important;
   }
-  /* CONTACT cta inside drawer */
   nav.primary.mobile-open > .nav-item > a.cta-btn {
     background: #0A1424 !important;
     color: #FFFFFF !important;
@@ -204,13 +290,24 @@ nav.primary > .nav-item > a.cta-btn::after { display: none !important; }
     margin-top: 20px !important;
     padding: 14px 18px !important;
     border-bottom: 0 !important;
+    border-radius: 2px !important;
   }
   nav.primary.mobile-open > .nav-item > a.cta-btn::after { display: none !important; }
-}
-@media (max-width: 480px) {
-  .topbar .container > span:first-child { max-width: 50% !important; font-size: 10.5px !important; }
+
+  /* Body lock when menu open */
+  body.menu-open { overflow: hidden !important; position: fixed !important; width: 100% !important; }
 }
 
+@media (max-width: 480px) {
+  .topbar .container > span:first-child { font-size: 10px !important; }
+  .topbar .member-portal-btn { padding: 0 10px !important; font-size: 9.5px !important; }
+}
+
+/* === Hero/Aside on mobile: force stack, no horizontal overflow === */
+@media (max-width: 900px) {
+  section.hero > .container { padding: 0 16px !important; }
+  section.hero aside { width: 100% !important; max-width: 100% !important; }
+}
 </style>
 </head>
 <body> <div class="topbar"> <div class="container"> <span>XTOMORROW &middot; A multi-asset, multi-jurisdiction investment platform</span> <span class="topbar-right"> <span class="locations">Dallas &middot; Albuquerque &middot; Singapore &middot; London &middot; Buenos Aires</span> <a href="member-portal.html" class="member-portal-btn">Members</a> </span> </div>

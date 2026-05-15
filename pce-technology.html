@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/styles.css?v=46" />
+<link rel="stylesheet" href="assets/styles.css?v=47" />
 <style id="xt-overrides">
 /* Header logo - smaller, no distortion */
 header .brand img { height: 38px !important; width: auto !important; max-width: none !important; flex-shrink: 0 !important; }
@@ -113,51 +113,133 @@ nav.primary > .nav-item > a.cta-btn {
 nav.primary > .nav-item > a.cta-btn:hover { background: #1a2740 !important; }
 nav.primary > .nav-item > a.cta-btn::after { display: none !important; }
 
-/* MOBILE — Axios-style polish */
+/* MOBILE — Axios-style polish (v2 — robust) */
+
+/* GLOBAL: kill horizontal scroll bug on every page */
+html, body { overflow-x: hidden !important; max-width: 100vw !important; }
+body * { max-width: 100vw; }
+img, video, iframe, svg { max-width: 100% !important; height: auto; }
+
 @media (max-width: 900px) {
-  /* Topbar: single line, hide tagline + locations, MEMBERS button stays right-flush */
+  /* === TOPBAR: single thin line, no wrap, no locations === */
+  .topbar { min-height: 34px !important; }
+  .topbar .container {
+    padding: 0 0 0 14px !important;
+    min-height: 34px !important;
+    height: 34px !important;
+    gap: 8px !important;
+    align-items: stretch !important;
+    flex-wrap: nowrap !important;
+    overflow: hidden !important;
+  }
   .topbar .container > span:first-child {
-    font-size: 11px !important;
+    font-size: 10.5px !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    max-width: 60% !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
   .topbar .topbar-right .locations { display: none !important; }
-  .topbar .container { padding: 0 0 0 16px !important; min-height: 36px !important; }
-  .topbar .member-portal-btn { padding: 0 16px !important; font-size: 10.5px !important; letter-spacing: .14em !important; }
+  .topbar .topbar-right { gap: 0 !important; flex: 0 0 auto !important; }
+  .topbar .member-portal-btn {
+    padding: 0 14px !important;
+    font-size: 10px !important;
+    letter-spacing: .12em !important;
+    height: 34px !important;
+  }
 
-  /* Header: slimmer on mobile */
-  header.site-header .nav-wrap { padding: 14px 16px !important; }
-  header .brand img { height: 30px !important; }
+  /* === HEADER: slim, no wrap === */
+  header.site-header .nav-wrap {
+    padding: 12px 16px !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+  header .brand img { height: 28px !important; }
 
-  /* Hamburger button visible & properly sized */
+  /* === HAMBURGER BUTTON: 44x44 explicit hit target, iOS-safe === */
   button.mobile-toggle {
     display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     background: transparent !important;
     color: #0A0A0A !important;
     border: 0 !important;
-    padding: 8px 12px !important;
-    font-size: 0 !important; /* hide "Menu" text, only show icon */
+    padding: 0 !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    z-index: 1100 !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.06) !important;
+    touch-action: manipulation !important;
+    cursor: pointer !important;
   }
-  button.mobile-toggle::before { font-size: 22px !important; color: #0A0A0A !important; }
-  body.menu-open button.mobile-toggle { color: #0A0A0A !important; background: transparent !important; }
+  button.mobile-toggle::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 22px !important;
+    height: 16px !important;
+    background-image:
+      linear-gradient(#0A0A0A,#0A0A0A),
+      linear-gradient(#0A0A0A,#0A0A0A),
+      linear-gradient(#0A0A0A,#0A0A0A) !important;
+    background-size: 22px 2px !important;
+    background-position: 0 0, 0 7px, 0 14px !important;
+    background-repeat: no-repeat !important;
+    text-indent: 0 !important;
+    font-size: 0 !important;
+  }
+  body.menu-open button.mobile-toggle::before {
+    width: 22px !important;
+    height: 22px !important;
+    background-image:
+      linear-gradient(#0A0A0A,#0A0A0A),
+      linear-gradient(#0A0A0A,#0A0A0A) !important;
+    background-size: 22px 2px !important;
+    background-position: center center, center center !important;
+    background-repeat: no-repeat !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  body.menu-open button.mobile-toggle::before {
+    background:
+      linear-gradient(45deg, transparent 45%, #0A0A0A 45%, #0A0A0A 55%, transparent 55%),
+      linear-gradient(-45deg, transparent 45%, #0A0A0A 45%, #0A0A0A 55%, transparent 55%) !important;
+    width: 22px !important;
+    height: 22px !important;
+  }
 
-  /* Slide-in panel — force all submenu items visible */
+  /* === MOBILE MENU DRAWER === */
   nav.primary.mobile-open {
     background: #FFFFFF !important;
-    padding: 72px 24px 32px !important;
+    padding: 72px 22px 40px !important;
     width: min(380px, 100vw) !important;
+    z-index: 999 !important;
+  }
+  nav.primary.mobile-open > .nav-item {
+    width: 100% !important;
+    border-bottom: 1px solid rgba(0,0,0,.08) !important;
   }
   nav.primary.mobile-open > .nav-item > a {
     display: block !important;
     color: #0A0A0A !important;
-    font-size: 14px !important;
+    font-size: 13.5px !important;
     font-weight: 600 !important;
     letter-spacing: .08em !important;
-    padding: 18px 0 !important;
+    padding: 16px 0 !important;
     text-transform: uppercase !important;
-    border-bottom: 1px solid rgba(0,0,0,.08) !important;
+    border-bottom: 0 !important;
+    background: transparent !important;
   }
   nav.primary.mobile-open > .nav-item > a::after { display: none !important; }
   nav.primary.mobile-open .mega {
@@ -177,26 +259,30 @@ nav.primary > .nav-item > a.cta-btn::after { display: none !important; }
   nav.primary.mobile-open .mega-grid.three {
     display: block !important;
     grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    min-width: 0 !important;
   }
   nav.primary.mobile-open .mega-grid a {
     display: block !important;
-    padding: 10px 12px !important;
+    padding: 11px 14px !important;
     font-size: 12.5px !important;
-    color: #555 !important;
+    color: #444 !important;
     text-transform: none !important;
     letter-spacing: 0 !important;
     border-bottom: 0 !important;
-    background: rgba(0,0,0,.02) !important;
+    background: rgba(0,0,0,.025) !important;
     margin-bottom: 4px !important;
     border-radius: 2px !important;
+    font-weight: 500 !important;
   }
+  nav.primary.mobile-open .mega-grid a:hover { background: rgba(212,175,109,.12) !important; color: #0A0A0A !important; }
   nav.primary.mobile-open .mega-grid a .label {
     display: block !important;
-    font-size: 10.5px !important;
+    font-size: 10px !important;
     color: #999 !important;
     margin-top: 2px !important;
+    font-weight: 400 !important;
   }
-  /* CONTACT cta inside drawer */
   nav.primary.mobile-open > .nav-item > a.cta-btn {
     background: #0A1424 !important;
     color: #FFFFFF !important;
@@ -204,22 +290,414 @@ nav.primary > .nav-item > a.cta-btn::after { display: none !important; }
     margin-top: 20px !important;
     padding: 14px 18px !important;
     border-bottom: 0 !important;
+    border-radius: 2px !important;
   }
   nav.primary.mobile-open > .nav-item > a.cta-btn::after { display: none !important; }
-}
-@media (max-width: 480px) {
-  .topbar .container > span:first-child { max-width: 50% !important; font-size: 10.5px !important; }
+
+  /* Body lock when menu open */
+  body.menu-open { overflow: hidden !important; position: fixed !important; width: 100% !important; }
 }
 
+@media (max-width: 480px) {
+  .topbar .container > span:first-child { font-size: 10px !important; }
+  .topbar .member-portal-btn { padding: 0 10px !important; font-size: 9.5px !important; }
+}
+
+/* === Hero/Aside on mobile: force stack, no horizontal overflow === */
+@media (max-width: 900px) {
+  section.hero > .container { padding: 0 16px !important; }
+  section.hero aside { width: 100% !important; max-width: 100% !important; }
+}
 </style>
 </head>
 <body> <div class="topbar"> <div class="container"> <span>XTOMORROW &middot; A multi-asset, multi-jurisdiction investment platform</span> <span class="topbar-right"> <span class="locations">Dallas &middot; Albuquerque &middot; Singapore &middot; London &middot; Buenos Aires</span> <a href="member-portal.html" class="member-portal-btn">Members</a> </span> </div>
 </div>
 <header class="site-header"> <div class="nav-wrap"> <a href="index.html" class="brand"> <img src="assets/Long%20Logo.png" alt="X TOMORROW" /> </a> <nav class="primary"> <div class="nav-item"><a href="about.html">ABOUT</a> <div class="mega"> <div class="mega-grid"> <a href="about.html">Firm Overview<span class="label">Who we are</span></a> <a href="leadership.html">Leadership<span class="label">Principals &amp; advisors</span></a> <a href="history.html">History<span class="label">Three decades of platform-building</span></a> <a href="companies.html">Sister Companies<span class="label">XTOMORROW · IEP · BKWH · Geoenergy</span></a> <a href="locations.html">Locations<span class="label">Global presence</span></a> <a href="sustainability.html">Sustainability<span class="label">ESG &amp; impact</span></a> </div> </div> </div> <div class="nav-item"><a href="platform.html">PLATFORM</a> <div class="mega"> <div class="mega-grid"> <a href="platform.html">Approach<span class="label">How we operate</span></a> <a href="sto.html">STO Issuance &amp; Structuring<span class="label">Multi-jurisdiction</span></a> <a href="rwa.html">RWA Tokenization<span class="label">Real-world asset rails</span></a> <a href="acquisitions.html">Asset Acquisition &amp; Operations<span class="label">Mining · energy · real estate</span></a> <a href="capital-markets.html">Capital Markets<span class="label">De-SPAC · IPO · PIPE</span></a> <a href="sharia-halal.html">Sharia &amp; Halal Finance<span class="label">AAOIFI · MRHB certification</span></a> </div> </div> </div> <div class="nav-item"><a href="assets.html">ASSETS</a> <div class="mega"> <div class="mega-grid three"> <a href="mining.html">Mining &amp; Critical Minerals<span class="label">Au · Ag · PGM · Cu · Li · REE</span></a> <a href="energy.html">Energy<span class="label">Oil &amp; gas · geothermal · clean</span></a> <a href="real-estate.html">Real Estate<span class="label">Direct &amp; structured equity</span></a> <a href="equities.html">Public Equities<span class="label">Concentrated &amp; event-driven</span></a> <a href="fixed-income.html">Fixed Income<span class="label">Sovereign · credit</span></a> <a href="digital.html">Digital Assets<span class="label">Core blockchain</span></a> <a href="tokenized-funds.html">Tokenized Funds<span class="label">Wrapped exposures</span></a> <a href="nevada.html">Nevada Newcastle<span class="label">Multi-metal placer · PCE</span></a> <a href="argentina.html">Argentina Farallón Negro<span class="label">YMAD 60-yr PPP</span></a> </div> </div> </div> <div class="nav-item"><a href="markets.html">MARKETS</a> <div class="mega"> <div class="mega-grid"> <a href="markets.html">Markets Overview<span class="label">Macro framework</span></a> <a href="sto-outlook.html">STO Global Outlook<span class="label">Capital formation 2030</span></a> <a href="tokenization.html">Tokenization 2030<span class="label">$16T market thesis</span></a> <a href="crypto.html">Crypto · Web3 Future<span class="label">TradFi-Crypto hybrids</span></a> <a href="mining-markets.html">Mining Markets<span class="label">Commodities supercycle</span></a> <a href="macro.html">Macro Outlook<span class="label">Rates · FX · liquidity</span></a> <a href="markets-live.html">Live Crypto &amp; STO<span class="label">Real-time tokenized markets</span></a> <a href="commodities-live.html">Live Commodities<span class="label">Gold · Silver · Copper · Oil</span></a> </div> </div> </div> <div class="nav-item"><a href="regulation.html">REGULATION</a> <div class="mega"> <div class="mega-grid three"> <a href="regulation.html">Global Overview<span class="label">Top-10 jurisdictions</span></a> <a href="regulation-us.html">United States<span class="label">SEC · Reg D / A+ / S</span></a> <a href="regulation-europe.html">Europe<span class="label">MiCA · eWpG · DLT Pilot</span></a> <a href="regulation-uk.html">United Kingdom<span class="label">FCA · Digital Securities Sandbox</span></a> <a href="regulation-asia.html">Korea &amp; Asia<span class="label">FSC · MAS · SFC · FSA</span></a> <a href="regulation-mideast.html">Middle East<span class="label">ADGM · DIFC · VARA · CMA</span></a> <a href="regulation-sharia.html">Sharia &amp; Halal<span class="label">AAOIFI · MRHB</span></a> <a href="regulation-offshore.html">Offshore<span class="label">Cayman · BVI · Gibraltar</span></a> <a href="regulation-switzerland.html">Switzerland<span class="label">FINMA · DLT Act</span></a> </div> </div> </div> <div class="nav-item"><a href="technology.html">TECHNOLOGY</a> <div class="mega"> <div class="mega-grid"> <a href="technology.html">Technology Overview<span class="label">Stack &amp; integration</span></a> <a href="pce-technology.html">PCE Mining Technology<span class="label">Potential-Controlled Electrolysis</span></a> <a href="edmsu.html">EDMSU<span class="label">Dry magnetic separation</span></a> <a href="blockchain-infra.html">Blockchain Infrastructure<span class="label">ERC-3643 · Lumia · Base</span></a> <a href="custody.html">Custody &amp; Proof-of-Reserve<span class="label">Anchorage · Chainlink PoR</span></a> </div> </div> </div> <div class="nav-item"><a href="insights.html">INSIGHTS</a> <div class="mega right-aligned"> <div class="mega-grid"> <a href="insights.html">Insights<span class="label">Editorial</span></a> <a href="research.html">Research<span class="label">Long-form theses</span></a> <a href="press.html">Press<span class="label">News &amp; releases</span></a> <a href="reports.html">Reports<span class="label">White papers</span></a> </div> </div> </div> <div class="nav-item"><a href="contact.html" class="cta-btn">CONTACT</a></div> </nav> <button class="mobile-toggle" onclick="(function(b){var n=document.querySelector('nav.primary');n.classList.toggle('mobile-open');document.body.classList.toggle('menu-open');b.innerHTML=n.classList.contains('mobile-open')?'Close':'Menu';})(this)">Menu</button> </div>
 </header> <section class="page-head with-image" style="background-image: linear-gradient(135deg, rgba(10,20,36,.78) 0%, rgba(6,13,26,.92) 100%), url('img/mining-truck.jpg');"> <div class="container"> <div class="eyebrow">PCE Technology</div> <h1><em>Potential-Controlled Electrolysis</em> — patented, proven, and the technological alpha of the platform.</h1> <p class="lead">PCE is a patented electrochemical process that replaces cyanide with benign reagents and electrons. It selectively recovers gold, silver, PGMs, and rare earths at 90% yields from refractory and low-grade ores — while operating at 25-300°C and producing high-value nanopowder outputs at up to 25× bullion premium.</p> </div>
-</section> <section><div class="container"> <div class="section-head left"> <div class="eyebrow">How it works</div> <h2>Four steps. <em>Cyanide-free</em>.</h2> </div> <div class="cards four"> <div class="card"><div class="num">01</div><h3>Mineral Processing</h3><p>Crush and grind of tailings or low-grade ore (0.1-10 g/t Au).</p></div> <div class="card"><div class="num">02</div><h3>Benign Leaching</h3><p>Replaces cyanide with thiourea or glycine. 90% yield from refractory feeds.</p></div> <div class="card"><div class="num">03</div><h3>PCE Electrolysis</h3><p>Pulse control for precise, selective electrodeposition of target metals.</p></div> <div class="card"><div class="num">04</div><h3>High-Value Outputs</h3><p>99.9% pure gold (ASTM B562 Grade 1) and size-controlled nanopowders.</p></div> </div>
-</div></section> <section class="cream"><div class="container"> <div class="section-head left"> <div class="eyebrow">Performance vs. Legacy</div> <h2>Why this is <em>materially better</em>.</h2> </div> <table class="data"> <thead><tr><th>Metric</th><th>Traditional</th><th>PCE</th></tr></thead> <tbody> <tr><td>Cyanide use</td><td>Required</td><td>Eliminated</td></tr> <tr><td>Operating temperature</td><td>1000°C+ pyrometallurgy</td><td>25-300°C</td></tr> <tr><td>Energy consumption</td><td>Baseline</td><td>50% reduction</td></tr> <tr><td>Yield on low-grade (0.1-10 g/t)</td><td>10% (inefficient on invisible gold)</td><td>90% recovery</td></tr> <tr><td>Output value</td><td>Standard bullion (~USD 80/g)</td><td>Nanopowder up to USD 2,000/g (25× premium)</td></tr> <tr><td>Water consumption</td><td>High</td><td>&gt;80% recycled (closed loop)</td></tr> <tr><td>Tailings landfill</td><td>Baseline</td><td>90% reduction (backfilled)</td></tr> <tr><td>GHG emissions</td><td>Baseline</td><td>50% reduction</td></tr> </tbody> </table>
-</div></section> <section><div class="container"> <div class="section-head left"> <div class="eyebrow">Industrial validation</div> <h2>Proven at <em>industrial scale</em>.</h2> </div> <div class="cards"> <div class="card"><h3>KGHM Polska Miedź — 2013</h3><p>Industrial pilot at one of Europe's largest miners. PCE delivered &gt;20% increase in cathode mass while maintaining top quality standards.</p></div> <div class="card"><h3>ENAMI — Chile, 2020</h3><p>Confirmation pilot in Chile's state mining enterprise. Validated PCE's effectiveness on Chilean ore profiles.</p></div> <div class="card"><h3>Elemental Poland — 2025</h3><p>Most recent industrial validation, confirming PCE's continued scalability across multiple ore types and feed grades.</p></div> </div> <div style="margin-top:24px;"> <div class="callout"> <h4>IP Position</h4> <p>PCE technology is patented (US Patent App. 20150197867 and related) and exclusively licensed into XTOMORROW's mining assets through Geoenergy Solutions, the technology subsidiary of Bober Khan Wealth Holdings.</p> </div> </div>
+</section>
+
+<!-- ============ WHAT IS PCE ============ -->
+<section style="padding: 100px 0;"><div class="container">
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+    <div>
+      <div class="eyebrow">What it is</div>
+      <h2 style="margin-top:10px;">A patented electrochemical alternative to <em>cyanide-based</em> mining.</h2>
+      <p class="lead" style="margin-top:18px;">PCE is the proprietary recovery technology of Geoenergy Solutions, a subsidiary of Bober Khan Wealth Holdings. It targets the recovery of precious metals, PGMs, and rare-earth elements from <strong>secondary resources</strong> — mining tailings, smelter flue dust, metallurgical wastewater, and refractory low-grade ore — where traditional cyanidation and pyrometallurgy fail.</p>
+      <p>The patent envelope rests on <strong>controlled electrode potential</strong> driving selective metal deposition — a fundamentally different mechanism from galvanostatic (current-controlled) electrowinning. Pulse-waveform control of the cathode potential enables selectivity at the ion level: gold deposits, copper stays in solution, arsenic is rejected, neodymium reports separately from dysprosium — all in one cell.</p>
+      <p>The underlying controlled-potential electrolysis principle was industrially validated at <strong>KGHM Polska Miedź in 2013</strong> on copper electrorefining. The technology platform is now adapted, patented, and being deployed for the recovery of gold, silver, PGMs, and rare-earth elements across XTOMORROW's mining-asset portfolio.</p>
+    </div>
+    <div class="feature-image" style="aspect-ratio: 4/5; overflow:hidden;"><img src="img/pexels-mining.jpg" alt="PCE mining technology" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+  </div>
+</div></section>
+
+<!-- ============ FOUR-STAGE FLOWSHEET ============ -->
+<section class="cream" style="padding: 100px 0;"><div class="container">
+  <div class="section-head left">
+    <div class="eyebrow">The integrated flowsheet</div>
+    <h2>Four stages. <em>Cyanide eliminated</em>. Recovery at <em>99.9%</em> purity.</h2>
+    <p class="lead" style="max-width:820px;">The full PCE flowsheet is a closed-loop, four-stage process running from raw secondary feed to high-value finished product. Every stage is electrochemical or physical — no cyanide, no concentrated acid, no pyrometallurgical smelter.</p>
+  </div>
+  <div class="cards four" style="margin-top:24px;">
+    <div class="card">
+      <div class="num">01</div><h3>Mineral Processing</h3>
+      <p>Crush, grind, and flotation of tailings or low-grade ore. Targets the <strong>"invisible" gold</strong> locked in pyrite at feed grades of 0.1–10 g/t Au that conventional cyanide circuits cannot recover.</p>
+    </div>
+    <div class="card">
+      <div class="num">02</div><h3>Benign Leaching</h3>
+      <p>Cyanide replaced by <strong>thiourea or glycine</strong> (for Au/Ag) and dilute organic acids (for REEs). Achieves ~90% Au yield into solution; 85% REE yield from leachates as dilute as 0.01–1 g/L.</p>
+    </div>
+    <div class="card">
+      <div class="num">03</div><h3>PCE Electrolysis</h3>
+      <p>The electrochemical core. <strong>Selective pulsed electrolysis</strong> — short, controlled-potential pulses deposit gold at 99.9% purity (ASTM B562 Grade 1) while rejecting copper, zinc, lead, arsenic, and other matrix impurities.</p>
+    </div>
+    <div class="card">
+      <div class="num">04</div><h3>High-Value Outputs</h3>
+      <p>Bulk gold ingots, gold/silver powders, or <strong>10–60 nm nanopowders</strong> — the premium product, valued at $50–$2,000/kg vs. ~$80/g bullion (up to 25× bullion premium).</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ CORE ELECTROCHEMISTRY ============ -->
+<section style="padding: 100px 0;"><div class="container">
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+    <div>
+      <div class="eyebrow">Core electrochemistry</div>
+      <h2 style="margin-top:10px;">Why <em>potential-controlled</em> beats current-controlled.</h2>
+      <p class="lead" style="margin-top:18px;">Conventional electrowinning is <strong>galvanostatic</strong> — operators fix the current and let the cell potential drift. That works for single-metal copper refining but cannot discriminate between ions in a complex mixed-metal electrolyte.</p>
+      <p>PCE is <strong>potentiostatic with pulse-waveform control</strong>. Operators fix the cathode potential to the precise reduction potential of the target metal. Pulses cycle the potential — short anodic pulses control the shape and size of the deposited particle. The result: 99.9% Au from a feed solution that may contain Cu, Zn, Pb, Ag, Au, As, Fe and trace REEs simultaneously.</p>
+    </div>
+    <div>
+      <div class="track-record" style="background:var(--paper); border:1px solid var(--line); padding:32px;">
+        <h5>Operating parameters</h5>
+        <div class="entry"><div class="desc"><strong>Temperature</strong> — 25–300 °C (vs. 1,000 °C+ pyrometallurgy)</div></div>
+        <div class="entry"><div class="desc"><strong>Pressure</strong> — atmospheric</div></div>
+        <div class="entry"><div class="desc"><strong>Current density</strong> — 400–630 A/m² (KGHM benchmark)</div></div>
+        <div class="entry"><div class="desc"><strong>Current efficiency</strong> — &gt;98% (KGHM commission verified)</div></div>
+        <div class="entry"><div class="desc"><strong>Cell matrices</strong> — aqueous, molten salt, ionic liquid, deep-eutectic solvent</div></div>
+        <div class="entry"><div class="desc"><strong>Water</strong> — closed-loop, &gt;80% recycle</div></div>
+        <div class="entry"><div class="desc"><strong>Reagent in cell</strong> — electrons (no toxic chemicals)</div></div>
+        <div class="entry"><div class="desc"><strong>Particle output</strong> — bulk ingot · 1–100 µm powder · 10–60 nm nanopowder</div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ PERFORMANCE TABLE ============ -->
+<section class="cream" style="padding: 100px 0;"><div class="container">
+  <div class="section-head left">
+    <div class="eyebrow">Performance vs. legacy</div>
+    <h2>The numbers that change <em>everything</em>.</h2>
+    <p class="lead" style="max-width:820px;">Side-by-side comparison against cyanide leaching and pyrometallurgical smelting — the two extractive techniques PCE replaces. All figures sourced from internal Geoenergy Solutions process documentation and the 2013 KGHM industrial pilot.</p>
+  </div>
+  <table class="data" style="margin-top:28px;">
+    <thead>
+      <tr><th>Metric</th><th>Cyanide / Pyromet (baseline)</th><th>PCE</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Cyanide use</td><td>Required (lethal at &lt;100 mg/L)</td><td>Fully eliminated</td></tr>
+      <tr><td>Operating temperature</td><td>1,000–1,200 °C (Au/Ag smelt); 800–1,200 °C (REE smelt)</td><td>25–300 °C, atmospheric</td></tr>
+      <tr><td>Au yield (refractory / invisible gold, 0.1–10 g/t)</td><td>10–45% (cyanide); 65% (Carlin-type)</td><td>88–94% recovery</td></tr>
+      <tr><td>REE yield (0.01–1 g/L leachate)</td><td>Limited &mdash; ion-exchange or SX</td><td>85%, 98%+ purity (Nd, Dy)</td></tr>
+      <tr><td>Au output purity</td><td>Bullion (refining required)</td><td>99.9–99.99% (ASTM B562 Grade 1)</td></tr>
+      <tr><td>Output value</td><td>Bullion ~$80/g</td><td>Nanopowder up to $2,000/kg (25× premium)</td></tr>
+      <tr><td>Energy consumption</td><td>Baseline (pyromet)</td><td>50% reduction</td></tr>
+      <tr><td>Reagent cost vs. SX-EW</td><td>Baseline</td><td>20–30% reduction</td></tr>
+      <tr><td>Water consumption</td><td>High; tailings dam required</td><td>&gt;80% closed-loop recycle</td></tr>
+      <tr><td>Tailings landfill</td><td>Baseline (legacy liability)</td><td>90% reduction; up to 70% returned as backfill (with EDMSU)</td></tr>
+      <tr><td>GHG emissions</td><td>Baseline</td><td>Up to 50% reduction</td></tr>
+      <tr><td>Current efficiency</td><td>&gt;95% (KGHM existing)</td><td>&gt;98% (KGHM PCE pilot)</td></tr>
+      <tr><td>Pilot CapEx</td><td>$50M+ (greenfield)</td><td>$2.5M–$5M (modular retrofit)</td></tr>
+      <tr><td>Full-scale CapEx</td><td>$180M–$280M (fixed plant)</td><td>$25M–$50M (modular)</td></tr>
+      <tr><td>Breakeven</td><td>3–7 years</td><td>6–18 months</td></tr>
+    </tbody>
+  </table>
+</div></section>
+
+<!-- ============ EDMSU + TIRS ============ -->
+<section style="padding: 100px 0;"><div class="container">
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+    <div class="feature-image" style="aspect-ratio: 4/5; overflow:hidden;"><img src="img/pexels-mining-2.jpg" alt="EDMSU dry separation" loading="lazy" onerror="this.src='img/pexels-mining.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div>
+      <div class="eyebrow">EDMSU + PCE = TIRS</div>
+      <h2 style="margin-top:10px;">The <em>Total Integrated Recovery System</em>.</h2>
+      <p class="lead" style="margin-top:18px;">PCE is most powerful when paired with its sibling technology — the <strong>Electrodynamic & Magnetic Separation Unit (EDMSU)</strong>. Together they form the Total Integrated Recovery System (TIRS): a two-stage, water-free, cyanide-free closed-loop recovery flow.</p>
+      <p><strong>Stage 1 — EDMSU (dry electrodynamic separation).</strong> Twin counter-rotating rotors with alternating-polarity permanent magnets spin at up to 3,000 rpm inside dielectric drums, inducing electromotive force in conductive particles. Conductive grains (gold, copper, PGMs) separate from inert waste rock without water — 99.0–99.2% recovery on 50–100 µm particles. 70%+ of tailings return immediately to the mined-out space as backfill.</p>
+      <p><strong>Stage 2 — PCE (precision secondary recovery).</strong> EDMSU's discharge stream is routed through PCE pulse-electrolysis to scavenge the ultra-fine sub-50 µm "refractory" gold that mechanical separation cannot catch. Final system recovery: <strong>99.9%+</strong>. The same PCE circuit upgrades the metallurgical output to nanopowders.</p>
+      <p>The system operates with <strong>100% efficiency in both extreme heat (deserts) and extreme cold (permafrost)</strong>, where traditional wet-chemical plants would freeze or fail from water scarcity.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ INDUSTRIAL VALIDATIONS ============ -->
+<section class="dark" style="padding: 100px 0;"><div class="container">
+  <div class="section-head left">
+    <div class="eyebrow" style="color:var(--gold-2);">Industrial validation</div>
+    <h2 style="color:#fff;">Two industrial pilots. <em>One verified principle</em>.</h2>
+    <p class="lead" style="max-width:820px; color:rgba(255,255,255,.78);">The controlled-potential electrolysis principle has been independently verified at industrial scale by two state-level mining counterparties — KGHM Polska Miedź (Poland) and ENAMI (Chile). Both are publicly-disclosed institutional references.</p>
+  </div>
+  <div class="cards" style="margin-top:32px;">
+    <div class="card" style="background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.1); color:rgba(255,255,255,.86);">
+      <p style="color:var(--gold-2); font-size:11px; letter-spacing:.18em; text-transform:uppercase; margin-bottom:8px;">2013 · Industrial pilot</p>
+      <h3 style="color:#fff;">KGHM Polska Miedź · Huta Miedzi Legnica</h3>
+      <p style="color:rgba(255,255,255,.82);">Agreement <strong style="color:#fff;">HML-BO-88/2013</strong> signed 2 July 2013 between KGHM Polska Miedź S.A. (#8 global copper producer, #2 refined silver) and Nanometallurgy SA. Two industrial electrolytic tanks ran in parallel at the Legnica copper electrorefining smelter — one fitted with controlled-potential technology, one control tank using KGHM's existing galvanostatic method.</p>
+      <p style="color:rgba(255,255,255,.82);"><strong style="color:#fff;">Result (1 October 2013):</strong> &gt;20% increase in cathode mass at Cu-CATH-1 (LME high-grade copper) quality, verified by chemical analysis. KGHM commission accepted results. Modeled scaling: 110,000 t/y baseline → 200,000 t/y (optimal current density, same energy) → 300,000 t/y (maximum current density).</p>
+    </div>
+    <div class="card" style="background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.1); color:rgba(255,255,255,.86);">
+      <p style="color:var(--gold-2); font-size:11px; letter-spacing:.18em; text-transform:uppercase; margin-bottom:8px;">2020 · Pilot metallurgical test</p>
+      <h3 style="color:#fff;">ENAMI · Fundición Hernán Videla Lira (Paipote)</h3>
+      <p style="color:rgba(255,255,255,.82);">Empresa Nacional de Minería (Chilean state mining enterprise, est. 1960). Progress meeting 11 March 2020 at Paipote with Patricio Andrade (ENAMI Strategic Development Manager) and Zoltan von Bernath (Nuevas Tecnologías SpA General Manager).</p>
+      <p style="color:rgba(255,255,255,.82);"><strong style="color:#fff;">Result:</strong> Pilot metallurgical tests on the Matta Plant refining solution successfully extracted Cu, As, Cd, Co, and Zn. Outcomes allowed ENAMI to redefine its commercial strategy — processing and paying for minerals beyond copper from small-scale mining suppliers. ENAMI moved toward negotiating an industrial-scale plant implementation. Letter of satisfaction issued 20 March 2020.</p>
+    </div>
+  </div>
+  <div style="margin-top:32px;">
+    <div class="callout" style="background:rgba(255,255,255,.04); border-left-color:var(--gold);">
+      <h4 style="color:#fff;">Why the KGHM benchmark matters</h4>
+      <p style="color:rgba(255,255,255,.82);">KGHM ranked #8 globally in electrolytic copper production (711,000 t in 2023) and #2 in refined silver. Their commission's formal acceptance of the &gt;20% cathode-mass uplift at Cu-CATH-1 quality — published in agreement HML-BO-88/2013 — is the industrial proof point that controlled-potential electrolysis works at production scale. PCE is the same electrochemical control logic, adapted and patented for gold, silver, PGMs, and rare-earth elements.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ METALS COVERED ============ -->
+<section class="cream" style="padding: 100px 0;"><div class="container">
+  <div class="section-head left">
+    <div class="eyebrow">Metals recovered</div>
+    <h2>One platform. <em>Forty-plus</em> recoverable metals.</h2>
+    <p class="lead" style="max-width:820px;">PCE is electrochemistry-agnostic. By tuning electrode potential and electrolyte chemistry, the same cell can recover precious, rare-earth, refractory, base, and impurity metals from complex mixed-feed streams.</p>
+  </div>
+  <div class="cards" style="margin-top:24px;">
+    <div class="card">
+      <h3>Precious Metals</h3>
+      <p><strong>Gold (Au)</strong> · <strong>Silver (Ag)</strong> — 99.9–99.99% purity, ASTM B562 Grade 1. Yields 88–94% from refractory Carlin-type ore (vs. cyanide 45–65%).</p>
+    </div>
+    <div class="card">
+      <h3>Platinum Group Metals</h3>
+      <p><strong>Pt · Pd · Rh · Ru · Ir · Os</strong> — recovered as part of multi-metal placer flowsheets (e.g., Nevada Newcastle). Modular hybrid configuration delivers +5–10% PGM recovery vs. conventional.</p>
+    </div>
+    <div class="card">
+      <h3>Rare-Earth Elements</h3>
+      <p><strong>Neodymium (Nd)</strong> · <strong>Dysprosium (Dy)</strong> · <strong>Cerium (Ce)</strong> — 98%+ purity from dilute leachates (0.01–1 g/L). Validated in aqueous, molten-salt, and ionic-liquid matrices.</p>
+    </div>
+    <div class="card">
+      <h3>Rare / Refractory Metals</h3>
+      <p><strong>Tantalum (Ta)</strong> · <strong>Niobium (Nb)</strong> — PCE combined with molten-salt electrolysis enables selective deposition. Critical for defense, electronics, and semiconductor supply chains.</p>
+    </div>
+    <div class="card">
+      <h3>Base & Associated</h3>
+      <p><strong>Copper (Cu)</strong> · <strong>Nickel (Ni)</strong> · <strong>Cobalt (Co)</strong> · <strong>Lead (Pb)</strong> · <strong>Zinc (Zn)</strong> — industrially validated; selective recovery from complex bleed electrolytes.</p>
+    </div>
+    <div class="card">
+      <h3>Impurity Removal</h3>
+      <p><strong>Arsenic (As)</strong> · <strong>Antimony (Sb)</strong> · <strong>Thorium (Th)</strong> · <strong>Cadmium (Cd)</strong> — selectively electrowon from solution, supporting EPA Superfund-class wastewater remediation.</p>
+    </div>
+  </div>
+  <div style="margin-top:24px;">
+    <div class="callout">
+      <h4>Beyond cathodic deposition</h4>
+      <p>Metals that cannot be directly electrodeposited at the cathode — such as <strong>Aluminum (Al)</strong> and <strong>Molybdenum (Mo)</strong> — are precipitated as oxides or salts via electrocoagulation, then treated through molten-salt electrolysis to obtain pure metal. This extends the recoverable element list well beyond a conventional electrowinning circuit.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ PRODUCTION CAPACITY ============ -->
+<section style="padding: 100px 0;"><div class="container">
+  <div class="section-head left">
+    <div class="eyebrow">Production capacity model</div>
+    <h2>One vat. <em>12.5 kg of 99.99% gold per day</em>. 122× excess capacity.</h2>
+    <p class="lead" style="max-width:820px;">The electrolytic refining stage is sized against a daily target of 12.5 kg of 99.99% gold output. The math, run from the internal Bober Khan Wealth capacity analysis, illustrates how modular and capital-efficient the PCE refining stack actually is.</p>
+  </div>
+  <table class="data" style="margin-top:28px;">
+    <thead><tr><th>Parameter</th><th>Value</th><th>Operational implication</th></tr></thead>
+    <tbody>
+      <tr><td>Target daily gold output</td><td>12.5 kg / day (99.99% Au)</td><td>Mid-tier producer scale</td></tr>
+      <tr><td>Concentrate grade fed to electrolysis</td><td>8% Au</td><td>Standard PCE inlet specification</td></tr>
+      <tr><td>Daily concentrate requirement</td><td>156.25 kg / day</td><td>One single PCE vat handles the full duty</td></tr>
+      <tr><td>Vat capacity</td><td>800 kg / vat</td><td>One vat</td></tr>
+      <tr><td>Cycle time</td><td>1 hour</td><td>Vat operates ~1 hour/day at this target</td></tr>
+      <tr><td>Daily vat utilization</td><td>~19.5%</td><td>Massive headroom for ramp / maintenance</td></tr>
+      <tr><td>Maximum theoretical output</td><td>1,536 kg / day (24 cycles)</td><td>122× the current target — no second vat needed below 50–60 kg/day</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:32px;">
+    <h3 style="font-family:var(--font-display); font-size:1.6rem;">Mining intensity by head grade</h3>
+    <p style="max-width:820px;">Assuming 90% overall ore→concentrate→gold recovery, the daily mining tonnage to feed 12.5 kg/day of finished gold scales sharply with deposit head grade.</p>
+    <table class="data" style="margin-top:16px;">
+      <thead><tr><th>Scenario</th><th>Head grade</th><th>Daily ore mined</th><th>Best operational fit</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A — Low grade</strong></td><td>0.2 g/t Au</td><td>69,450 t / day</td><td>Open-pit bulk; high-throughput crushing</td></tr>
+        <tr><td><strong>B — Medium grade</strong></td><td>2.0 g/t Au</td><td>6,945 t / day</td><td>Small-to-medium operation; compact footprint</td></tr>
+        <tr><td><strong>C — High grade</strong></td><td>5.0 g/t Au</td><td>2,778 t / day</td><td>Underground / selective; lowest mining cost per gram</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div></section>
+
+<!-- ============ NANOPOWDER ECONOMICS ============ -->
+<section class="cream" style="padding: 100px 0;"><div class="container">
+  <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start;">
+    <div>
+      <div class="eyebrow">Nanopowder economics</div>
+      <h2 style="margin-top:10px;">The <em>25× alpha</em> hidden in short anodic pulses.</h2>
+      <p class="lead" style="margin-top:18px;">PCE's short-pulse waveform doesn't only deposit metal — it controls the size and shape of the deposited grain. By tuning pulse frequency, duty cycle, and amplitude, the cell produces 10–60 nm metallic nanopowder directly, bypassing the entire post-refining nanofabrication step that conventional producers face.</p>
+      <p>Nanoparticles in this size range carry the surface-area-to-volume properties that high-tech buyers pay for — catalysts (PGM, hydrogen, automotive), electronics (Ag conductive inks, Au contacts), biomedical (Au diagnostic and imaging), defense (Nd/Dy magnets, Ta/Nb superalloys). Market pricing reflects that — gold nanopowder fetches up to 25× the bullion equivalent.</p>
+      <p>The Catamarca and Nevada deployment models size both bullion and nanopowder revenue streams, materially lifting NPV and AISC profiles versus a bullion-only configuration.</p>
+    </div>
+    <div>
+      <div class="track-record" style="background:var(--paper); border:1px solid var(--line); padding:32px;">
+        <h5>Nanopowder pricing vs. bulk</h5>
+        <div class="entry"><div class="desc"><strong>Gold nanopowder (10–60 nm)</strong><br/>$50 – $2,000 / kg<br/><span style="color:var(--sub); font-size:.9em;">vs. bullion ~$80/g (≈$80,000/kg) — premium up to 25×</span></div></div>
+        <div class="entry"><div class="desc"><strong>Silver nanopowder</strong><br/>$50 – $2,000 / kg<br/><span style="color:var(--sub); font-size:.9em;">vs. silver bullion ~$1/g — premium up to 2,000×</span></div></div>
+        <div class="entry"><div class="desc"><strong>REE nanopowder (Nd, Dy, Ce)</strong><br/>$100 – $500 / kg<br/><span style="color:var(--sub); font-size:.9em;">vs. REE oxide $50–$100/kg — 2–10× premium</span></div></div>
+        <div class="entry"><div class="desc"><strong>End markets</strong><br/>Catalysts · Electronics · Biomedical · Defense<br/><span style="color:var(--sub); font-size:.9em;">High-value buyers, supply-constrained</span></div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ MODULAR COMPETITIVE COMPARISON ============ -->
+<section style="padding: 100px 0;"><div class="container">
+  <div class="section-head left">
+    <div class="eyebrow">Modular mining competition</div>
+    <h2>Hybrid Modular + PCE: <em>the lowest-capex, fastest-deployment path</em>.</h2>
+    <p class="lead" style="max-width:820px;">Newcastle Claim (Lincoln County, Nevada · 140,000 oz/y AuEq target) benchmarked against every commercially-available modular metallurgical solution. Hybrid Modular front-end + PCE refining wins on capex, deployment time, and multi-metal recovery — the only architecture suited to the $317B in-situ PGM value the Newcastle ore body carries.</p>
+  </div>
+  <table class="data" style="margin-top:28px;">
+    <thead>
+      <tr><th>Technology</th><th>CapEx (140k oz/y)</th><th>Deploy time</th><th>Au+PGM recovery</th><th>AISC reduction</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Traditional fixed plant</td><td>$180M – $280M</td><td>24 – 36 months</td><td>88 – 94%</td><td>Baseline</td></tr>
+      <tr><td>Gekko / Sepro / APT Modular</td><td>$55M – $95M</td><td>6 – 12 months</td><td>85 – 93%</td><td>−15 to −25%</td></tr>
+      <tr><td>KCA Modular Heap Leach + ADR</td><td>$45M – $75M</td><td>4 – 9 months</td><td>70 – 85%</td><td>−20 to −30%</td></tr>
+      <tr><td>Modular SX-EW / Electrowinning</td><td>$65M – $110M</td><td>8 – 14 months</td><td>85 – 92%</td><td>−10 to −20%</td></tr>
+      <tr><td><strong style="color:var(--emerald);">Hybrid Modular Front-End + PCE</strong></td><td><strong>$62M – $78M</strong></td><td><strong>7 – 11 months</strong></td><td><strong>90 – 96%+</strong></td><td><strong>−25 to −35%</strong></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:18px; color:var(--sub); font-size:.92em;">Source: 2024–2026 real-world deployments (Gekko Python, Sepro, APT, KCA, Metso SX-EW) and PCE pilot benchmarks; risk-adjusted for Nevada projects.</p>
+  <div style="margin-top:24px;">
+    <div class="callout">
+      <h4>PCE refining module — add-on profile</h4>
+      <p>The PCE refining module alone can bolt onto any existing modular front-end. Add-on CapEx <strong>$9M–$13M</strong>; deployment <strong>2–4 months</strong>; <strong>+5 to +10% PGM recovery</strong> uplift versus conventional electrowinning; <strong>20–30% lower</strong> energy and footprint.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ PILOT BENCHMARKS ============ -->
+<section class="cream" style="padding: 100px 0;"><div class="container">
+  <div class="section-head left">
+    <div class="eyebrow">Pilot benchmarks 2024–2026</div>
+    <h2>$5M / 3 months &mdash; in the <em>industry sweet spot</em>.</h2>
+    <p class="lead" style="max-width:820px;">The proposed Newcastle PCE pilot ($5M budget, 3-month timeline) benchmarked against recent comparable hydrometallurgical, electrometallurgical, and battery-recycling pilots — Defense Metals, Green Critical Minerals, and modular SX-EW programs.</p>
+  </div>
+  <table class="data" style="margin-top:28px;">
+    <thead>
+      <tr><th>Pilot category</th><th>Typical cost</th><th>Typical timeline</th><th>Avg. valuation uplift</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>REE Hydrometallurgical</td><td>$3M – $5.5M</td><td>3 – 4 months</td><td>3× – 6×</td></tr>
+      <tr><td>Copper / Multi-metal Electromet</td><td>$3.5M – $6.5M</td><td>3 – 6 months</td><td>2.5× – 5×</td></tr>
+      <tr><td>Battery recycling / plasma</td><td>$4M – $7M</td><td>4 – 6 months</td><td>4× – 8×</td></tr>
+      <tr><td>Modular SX-EW / electrorefining</td><td>$2.5M – $5M</td><td>2 – 4 months</td><td>2× – 4×</td></tr>
+      <tr><td><strong style="color:var(--emerald);">Newcastle PCE Pilot</strong></td><td><strong>$5M</strong></td><td><strong>3 months</strong></td><td><strong>3.5× – 5.5×</strong></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:18px;">Combined with the $1.5M drilling + S-K 1300 technical work, the $6.5M full de-risking program targets a <strong>7.5×–11× total valuation uplift</strong> — proving 90%+ recovery on a $317.5B gross in-situ PGM asset, on the back of the KGHM + ENAMI prior validations.</p>
+</div></section>
+
+<!-- ============ DEPLOYMENT TARGETS ============ -->
+<section style="padding: 100px 0;"><div class="container">
+  <div class="section-head left">
+    <div class="eyebrow">Deployment pipeline</div>
+    <h2>Six concessions. <em>Four jurisdictions</em>. One technology stack.</h2>
+    <p class="lead" style="max-width:820px;">XTOMORROW's mining concession portfolio is engineered to deploy PCE/EDMSU/TIRS in modular increments. Each site has its own characterization, sample profile, and ESG positioning — but all share the same underlying recovery technology.</p>
+  </div>
+  <div class="cards" style="margin-top:24px;">
+    <div class="card">
+      <p style="color:var(--gold); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Nevada · USA</p>
+      <h3>Newcastle Claims · Lincoln County</h3>
+      <p>Multi-metal placer (Au + Ag + PGM) on the Carlin Trend. $317.5B gross in-situ value at Dec 2025 spot. Targets 140,000 oz AuEq / yr at AISC ~$500/oz. PCE retrofit bolted onto a Hybrid Modular front-end.</p>
+    </div>
+    <div class="card">
+      <p style="color:var(--gold); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Catamarca · Argentina</p>
+      <h3>Farallón Negro / YMAD</h3>
+      <p>60-year sovereign PPP concession. 4.0 Mt of historical tailings reprocessed as a "second EBITDA engine." PCE retrofit qualifies operations to resume under the March 2024 Catamarca court injunction (cyanide elimination, EGIA compliance).</p>
+    </div>
+    <div class="card">
+      <p style="color:var(--gold); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Carlin Trend · Nevada</p>
+      <h3>Goldstrike Mine · Tailings recovery</h3>
+      <p>Process gold-mine tailings to recover Au, Ag, and trace REEs from legacy stockpiles. Addresses environmental concerns at one of the world's largest gold producing complexes.</p>
+    </div>
+    <div class="card">
+      <p style="color:var(--gold); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Alaska · USA</p>
+      <h3>Fort Knox Mine · Wastewater treatment</h3>
+      <p>Treat wastewater and tailings for Au/Ag recovery, reducing ecological impact. PCE's closed-loop water recycle is particularly valuable in cold-climate operations where wet plants struggle.</p>
+    </div>
+    <div class="card">
+      <p style="color:var(--gold); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Colorado · USA</p>
+      <h3>Cripple Creek · Legacy tailings</h3>
+      <p>Remediate legacy tailings for Au/Ag while mitigating acid mine drainage. Aligns with U.S. EPA Superfund initiative pathways.</p>
+    </div>
+    <div class="card">
+      <p style="color:var(--gold); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">California · USA</p>
+      <h3>Mountain Pass · REE recovery</h3>
+      <p>Recover REEs from tailings and wastewater. Critical for U.S. domestic REE supply chain. PCE's molten-salt and ionic-liquid capability uniquely targets the Mountain Pass radioactive thorium by-product challenge.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ ESG / REGULATORY ============ -->
+<section class="dark" style="padding: 100px 0; background-image: linear-gradient(135deg, rgba(10,20,36,.84) 0%, rgba(6,13,26,.94) 100%), url('img/mining-truck.jpg'); background-size: cover; background-position: center;"><div class="container">
+  <div class="section-head left">
+    <div class="eyebrow" style="color:var(--gold-2);">ESG & regulatory edge</div>
+    <h2 style="color:#fff;">The mining technology <em>regulators want</em>.</h2>
+    <p class="lead" style="max-width:820px; color:rgba(255,255,255,.85);">PCE qualifies XTOMORROW's mining program against the increasingly stringent global regulatory perimeter — and in several jurisdictions, is the only available pathway to resume permitted operations.</p>
+  </div>
+  <ul class="checklist" style="max-width:880px; margin: 32px 0 0; color:rgba(255,255,255,.92);">
+    <li><strong style="color:#fff;">U.S. Inflation Reduction Act §45X</strong> — Clean Tech grants and tax credits at <strong>30–70%</strong> of qualifying project capex.</li>
+    <li><strong style="color:#fff;">U.S. CERCLA / RCRA</strong> — reduced hazardous-waste profile materially lowers Superfund-class compliance cost.</li>
+    <li><strong style="color:#fff;">U.S. EPA Superfund</strong> — applicability for legacy tailings remediation (Cripple Creek, Mountain Pass radioactive thorium).</li>
+    <li><strong style="color:#fff;">Saudi Vision 2030</strong> — Project Green Gold positioned as the flagship sustainable-mining contribution into the $75B Saudi mining sector.</li>
+    <li><strong style="color:#fff;">Catamarca March 2024 Court Injunction</strong> — Argentinian court mandate for cyanide-free, EGIA-compliant operations. PCE is the qualifying pathway for Farallón Negro permits to resume.</li>
+    <li><strong style="color:#fff;">LME Cu-CATH-1</strong> — product-grade compliance demonstrated at the KGHM 2013 industrial pilot.</li>
+    <li><strong style="color:#fff;">ASTM B562 Grade 1</strong> — gold purity standard met across all PCE process variants.</li>
+    <li><strong style="color:#fff;">AAOIFI / MRHB Sharia compliance</strong> — physical-asset backing, no cyanide, full water-recycle qualifies the technology for Sharia-structured tranches.</li>
+  </ul>
+</div></section>
+
+<!-- ============ IP & OWNERSHIP ============ -->
+<section style="padding: 100px 0;"><div class="container">
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+    <div>
+      <div class="eyebrow">IP & ownership chain</div>
+      <h2 style="margin-top:10px;">Patented technology. <em>Exclusively licensed</em>.</h2>
+      <p class="lead" style="margin-top:18px;">PCE is the core electrochemical technology of <strong>Geoenergy Solutions</strong> — a wholly-owned subsidiary of <strong>Bober Khan Wealth Holdings</strong> (Singapore-headquartered). The patent envelope originates with Nanometallurgy SA (party to the 2013 KGHM agreement HML-BO-88/2013), with continuous development carrying through to the current PDCE (Pulse/Potential Dynamic Controlled Electrolysis) iteration.</p>
+      <p>PCE technology is exclusively licensed into XTOMORROW's mining-asset portfolio. The licensing chain is structured under Singapore law with cross-border tax efficiency for both conventional and Sharia-compliant tranches.</p>
+    </div>
+    <div>
+      <div class="track-record" style="background:var(--cream-2); border-left: 3px solid var(--gold); padding:32px;">
+        <h5>Licensing & ownership</h5>
+        <div class="entry"><div class="desc"><strong>Inventor / IP origin</strong> — Nanometallurgy SA</div></div>
+        <div class="entry"><div class="desc"><strong>Patent holder</strong> — Geoenergy Solutions</div></div>
+        <div class="entry"><div class="desc"><strong>Parent</strong> — Bober Khan Wealth Holdings (Singapore)</div></div>
+        <div class="entry"><div class="desc"><strong>CEO</strong> — Slawomir T. Bober</div></div>
+        <div class="entry"><div class="desc"><strong>Current iteration</strong> — PCE (industrial-validated 2013)</div></div>
+        <div class="entry"><div class="desc"><strong>Enhanced derivative</strong> — PDCE (patent pending, 500 t/y per set capacity)</div></div>
+        <div class="entry"><div class="desc"><strong>Exclusive license</strong> — XTOMORROW mining-asset portfolio</div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ CTA ============ -->
+<section class="cream" style="padding: 80px 0;"><div class="container">
+  <div class="section-head" style="max-width:760px; margin: 0 auto; text-align:center;">
+    <div class="eyebrow">Next step</div>
+    <h2>Request the full <em>technical dossier</em>.</h2>
+    <p class="lead">Institutional investors and strategic partners can request the complete PCE technical package — including the 2013 KGHM industrial pilot report, 2020 ENAMI Paipote test results, full process flowsheets, capacity sizing, capex/opex models, and the Newcastle / Farallón Negro / Saudi deployment proposals — through the secure data room.</p>
+    <div style="margin-top:28px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="member-portal.html" class="btn gold">Request data room access →</a>
+      <a href="contact.html" class="btn">Contact technical team →</a>
+    </div>
+  </div>
 </div></section> <footer class="site-footer"> <div class="container"> <div class="grid"> <div class="brand-block"> <img src="assets/Long%20Logo.png" alt="X TOMORROW" /> <p>A multi-asset, multi-jurisdiction investment platform built around Security Token Offerings (STOs), Real-World Asset (RWA) tokenization, and the next generation of capital formation.</p> <p style="margin-top:16px; font-size:12px; color:rgba(255,255,255,.5);">XTOMORROW LLC<br/>1209 Mountain Road PL NE, STE R<br/>Albuquerque, NM 87110<br/>+1 (917) 409-7083 &middot; info@xtomorrow.com</p> </div> <div> <h5>Platform</h5> <a href="platform.html">Approach</a> <a href="sto.html">STO Issuance</a> <a href="rwa.html">RWA Tokenization</a> <a href="acquisitions.html">Asset Acquisition</a> <a href="capital-markets.html">Capital Markets</a> <a href="sharia-halal.html">Sharia &amp; Halal</a> </div> <div> <h5>Asset Classes</h5> <a href="mining.html">Mining</a> <a href="energy.html">Energy</a> <a href="real-estate.html">Real Estate</a> <a href="equities.html">Equities</a> <a href="fixed-income.html">Fixed Income</a> <a href="digital.html">Digital Assets</a> <a href="tokenized-funds.html">Tokenized Funds</a> </div> <div> <h5>Regulation</h5> <a href="regulation-us.html">United States</a> <a href="regulation-europe.html">Europe</a> <a href="regulation-asia.html">Asia</a> <a href="regulation-mideast.html">Middle East</a> <a href="regulation-sharia.html">Sharia</a> <a href="regulation-offshore.html">Offshore</a> </div> <div> <h5>Engage</h5> <a href="about.html">About</a> <a href="leadership.html">Leadership</a> <a href="careers.html">Careers</a> <a href="partnerships.html">Partnerships</a> <a href="press.html">Press</a> <a href="contact.html">Contact</a> <a href="disclosures.html">Disclosures</a> </div> </div> <div class="legal"> <span>&copy; 2026 XTOMORROW LLC. All rights reserved.</span> <span><a href="disclosures.html">Disclosures</a> &middot; <a href="disclosures.html">Privacy</a> &middot; <a href="disclosures.html">Terms</a></span> </div> </div>
 </footer>
 <div class="disclosure"> <div class="container"> <span class="label">Important Notice &middot; Regulatory Disclosure</span> <p><strong>XTOMORROW LLC</strong> is a multi-asset, multi-jurisdiction investment platform. Nothing on this website constitutes an offer to sell, or a solicitation of an offer to buy, any security, fund, partnership interest, token, digital asset, or other financial instrument.</p> <p>Security tokens and tokenized real-world assets referenced on this site are made available exclusively to qualified, accredited, or institutional investors in jurisdictions where such offerings are permitted by applicable law, and only pursuant to definitive offering documents prepared in compliance with the relevant securities frameworks (including, where applicable, US Reg D 506(c) &middot; Reg S &middot; Reg A+ &middot; Rule 144A &middot; EU MiCA &middot; UK FCA Digital Securities Sandbox &middot; Singapore MAS &middot; UAE ADGM &middot; FINMA).</p> <p>All references to historical performance, asset valuations, projected returns, and portfolio composition are illustrative and subject to change without notice. Past performance is not indicative of future results. Forward-looking statements involve known and unknown risks that may cause actual results to differ materially. Investing involves substantial risk, including the risk of total loss of principal.</p> <p>Sharia-compliance references reflect attestations issued by independent bodies (MRHB, AAOIFI-aligned scholars) at the relevant date; compliance status may vary across products and tranches. Information presented on this website is intended for institutional and professional investors only.</p> </div>
