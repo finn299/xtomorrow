@@ -9,15 +9,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/styles.css?v=39" /> <style id="xt-overrides">
+<link rel="stylesheet" href="assets/styles.css?v=41" /> <style id="xt-overrides">
 /* Header logo - smaller, no distortion */
 header .brand img { height: 38px !important; width: auto !important; max-width: none !important; flex-shrink: 0 !important; }
 header .brand { flex-shrink: 0 !important; padding: 0 !important; }
 
 /* Topbar - more readable */
 .topbar { background: #0A0A0A !important; }
-.topbar .container { color: rgba(255,255,255,.78) !important; padding: 7px 28px !important; font-size: 11.5px !important; letter-spacing: .04em !important; }
+.topbar .container { color: rgba(255,255,255,.78) !important; padding: 0 0 0 28px !important; font-size: 11.5px !important; letter-spacing: .04em !important; gap: 16px !important; align-items: stretch !important; }
 .topbar { font-size: 11.5px !important; }
+.topbar .container > span:first-child { display:inline-flex; align-items:center; padding: 8px 0 !important; }
+.topbar .topbar-right { gap: 14px !important; align-items: stretch !important; }
+.topbar .topbar-right .locations { display:inline-flex; align-items:center; padding: 8px 0 !important; }
+.topbar .member-portal-btn { padding: 0 24px !important; border-radius: 0 !important; align-self: stretch !important; display: inline-flex !important; align-items: center !important; font-size: 11px !important; letter-spacing: .16em !important; }
 
 /* Hero h1 - Axios Equity exact match: Cormorant Garamond 400 regular */
 body section.hero h1, body .hero-image h1, body section.hero-image h1 {
