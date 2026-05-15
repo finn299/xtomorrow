@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Profit simulation for a 100M BKGT strategic-investor tranche at $0.02 entry — projecting USD 89.1M cumulative profit over 2026-2031, anchored by 25% EBITDA dist" />
+<title>Strategic Investor Letter — 100M BKGT Token simulation — XTOMORROW Press</title>
+<link rel="icon" type="image/png" href="../../assets/Long%20Logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/styles.css?v=62" />
+<style id="xt-overrides">
+/* Header logo - smaller, no distortion */
+header .brand img { height: 38px !important; width: auto !important; max-width: none !important; flex-shrink: 0 !important; }
+header .brand { flex-shrink: 0 !important; padding: 0 !important; }
+
+/* Topbar - more readable */
+.topbar { background: #0A0A0A !important; }
+.topbar .container { color: rgba(255,255,255,.78) !important; padding: 0 0 0 28px !important; font-size: 11.5px !important; letter-spacing: .04em !important; gap: 16px !important; align-items: stretch !important; }
+.topbar { font-size: 11.5px !important; }
+.topbar .container > span:first-child { display:inline-flex; align-items:center; padding: 8px 0 !important; }
+.topbar .topbar-right { gap: 14px !important; align-items: stretch !important; }
+.topbar .topbar-right .locations { display:inline-flex; align-items:center; padding: 8px 0 !important; }
+.topbar .member-portal-btn { padding: 0 24px !important; border-radius: 0 !important; align-self: stretch !important; display: inline-flex !important; align-items: center !important; font-size: 11px !important; letter-spacing: .16em !important; background: #C9A35A !important; color: #FFFFFF !important; font-weight: 700 !important; }
+.topbar .member-portal-btn:hover { background: #D8B570 !important; color: #FFFFFF !important; }
+
+/* Hero h1 - Axios Equity exact match: Cormorant Garamond 400 regular */
+body section.hero h1, body .hero-image h1, body section.hero-image h1 {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-weight: 400 !important;
+  font-size: clamp(2.4rem, 4.6vw, 4.2rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.005em !important;
+  font-style: normal !important;
+}
+body section.hero h1 em, body .hero-image h1 em, body section.hero-image h1 em {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+}
+
+/* Mobile hamburger - visible by default, hidden on desktop only */
+button.mobile-toggle {
+  display: inline-flex !important;
+  align-items: center; justify-content: center; gap: 8px;
+  background: #0A0A0A !important;
+  color: #FFF !important;
+  padding: 10px 16px !important;
+  border: 1px solid #0A0A0A;
+  border-radius: 2px;
+  font-family: Inter, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  z-index: 1001;
+}
+button.mobile-toggle::before { content: '☰'; font-size: 16px; }
+body.menu-open button.mobile-toggle::before { content: '✕'; }
+@media (min-width: 1025px) { button.mobile-toggle { display: none !important; } }
+
+/* Menu chevrons + Axios refined styling */
+nav.primary > .nav-item > a {
+  color: #2A2F38 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+  padding: 22px 14px !important;
+}
+header.site-header .nav-wrap { padding: 0 28px !important; align-items: center !important; }
+nav.primary > .nav-item:not(:last-child) > a::after {
+  content: '' !important;
+  display: inline-block !important;
+  width: 5px !important; height: 5px !important;
+  border-right: 1.5px solid currentColor !important;
+  border-bottom: 1.5px solid currentColor !important;
+  transform: rotate(45deg) !important;
+  margin-left: 7px !important;
+  vertical-align: 2px !important;
+  opacity: .55 !important;
+}
+
+/* Footer + disclosure - identical 1240px container */
+body footer.site-footer > div.container,
+body div.disclosure > div.container {
+  max-width: 1240px !important;
+  width: 100% !important;
+  padding: 0 28px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+body footer.site-footer .grid { width: 100% !important; }
+body div.disclosure p, body div.disclosure .label { max-width: none !important; width: 100% !important; }
+body div.disclosure p { text-align: justify !important; text-justify: inter-word !important; hyphens: auto !important; }
+
+
+/* CONTACT CTA button - readable text */
+nav.primary > .nav-item > a.cta-btn {
+  background: #0A1424 !important;
+  color: #FFFFFF !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.10em !important;
+  padding: 10px 20px !important;
+  margin-left: 12px !important;
+  text-transform: uppercase !important;
+  border-radius: 2px !important;
+  display: inline-block !important;
+}
+nav.primary > .nav-item > a.cta-btn:hover { background: #1a2740 !important; }
+nav.primary > .nav-item > a.cta-btn::after { display: none !important; }
+
+
+/* === MOBILE FIX (forced inject v51) === */
+html { overflow-x: hidden !important; }
+body { overflow-x: hidden !important; position: relative !important; }
+img, video, iframe { max-width: 100% !important; height: auto !important; }
+/* Explicit sizes for branded logos (override global height:auto) */
+footer.site-footer .brand-block img.footer-mark { height: 44px !important; width: 44px !important; max-width: 44px !important; margin-bottom: 18px !important; filter: invert(1) brightness(2) !important; opacity: 0.92 !important; object-fit: contain !important; }
+header .brand img { height: 38px !important; width: auto !important; max-width: none !important; }
+
+@media (max-width: 900px) {
+  /* Slim topbar: hide tagline + locations, keep MEMBERS button only */
+  .topbar { display: block !important; min-height: 36px !important; }
+  .topbar .container {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: stretch !important;
+    padding: 0 !important;
+    height: 36px !important;
+    flex-wrap: nowrap !important;
+  }
+  .topbar .container > span:first-child { display: none !important; }
+  .topbar .topbar-right .locations { display: none !important; }
+  .topbar .topbar-right { gap: 0 !important; display: inline-flex !important; align-items: stretch !important; height: 36px !important; }
+  .topbar .member-portal-btn {
+    height: 36px !important;
+    padding: 0 18px !important;
+    font-size: 10.5px !important;
+    letter-spacing: .14em !important;
+    background: #C9A35A !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    border-radius: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  /* Header slim */
+  header.site-header .nav-wrap {
+    padding: 14px 16px !important;
+    height: 64px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+  }
+  header .brand img { height: 30px !important; }
+
+  /* Hamburger 44x44 */
+  button.mobile-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    border: 1px solid rgba(10,10,10,.2) !important;
+    background: #FFFFFF !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    padding: 0 !important;
+    border-radius: 2px !important;
+    cursor: pointer !important;
+    z-index: 1100 !important;
+    -webkit-tap-highlight-color: rgba(212,175,109,.3) !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    touch-action: manipulation !important;
+    position: relative !important;
+  }
+  button.mobile-toggle::before { content: '' !important; display: none !important; }
+  button.mobile-toggle .bar {
+    display: block !important;
+    width: 18px !important;
+    height: 2px !important;
+    background: #0A0A0A !important;
+    position: relative !important;
+    transition: transform .25s, opacity .15s !important;
+  }
+  button.mobile-toggle .bar::before,
+  button.mobile-toggle .bar::after {
+    content: '' !important;
+    position: absolute !important;
+    display: block !important;
+    width: 18px !important;
+    height: 2px !important;
+    background: #0A0A0A !important;
+    left: 0 !important;
+    transition: transform .25s !important;
+  }
+  button.mobile-toggle .bar::before { top: -6px !important; }
+  button.mobile-toggle .bar::after  { top:  6px !important; }
+  button.mobile-toggle[aria-expanded="true"] .bar { background: transparent !important; }
+  button.mobile-toggle[aria-expanded="true"] .bar::before { transform: translateY(6px) rotate(45deg) !important; }
+  button.mobile-toggle[aria-expanded="true"] .bar::after  { transform: translateY(-6px) rotate(-45deg) !important; }
+
+  /* Full-screen drawer below header */
+  nav.primary {
+    display: none !important;
+    position: fixed !important;
+    top: 100px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: calc(100vh - 100px) !important;
+    max-height: calc(100vh - 100px) !important;
+    flex-direction: column !important;
+    background: #FFFFFF !important;
+    padding: 8px 20px 40px !important;
+    margin: 0 !important;
+    z-index: 1050 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 0 !important;
+    align-items: stretch !important;
+  }
+  nav.primary.mobile-open {
+    display: flex !important;
+    height: calc(100vh - 100px) !important;
+    max-height: calc(100vh - 100px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  /* Cap mega panel height so other menu items remain visible */
+  nav.primary > .nav-item.is-open .mega {
+    max-height: 50vh !important;
+    overflow-y: auto !important;
+  }
+  nav.primary.mobile-open { display: flex !important; }
+  body.menu-open { overflow: hidden !important; }
+
+  nav.primary > .nav-item { width: 100% !important; border-bottom: 1px solid rgba(0,0,0,.10) !important; }
+  nav.primary > .nav-item > a {
+    display: block !important;
+    padding: 16px 0 !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    letter-spacing: .08em !important;
+    color: #0A0A0A !important;
+    text-transform: uppercase !important;
+    background: transparent !important;
+    border-bottom: 0 !important;
+  }
+  nav.primary > .nav-item > a::after {
+    content: '' !important;
+    display: inline-block !important;
+    float: right !important;
+    width: 7px !important; height: 7px !important;
+    border-right: 1.5px solid #555 !important;
+    border-bottom: 1.5px solid #555 !important;
+    transform: rotate(45deg) !important;
+    margin-top: 8px !important;
+    opacity: 1 !important;
+    transition: transform .2s !important;
+  }
+  nav.primary > .nav-item.is-open > a::after { transform: rotate(225deg) !important; margin-top: 12px !important; }
+  nav.primary > .nav-item > a.cta-btn::after { display: none !important; }
+
+  nav.primary .mega {
+    display: none !important;
+    position: static !important;
+    transform: none !important;
+    box-shadow: none !important;
+    background: rgba(0,0,0,.025) !important;
+    border: 0 !important;
+    padding: 4px 0 14px !important;
+    width: 100% !important;
+    margin: 0 0 6px !important;
+  }
+  nav.primary > .nav-item.is-open .mega { display: block !important; }
+  nav.primary > .nav-item:hover .mega { display: none !important; }
+  nav.primary > .nav-item.is-open:hover .mega { display: block !important; }
+
+  nav.primary .mega-grid, nav.primary .mega-grid.three {
+    display: block !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  nav.primary .mega-grid a {
+    display: block !important;
+    padding: 11px 12px !important;
+    font-size: 12.5px !important;
+    color: #444 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    border-bottom: 1px solid rgba(0,0,0,.06) !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+  }
+  nav.primary .mega-grid a:last-child { border-bottom: 0 !important; }
+  nav.primary .mega-grid a .label { display: block !important; font-size: 10px !important; color: #999 !important; margin-top: 2px !important; font-weight: 400 !important; }
+
+  nav.primary > .nav-item > a.cta-btn {
+    background: #0A1424 !important;
+    color: #FFFFFF !important;
+    text-align: center !important;
+    margin: 20px 0 0 !important;
+    padding: 14px 18px !important;
+    border-radius: 2px !important;
+  }
+
+  .container { padding-left: 16px !important; padding-right: 16px !important; }
+  section.hero > .container { padding: 56px 16px 40px !important; }
+  section.hero > .container > div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 32px !important; }
+  section.hero aside { max-width: 100% !important; width: 100% !important; padding: 20px !important; }
+  table.data { display: block !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+}
+
+</style>
+</head>
+<body> <div class="topbar"> <div class="container"> <span>XTOMORROW &middot; A multi-asset, multi-jurisdiction investment platform</span> <span class="topbar-right"> <span class="locations">Dallas &middot; Albuquerque &middot; Singapore &middot; London &middot; Buenos Aires</span> <a href="../../member-portal.html" class="member-portal-btn">Members</a> </span> </div>
+</div>
+<header class="site-header"> <div class="nav-wrap"> <a href="../../index.html" class="brand"> <img src="../../assets/Long%20Logo.png" alt="X TOMORROW" /> </a> <nav class="primary"> <div class="nav-item"><a href="../../about.html">ABOUT</a> <div class="mega"> <div class="mega-grid"> <a href="../../about.html">Firm Overview<span class="label">Who we are</span></a> <a href="../../leadership.html">Leadership<span class="label">Principals &amp; advisors</span></a> <a href="../../history.html">History<span class="label">Three decades of platform-building</span></a> <a href="../../companies.html">Sister Companies<span class="label">XTOMORROW · IEP · BKWH · Geoenergy</span></a> <a href="../../locations.html">Locations<span class="label">Global presence</span></a> <a href="../../sustainability.html">Sustainability<span class="label">ESG &amp; impact</span></a> </div> </div> </div> <div class="nav-item"><a href="../../platform.html">PLATFORM</a> <div class="mega"> <div class="mega-grid"> <a href="../../platform.html">Approach<span class="label">How we operate</span></a> <a href="../../sto.html">STO Issuance &amp; Structuring<span class="label">Multi-jurisdiction</span></a> <a href="../../rwa.html">RWA Tokenization<span class="label">Real-world asset rails</span></a> <a href="../../acquisitions.html">Asset Acquisition &amp; Operations<span class="label">Mining · energy · real estate</span></a> <a href="../../capital-markets.html">Capital Markets<span class="label">De-SPAC · IPO · PIPE</span></a> <a href="../../sharia-halal.html">Sharia &amp; Halal Finance<span class="label">AAOIFI · MRHB certification</span></a> </div> </div> </div> <div class="nav-item"><a href="../../assets.html">ASSETS</a> <div class="mega"> <div class="mega-grid three"> <a href="../../mining.html">Mining &amp; Critical Minerals<span class="label">Au · Ag · PGM · Cu · Li · REE</span></a> <a href="../../energy.html">Energy<span class="label">Oil &amp; gas · geothermal · clean</span></a> <a href="../../real-estate.html">Real Estate<span class="label">Direct &amp; structured equity</span></a> <a href="../../equities.html">Public Equities<span class="label">Concentrated &amp; event-driven</span></a> <a href="../../fixed-income.html">Fixed Income<span class="label">Sovereign · credit</span></a> <a href="../../digital.html">Digital Assets<span class="label">Core blockchain</span></a> <a href="../../tokenized-funds.html">Tokenized Funds<span class="label">Wrapped exposures</span></a> <a href="../../nevada.html">Nevada Newcastle<span class="label">Multi-metal placer · PCE</span></a> <a href="../../argentina.html">Argentina Farallón Negro<span class="label">YMAD 60-yr PPP</span></a> </div> </div> </div> <div class="nav-item"><a href="../../markets.html">MARKETS</a> <div class="mega"> <div class="mega-grid"> <a href="../../markets.html">Markets Overview<span class="label">Macro framework</span></a> <a href="../../sto-outlook.html">STO Global Outlook<span class="label">Capital formation 2030</span></a> <a href="../../tokenization.html">Tokenization 2030<span class="label">$16T market thesis</span></a> <a href="../../crypto.html">Crypto · Web3 Future<span class="label">TradFi-Crypto hybrids</span></a> <a href="../../mining-markets.html">Mining Markets<span class="label">Commodities supercycle</span></a> <a href="../../macro.html">Macro Outlook<span class="label">Rates · FX · liquidity</span></a> <a href="../../markets-live.html">Live Crypto &amp; STO<span class="label">Real-time tokenized markets</span></a> <a href="../../commodities-live.html">Live Commodities<span class="label">Gold · Silver · Copper · Oil</span></a> </div> </div> </div> <div class="nav-item"><a href="../../regulation.html">REGULATION</a> <div class="mega"> <div class="mega-grid three"> <a href="../../regulation.html">Global Overview<span class="label">Top-10 jurisdictions</span></a> <a href="../../regulation-us.html">United States<span class="label">SEC · Reg D / A+ / S</span></a> <a href="../../regulation-europe.html">Europe<span class="label">MiCA · eWpG · DLT Pilot</span></a> <a href="../../regulation-uk.html">United Kingdom<span class="label">FCA · Digital Securities Sandbox</span></a> <a href="../../regulation-asia.html">Korea &amp; Asia<span class="label">FSC · MAS · SFC · FSA</span></a> <a href="../../regulation-mideast.html">Middle East<span class="label">ADGM · DIFC · VARA · CMA</span></a> <a href="../../regulation-sharia.html">Sharia &amp; Halal<span class="label">AAOIFI · MRHB</span></a> <a href="../../regulation-offshore.html">Offshore<span class="label">Cayman · BVI · Gibraltar</span></a> <a href="../../regulation-switzerland.html">Switzerland<span class="label">FINMA · DLT Act</span></a> </div> </div> </div> <div class="nav-item"><a href="../../technology.html">TECHNOLOGY</a> <div class="mega"> <div class="mega-grid"> <a href="../../technology.html">Technology Overview<span class="label">Stack &amp; integration</span></a> <a href="../../pce-technology.html">PCE Mining Technology<span class="label">Potential-Controlled Electrolysis</span></a> <a href="../../edmsu.html">EDMSU<span class="label">Dry magnetic separation</span></a> <a href="../../blockchain-infra.html">Blockchain Infrastructure<span class="label">ERC-3643 · Lumia · Base</span></a> <a href="../../custody.html">Custody &amp; Proof-of-Reserve<span class="label">Anchorage · Chainlink PoR</span></a> </div> </div> </div> <div class="nav-item"><a href="../../insights.html">INSIGHTS</a> <div class="mega right-aligned"> <div class="mega-grid"> <a href="../../insights.html">Insights<span class="label">Editorial</span></a> <a href="../../research.html">Research<span class="label">Long-form theses</span></a> <a href="../../press.html">Press<span class="label">News &amp; releases</span></a> <a href="../../reports.html">Reports<span class="label">White papers</span></a> </div> </div> </div> <div class="nav-item"><a href="../../contact.html" class="cta-btn">CONTACT</a></div> </nav> <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false"><span class="bar"></span></button> </div>
+</header> <section class="page-head with-image" style="background-image: linear-gradient(135deg, rgba(10,20,36,.78) 0%, rgba(6,13,26,.92) 100%), url('img/office.jpg');"> <div class="container"> <div class="eyebrow">Press</div> <h1><em>News &amp; releases</em>.</h1> <p class="lead">Selected XTOMORROW press releases and external commentary. Media inquiries: press@xtomorrow.com.</p> </div>
+</section> <section> <div class="container"> <div class="tabs"> <a href="#" class="active">All</a> <a href="#">Capital Markets</a> <a href="#">Mining</a> <a href="#">Technology</a> <a href="#">Partnerships</a> <a href="#">Sharia &amp; Halal</a> </div> <div class="cards two"> <div class="card"> <p style="color:var(--gold); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Press Release &middot; May 2026</p> <h3>XTOMORROW launches multi-asset RWA tokenization platform</h3> <p>XTOMORROW LLC unveils its multi-asset, multi-jurisdiction investment platform — combining operator-led real-asset acquisition with a native Security Token Offering issuance engine. Phase I capital program targets USD 500M anchor tranche, scaling to USD 1.5B across three sequential STO tranches and a planned NASDAQ De-SPAC by 2030.</p> <a class="more" href="#">Read release →</a> </div> <div class="card"> <p style="color:var(--gold); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Press Release &middot; April 2026</p> <h3>BKGT v2.0 Investment Risk Assessment published</h3> <p>Bober Khan Wealth Holdings publishes updated investment risk assessment for the BKGT token program — covering Sharia-compliance structure, weight-based gold entitlement clarification, and MRHB attestation framework. Available to qualified investors via the secure data room.</p> <a class="more" href="#">Read release →</a> </div> <div class="card"> <p style="color:var(--gold); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Press Release &middot; March 2026</p> <h3>PCE retrofit proposed for Farallón Negro</h3> <p>Geoenergy Solutions presents a Potential-Controlled Electrolysis retrofit proposal to YMAD's Farallón Negro mine — eliminating cyanide, capturing 4.0Mt historical tailings as a second EBITDA engine, and operating in &gt;80% closed-loop water mode in line with Saudi Arabia's Vision 2030 PCE analogue.</p> <a class="more" href="#">Read release →</a> </div> <div class="card"> <p style="color:var(--gold); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Press Release &middot; February 2026</p> <h3>Nevada Newcastle Claims investment opportunity launched</h3> <p>Strategic Investment Opportunity in Newcastle Claims, Lincoln County, Nevada. Multi-metal placer (Au + Ag + PGM) with $317.5B verified in-situ value. 65% lower CapEx than traditional fixed-plant model. Targeting 140,700 oz AuEq/yr by Year 1.</p> <a class="more" href="#">Read release →</a> </div> <div class="card"> <p style="color:var(--gold); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Press Release &middot; January 2026</p> <h3>2030 Sharia-Compliant RWA Landscape projection released</h3> <p>BKWH publishes its Top 10 Projected 2030 Sharia-Compliant Gold &amp; Silver RWA Projects analysis — projecting BKGT to capture 15-20% market share at USD 25-35B market capitalization in a USD 100-200B Sharia-compliant tokenized RWA market.</p> <a class="more" href="#">Read release →</a> </div> <div class="card"> <p style="color:var(--gold); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Press Release &middot; December 2025</p> <h3>OKAN CEEG geothermal hedge with BKGT structure announced</h3> <p>Scenario 2 analysis published, evaluating investor risks in OKAN CEEG (Geo-Plutonic) closed-loop geothermal positions hedged with BKGT token structures. Combined commodity and energy diversification framework distributed to qualified investors.</p> <a class="more" href="#">Read release →</a> </div> <div class="card"> <p style="color:var(--gold); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Press Release &middot; November 2025</p> <h3>TradFi-Crypto Hybrid framework note published</h3> <p>Position note on the institutional convergence of TradFi-Crypto hybrids — drawing on the Marszalek/Crypto.com framework applied to XTOMORROW's RWA tokenization stack. Distributed to institutional partners and Tier-1 capital-markets desks.</p> <a class="more" href="#">Read release →</a> </div> <div class="card"> <p style="color:var(--gold); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Press Release &middot; October 2025</p> <h3>Strategic Investor Letter — 100M BKGT Token simulation</h3> <p>Profit simulation for a 100M BKGT strategic-investor tranche at $0.02 entry — projecting USD 89.1M cumulative profit over 2026-2031, anchored by 25% EBITDA distribution to BKGT holders and PCE-driven Nevada production targets.</p> <a class="more" href="#">Read release →</a> </div> <div class="card"> <p style="color:var(--gold); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Press Release &middot; September 2025</p> <h3>NI 43-101 Technical Report — Nkagisang Gold Project (RSA)</h3> <p>NI 43-101-compliant technical report prepared for the Nkagisang Gold Project, Klerksdorp, North West Province, South Africa — open-pit feasibility study covering mineral resource estimation, mine scheduling, and processing economics under the PCE deployment scenario.</p> <a class="more" href="#">Read release →</a> </div> <div class="card"> <p style="color:var(--gold); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Press Release &middot; August 2025</p> <h3>YMAD Strategic Opportunity Memo distributed to Board</h3> <p>IEP US Managing Member the IEP-US Managing Member issues USD 40B Strategic Opportunity Memo covering Phase I of the IEP Catamarca opportunity — the 60-year YMAD public-private partnership and the initial USD 40B mineral-asset portfolio.</p> <a class="more" href="#">Read release →</a> </div> <div class="card"> <p style="color:var(--gold); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;">Press Release &middot; July 2025</p> <h3>Geoenergy Solutions PCE validation at Elemental Poland</h3> <p>Third independent industrial validation of the Potential-Controlled Electrolysis technology platform completed at Elemental Poland (2025) — following prior validations at KGHM Polska Miedź (2013) and ENAMI Chile (2020).</p> <a class="more" href="#">Read release →</a> </div> </div> </div>
+</section> <section class="cream"> <div class="container"> <div class="section-head"> <div class="eyebrow">Media inquiries</div> <h2>For press, briefings, or interview requests.</h2> <p class="lead">Contact <a href="mailto:press@xtomorrow.com">press@xtomorrow.com</a> for media inquiries. We aim to respond within one business day. Briefings on platform strategy, mining-asset programs, technology, and capital-markets execution can be arranged on request.</p> </div> </div>
+</section>
+<footer class="site-footer"> <div class="container"> <div class="grid"> <div class="brand-block"> <img src="../../img/logo.png" alt="XTOMORROW" class="footer-mark" /> <p>A multi-asset, multi-jurisdiction investment platform built around Security Token Offerings (STOs), Real-World Asset (RWA) tokenization, and the next generation of capital formation.</p> <p style="margin-top:16px; font-size:12px; color:rgba(255,255,255,.5);">XTOMORROW LLC<br/>1209 Mountain Road PL NE, STE R<br/>Albuquerque, NM 87110<br/>+1 (917) 409-7083 &middot; info@xtomorrow.com</p> </div> <div> <h5>Platform</h5> <a href="../../platform.html">Approach</a> <a href="../../sto.html">STO Issuance</a> <a href="../../rwa.html">RWA Tokenization</a> <a href="../../acquisitions.html">Asset Acquisition</a> <a href="../../capital-markets.html">Capital Markets</a> <a href="../../sharia-halal.html">Sharia &amp; Halal</a> </div> <div> <h5>Asset Classes</h5> <a href="../../mining.html">Mining</a> <a href="../../energy.html">Energy</a> <a href="../../real-estate.html">Real Estate</a> <a href="../../equities.html">Equities</a> <a href="../../fixed-income.html">Fixed Income</a> <a href="../../digital.html">Digital Assets</a> <a href="../../tokenized-funds.html">Tokenized Funds</a> </div> <div> <h5>Regulation</h5> <a href="../../regulation-us.html">United States</a> <a href="../../regulation-europe.html">Europe</a> <a href="../../regulation-asia.html">Asia</a> <a href="../../regulation-mideast.html">Middle East</a> <a href="../../regulation-sharia.html">Sharia</a> <a href="../../regulation-offshore.html">Offshore</a> </div> <div> <h5>Engage</h5> <a href="../../about.html">About</a> <a href="../../leadership.html">Leadership</a> <a href="../../careers.html">Careers</a> <a href="../../partnerships.html">Partnerships</a> <a href="../../press.html">Press</a> <a href="../../contact.html">Contact</a> <a href="../../disclosures.html">Disclosures</a> </div> </div> <div class="legal"> <span>&copy; 2026 XTOMORROW LLC. All rights reserved.</span> <span><a href="../../disclosures.html">Disclosures</a> &middot; <a href="../../disclosures.html">Privacy</a> &middot; <a href="../../disclosures.html">Terms</a></span> </div> </div>
+</footer>
+<div class="disclosure"> <div class="container"> <span class="label">Important Notice &middot; Regulatory Disclosure</span> <p><strong>XTOMORROW LLC</strong> is a multi-asset, multi-jurisdiction investment platform. Nothing on this website constitutes an offer to sell, or a solicitation of an offer to buy, any security, fund, partnership interest, token, digital asset, or other financial instrument.</p> <p>Security tokens and tokenized real-world assets referenced on this site are made available exclusively to qualified, accredited, or institutional investors in jurisdictions where such offerings are permitted by applicable law, and only pursuant to definitive offering documents prepared in compliance with the relevant securities frameworks (including, where applicable, US Reg D 506(c) &middot; Reg S &middot; Reg A+ &middot; Rule 144A &middot; EU MiCA &middot; UK FCA Digital Securities Sandbox &middot; Singapore MAS &middot; UAE ADGM &middot; FINMA).</p> <p>All references to historical performance, asset valuations, projected returns, and portfolio composition are illustrative and subject to change without notice. Past performance is not indicative of future results. Forward-looking statements involve known and unknown risks that may cause actual results to differ materially. Investing involves substantial risk, including the risk of total loss of principal.</p> <p>Sharia-compliance references reflect attestations issued by independent bodies (MRHB, AAOIFI-aligned scholars) at the relevant date; compliance status may vary across products and tranches. Information presented on this website is intended for institutional and professional investors only.</p> </div>
+</div> <script>
+/* XTOMORROW mobile-nav inline (mirrors AXIOS EQUITY pattern) */
+(function(){
+  function init(){
+    var toggle = document.querySelector('button.mobile-toggle');
+    var menu = document.querySelector('nav.primary');
+    if(!toggle || !menu){ return; }
+    toggle.onclick = null;
+    toggle.removeAttribute('onclick');
+    if(!toggle.hasAttribute('aria-expanded')) toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-label','Open menu');
+    // If button still has the old 'Menu' text content, replace with bar span
+    if(!toggle.querySelector('.bar')) toggle.innerHTML = '<span class="bar"></span>';
+
+    function setOpen(open){
+      menu.classList.toggle('mobile-open', open);
+      document.body.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    toggle.addEventListener('click', function(e){
+      e.preventDefault();
+      setOpen(!menu.classList.contains('mobile-open'));
+    });
+
+    document.querySelectorAll('nav.primary > .nav-item > a').forEach(function(a){
+      a.addEventListener('click', function(e){
+        if(window.matchMedia('(max-width: 900px)').matches){
+          if(a.classList.contains('cta-btn')){ return; }
+          var li = a.parentElement;
+          if(li.querySelector('.mega')){
+            e.preventDefault();
+            Array.from(li.parentElement.children).forEach(function(sib){
+              if(sib !== li){ sib.classList.remove('is-open'); }
+            });
+            li.classList.toggle('is-open');
+          }
+        }
+      });
+    });
+    document.querySelectorAll('nav.primary .mega-grid a').forEach(function(a){
+      a.addEventListener('click', function(){ setOpen(false); });
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key==='Escape' && menu.classList.contains('mobile-open')) setOpen(false);
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html><section class="page-head" style="padding: 90px 0 50px;">
+  <div class="container" style="max-width: 880px;">
+    <div style="font-family:'JetBrains Mono', monospace; font-size: 11px; letter-spacing:.18em; text-transform: uppercase; color: var(--sub); margin-bottom: 16px;">
+      <a href="../../press.html" style="color: var(--sub); text-decoration: none; border-bottom: 1px solid var(--gold);">← Press</a>
+      &nbsp;·&nbsp; Press Release · Technology
+      &nbsp;·&nbsp; October 2025
+    </div>
+    <h1 style="font-size: clamp(2rem, 3.8vw, 3.4rem); line-height: 1.15;">Strategic Investor Letter — 100M BKGT Token simulation</h1>
+    <p class="lead" style="margin-top: 22px; font-size: 1.15rem;">Profit simulation for a 100M BKGT strategic-investor tranche at $0.02 entry — projecting USD 89.1M cumulative profit over 2026-2031, anchored by 25% EBITDA distribution to BKGT holders and PCE-driven Nevada production targets.</p>
+  </div>
+</section>
+
+<section style="padding: 30px 0 60px;">
+  <div class="container" style="max-width: 880px;">
+    <div style="font-family: var(--font-display); font-size: 1.4rem; line-height: 1.55; color: var(--ink); margin-bottom: 28px; padding-left: 24px; border-left: 3px solid var(--gold);">
+      Profit simulation for a 100M BKGT strategic-investor tranche at $0.02 entry — projecting USD 89.1M cumulative profit over 2026-2031, anchored by 25% EBITDA distribution to BKGT holders and PCE-driven Nevada production targets.
+    </div>
+    <p><strong>For Immediate Release</strong> &mdash; October 2025. XTOMORROW LLC announces the matters above. The release is part of the firm's ongoing institutional disclosure program covering its Phase I anchor Security Token Offering (STO), the underlying multi-asset portfolio (mining, energy, real estate, fixed income, digital assets, tokenized funds), and the regulated capital-formation infrastructure that supports them across the US, EU, UK, Singapore, UAE, and offshore jurisdictions.</p>
+    <p>Institutional press, analysts, and qualified investors seeking the full underlying documentation &mdash; including PCAOB-audited financials, NI 43-101 / S-K 1300 technical reports, MRHB Shariah attestation, and the Anchorage Digital qualified-custody letter &mdash; can request access to the secure data room through the Member Portal. The portal is gated by Cloudflare two-factor verification (registered email PIN + portal access code) and is invitation-only.</p>
+    <p>Media inquiries: <a href="mailto:press@xtomorrow.com?subject=Strategic%20Investor%20Letter%20—%20100M%20BKGT%20Token%20simulation%20-%20Press%20inquiry">press@xtomorrow.com</a>. Investor inquiries: <a href="mailto:portal@xtomorrow.com">portal@xtomorrow.com</a>.</p>
+    <div style="margin-top: 56px; padding: 36px 40px; background: var(--cream); border-left: 3px solid var(--gold);">
+      <div style="font-family:'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px;">Continue</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+        <a href="../../press.html" class="btn">All press →</a>
+        <a href="../../member-portal.html" class="btn light">Request data room →</a>
+        <a href="../../contact.html" class="btn light">Contact IR →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer"> <div class="container"> <div class="grid"> <div class="brand-block"> <img src="../../img/logo.png" alt="XTOMORROW" class="footer-mark" /> <p>A multi-asset, multi-jurisdiction investment platform built around Security Token Offerings (STOs), Real-World Asset (RWA) tokenization, and the next generation of capital formation.</p> <p style="margin-top:16px; font-size:12px; color:rgba(255,255,255,.5);">XTOMORROW LLC<br/>1209 Mountain Road PL NE, STE R<br/>Albuquerque, NM 87110<br/>+1 (917) 409-7083 &middot; info@xtomorrow.com</p> </div> <div> <h5>Platform</h5> <a href="../../platform.html">Approach</a> <a href="../../sto.html">STO Issuance</a> <a href="../../rwa.html">RWA Tokenization</a> <a href="../../acquisitions.html">Asset Acquisition</a> <a href="../../capital-markets.html">Capital Markets</a> <a href="../../sharia-halal.html">Sharia &amp; Halal</a> </div> <div> <h5>Asset Classes</h5> <a href="../../mining.html">Mining</a> <a href="../../energy.html">Energy</a> <a href="../../real-estate.html">Real Estate</a> <a href="../../equities.html">Equities</a> <a href="../../fixed-income.html">Fixed Income</a> <a href="../../digital.html">Digital Assets</a> <a href="../../tokenized-funds.html">Tokenized Funds</a> </div> <div> <h5>Regulation</h5> <a href="../../regulation-us.html">United States</a> <a href="../../regulation-europe.html">Europe</a> <a href="../../regulation-asia.html">Asia</a> <a href="../../regulation-mideast.html">Middle East</a> <a href="../../regulation-sharia.html">Sharia</a> <a href="../../regulation-offshore.html">Offshore</a> </div> <div> <h5>Engage</h5> <a href="../../about.html">About</a> <a href="../../leadership.html">Leadership</a> <a href="../../careers.html">Careers</a> <a href="../../partnerships.html">Partnerships</a> <a href="../../press.html">Press</a> <a href="../../contact.html">Contact</a> <a href="../../disclosures.html">Disclosures</a> </div> </div> <div class="legal"> <span>&copy; 2026 XTOMORROW LLC. All rights reserved.</span> <span><a href="../../disclosures.html">Disclosures</a> &middot; <a href="../../disclosures.html">Privacy</a> &middot; <a href="../../disclosures.html">Terms</a></span> </div> </div>
+</footer>
+<div class="disclosure"> <div class="container"> <span class="label">Important Notice &middot; Regulatory Disclosure</span> <p><strong>XTOMORROW LLC</strong> is a multi-asset, multi-jurisdiction investment platform. Nothing on this website constitutes an offer to sell, or a solicitation of an offer to buy, any security, fund, partnership interest, token, digital asset, or other financial instrument.</p> <p>Security tokens and tokenized real-world assets referenced on this site are made available exclusively to qualified, accredited, or institutional investors in jurisdictions where such offerings are permitted by applicable law, and only pursuant to definitive offering documents prepared in compliance with the relevant securities frameworks (including, where applicable, US Reg D 506(c) &middot; Reg S &middot; Reg A+ &middot; Rule 144A &middot; EU MiCA &middot; UK FCA Digital Securities Sandbox &middot; Singapore MAS &middot; UAE ADGM &middot; FINMA).</p> <p>All references to historical performance, asset valuations, projected returns, and portfolio composition are illustrative and subject to change without notice. Past performance is not indicative of future results. Forward-looking statements involve known and unknown risks that may cause actual results to differ materially. Investing involves substantial risk, including the risk of total loss of principal.</p> <p>Sharia-compliance references reflect attestations issued by independent bodies (MRHB, AAOIFI-aligned scholars) at the relevant date; compliance status may vary across products and tranches. Information presented on this website is intended for institutional and professional investors only.</p> </div>
+</div> <script>
+/* XTOMORROW mobile-nav inline (mirrors AXIOS EQUITY pattern) */
+(function(){
+  function init(){
+    var toggle = document.querySelector('button.mobile-toggle');
+    var menu = document.querySelector('nav.primary');
+    if(!toggle || !menu){ return; }
+    toggle.onclick = null;
+    toggle.removeAttribute('onclick');
+    if(!toggle.hasAttribute('aria-expanded')) toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-label','Open menu');
+    // If button still has the old 'Menu' text content, replace with bar span
+    if(!toggle.querySelector('.bar')) toggle.innerHTML = '<span class="bar"></span>';
+
+    function setOpen(open){
+      menu.classList.toggle('mobile-open', open);
+      document.body.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    toggle.addEventListener('click', function(e){
+      e.preventDefault();
+      setOpen(!menu.classList.contains('mobile-open'));
+    });
+
+    document.querySelectorAll('nav.primary > .nav-item > a').forEach(function(a){
+      a.addEventListener('click', function(e){
+        if(window.matchMedia('(max-width: 900px)').matches){
+          if(a.classList.contains('cta-btn')){ return; }
+          var li = a.parentElement;
+          if(li.querySelector('.mega')){
+            e.preventDefault();
+            Array.from(li.parentElement.children).forEach(function(sib){
+              if(sib !== li){ sib.classList.remove('is-open'); }
+            });
+            li.classList.toggle('is-open');
+          }
+        }
+      });
+    });
+    document.querySelectorAll('nav.primary .mega-grid a').forEach(function(a){
+      a.addEventListener('click', function(){ setOpen(false); });
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key==='Escape' && menu.classList.contains('mobile-open')) setOpen(false);
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
