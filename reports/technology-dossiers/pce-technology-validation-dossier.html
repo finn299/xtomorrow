@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Compiled industrial-validation results from KGHM Polska Miedź (2013), ENAMI Chile (2020), and Elemental Poland (2025) — with feed grades, recovery rates, and ec" />
+<title>PCE Technology Validation Dossier — XTOMORROW Reports</title>
+<link rel="icon" type="image/png" href="../../assets/Long%20Logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/styles.css?v=62" />
+<style id="xt-overrides">
+/* Header logo - smaller, no distortion */
+header .brand img { height: 38px !important; width: auto !important; max-width: none !important; flex-shrink: 0 !important; }
+header .brand { flex-shrink: 0 !important; padding: 0 !important; }
+
+/* Topbar - more readable */
+.topbar { background: #0A0A0A !important; }
+.topbar .container { color: rgba(255,255,255,.78) !important; padding: 0 0 0 28px !important; font-size: 11.5px !important; letter-spacing: .04em !important; gap: 16px !important; align-items: stretch !important; }
+.topbar { font-size: 11.5px !important; }
+.topbar .container > span:first-child { display:inline-flex; align-items:center; padding: 8px 0 !important; }
+.topbar .topbar-right { gap: 14px !important; align-items: stretch !important; }
+.topbar .topbar-right .locations { display:inline-flex; align-items:center; padding: 8px 0 !important; }
+.topbar .member-portal-btn { padding: 0 24px !important; border-radius: 0 !important; align-self: stretch !important; display: inline-flex !important; align-items: center !important; font-size: 11px !important; letter-spacing: .16em !important; background: #C9A35A !important; color: #FFFFFF !important; font-weight: 700 !important; }
+.topbar .member-portal-btn:hover { background: #D8B570 !important; color: #FFFFFF !important; }
+
+/* Hero h1 - Axios Equity exact match: Cormorant Garamond 400 regular */
+body section.hero h1, body .hero-image h1, body section.hero-image h1 {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-weight: 400 !important;
+  font-size: clamp(2.4rem, 4.6vw, 4.2rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.005em !important;
+  font-style: normal !important;
+}
+body section.hero h1 em, body .hero-image h1 em, body section.hero-image h1 em {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+}
+
+/* Mobile hamburger - visible by default, hidden on desktop only */
+button.mobile-toggle {
+  display: inline-flex !important;
+  align-items: center; justify-content: center; gap: 8px;
+  background: #0A0A0A !important;
+  color: #FFF !important;
+  padding: 10px 16px !important;
+  border: 1px solid #0A0A0A;
+  border-radius: 2px;
+  font-family: Inter, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  z-index: 1001;
+}
+button.mobile-toggle::before { content: '☰'; font-size: 16px; }
+body.menu-open button.mobile-toggle::before { content: '✕'; }
+@media (min-width: 1025px) { button.mobile-toggle { display: none !important; } }
+
+/* Menu chevrons + Axios refined styling */
+nav.primary > .nav-item > a {
+  color: #2A2F38 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+  padding: 22px 14px !important;
+}
+header.site-header .nav-wrap { padding: 0 28px !important; align-items: center !important; }
+nav.primary > .nav-item:not(:last-child) > a::after {
+  content: '' !important;
+  display: inline-block !important;
+  width: 5px !important; height: 5px !important;
+  border-right: 1.5px solid currentColor !important;
+  border-bottom: 1.5px solid currentColor !important;
+  transform: rotate(45deg) !important;
+  margin-left: 7px !important;
+  vertical-align: 2px !important;
+  opacity: .55 !important;
+}
+
+/* Footer + disclosure - identical 1240px container */
+body footer.site-footer > div.container,
+body div.disclosure > div.container {
+  max-width: 1240px !important;
+  width: 100% !important;
+  padding: 0 28px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+body footer.site-footer .grid { width: 100% !important; }
+body div.disclosure p, body div.disclosure .label { max-width: none !important; width: 100% !important; }
+body div.disclosure p { text-align: justify !important; text-justify: inter-word !important; hyphens: auto !important; }
+
+
+/* CONTACT CTA button - readable text */
+nav.primary > .nav-item > a.cta-btn {
+  background: #0A1424 !important;
+  color: #FFFFFF !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.10em !important;
+  padding: 10px 20px !important;
+  margin-left: 12px !important;
+  text-transform: uppercase !important;
+  border-radius: 2px !important;
+  display: inline-block !important;
+}
+nav.primary > .nav-item > a.cta-btn:hover { background: #1a2740 !important; }
+nav.primary > .nav-item > a.cta-btn::after { display: none !important; }
+
+
+/* === MOBILE FIX (forced inject v51) === */
+html { overflow-x: hidden !important; }
+body { overflow-x: hidden !important; position: relative !important; }
+img, video, iframe { max-width: 100% !important; height: auto !important; }
+/* Explicit sizes for branded logos (override global height:auto) */
+footer.site-footer .brand-block img.footer-mark { height: 44px !important; width: 44px !important; max-width: 44px !important; margin-bottom: 18px !important; filter: invert(1) brightness(2) !important; opacity: 0.92 !important; object-fit: contain !important; }
+header .brand img { height: 38px !important; width: auto !important; max-width: none !important; }
+
+@media (max-width: 900px) {
+  /* Slim topbar: hide tagline + locations, keep MEMBERS button only */
+  .topbar { display: block !important; min-height: 36px !important; }
+  .topbar .container {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: stretch !important;
+    padding: 0 !important;
+    height: 36px !important;
+    flex-wrap: nowrap !important;
+  }
+  .topbar .container > span:first-child { display: none !important; }
+  .topbar .topbar-right .locations { display: none !important; }
+  .topbar .topbar-right { gap: 0 !important; display: inline-flex !important; align-items: stretch !important; height: 36px !important; }
+  .topbar .member-portal-btn {
+    height: 36px !important;
+    padding: 0 18px !important;
+    font-size: 10.5px !important;
+    letter-spacing: .14em !important;
+    background: #C9A35A !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    border-radius: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  /* Header slim */
+  header.site-header .nav-wrap {
+    padding: 14px 16px !important;
+    height: 64px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+  }
+  header .brand img { height: 30px !important; }
+
+  /* Hamburger 44x44 */
+  button.mobile-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    border: 1px solid rgba(10,10,10,.2) !important;
+    background: #FFFFFF !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    padding: 0 !important;
+    border-radius: 2px !important;
+    cursor: pointer !important;
+    z-index: 1100 !important;
+    -webkit-tap-highlight-color: rgba(212,175,109,.3) !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    touch-action: manipulation !important;
+    position: relative !important;
+  }
+  button.mobile-toggle::before { content: '' !important; display: none !important; }
+  button.mobile-toggle .bar {
+    display: block !important;
+    width: 18px !important;
+    height: 2px !important;
+    background: #0A0A0A !important;
+    position: relative !important;
+    transition: transform .25s, opacity .15s !important;
+  }
+  button.mobile-toggle .bar::before,
+  button.mobile-toggle .bar::after {
+    content: '' !important;
+    position: absolute !important;
+    display: block !important;
+    width: 18px !important;
+    height: 2px !important;
+    background: #0A0A0A !important;
+    left: 0 !important;
+    transition: transform .25s !important;
+  }
+  button.mobile-toggle .bar::before { top: -6px !important; }
+  button.mobile-toggle .bar::after  { top:  6px !important; }
+  button.mobile-toggle[aria-expanded="true"] .bar { background: transparent !important; }
+  button.mobile-toggle[aria-expanded="true"] .bar::before { transform: translateY(6px) rotate(45deg) !important; }
+  button.mobile-toggle[aria-expanded="true"] .bar::after  { transform: translateY(-6px) rotate(-45deg) !important; }
+
+  /* Full-screen drawer below header */
+  nav.primary {
+    display: none !important;
+    position: fixed !important;
+    top: 100px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: calc(100vh - 100px) !important;
+    max-height: calc(100vh - 100px) !important;
+    flex-direction: column !important;
+    background: #FFFFFF !important;
+    padding: 8px 20px 40px !important;
+    margin: 0 !important;
+    z-index: 1050 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 0 !important;
+    align-items: stretch !important;
+  }
+  nav.primary.mobile-open {
+    display: flex !important;
+    height: calc(100vh - 100px) !important;
+    max-height: calc(100vh - 100px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  /* Cap mega panel height so other menu items remain visible */
+  nav.primary > .nav-item.is-open .mega {
+    max-height: 50vh !important;
+    overflow-y: auto !important;
+  }
+  nav.primary.mobile-open { display: flex !important; }
+  body.menu-open { overflow: hidden !important; }
+
+  nav.primary > .nav-item { width: 100% !important; border-bottom: 1px solid rgba(0,0,0,.10) !important; }
+  nav.primary > .nav-item > a {
+    display: block !important;
+    padding: 16px 0 !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    letter-spacing: .08em !important;
+    color: #0A0A0A !important;
+    text-transform: uppercase !important;
+    background: transparent !important;
+    border-bottom: 0 !important;
+  }
+  nav.primary > .nav-item > a::after {
+    content: '' !important;
+    display: inline-block !important;
+    float: right !important;
+    width: 7px !important; height: 7px !important;
+    border-right: 1.5px solid #555 !important;
+    border-bottom: 1.5px solid #555 !important;
+    transform: rotate(45deg) !important;
+    margin-top: 8px !important;
+    opacity: 1 !important;
+    transition: transform .2s !important;
+  }
+  nav.primary > .nav-item.is-open > a::after { transform: rotate(225deg) !important; margin-top: 12px !important; }
+  nav.primary > .nav-item > a.cta-btn::after { display: none !important; }
+
+  nav.primary .mega {
+    display: none !important;
+    position: static !important;
+    transform: none !important;
+    box-shadow: none !important;
+    background: rgba(0,0,0,.025) !important;
+    border: 0 !important;
+    padding: 4px 0 14px !important;
+    width: 100% !important;
+    margin: 0 0 6px !important;
+  }
+  nav.primary > .nav-item.is-open .mega { display: block !important; }
+  nav.primary > .nav-item:hover .mega { display: none !important; }
+  nav.primary > .nav-item.is-open:hover .mega { display: block !important; }
+
+  nav.primary .mega-grid, nav.primary .mega-grid.three {
+    display: block !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  nav.primary .mega-grid a {
+    display: block !important;
+    padding: 11px 12px !important;
+    font-size: 12.5px !important;
+    color: #444 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    border-bottom: 1px solid rgba(0,0,0,.06) !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+  }
+  nav.primary .mega-grid a:last-child { border-bottom: 0 !important; }
+  nav.primary .mega-grid a .label { display: block !important; font-size: 10px !important; color: #999 !important; margin-top: 2px !important; font-weight: 400 !important; }
+
+  nav.primary > .nav-item > a.cta-btn {
+    background: #0A1424 !important;
+    color: #FFFFFF !important;
+    text-align: center !important;
+    margin: 20px 0 0 !important;
+    padding: 14px 18px !important;
+    border-radius: 2px !important;
+  }
+
+  .container { padding-left: 16px !important; padding-right: 16px !important; }
+  section.hero > .container { padding: 56px 16px 40px !important; }
+  section.hero > .container > div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 32px !important; }
+  section.hero aside { max-width: 100% !important; width: 100% !important; padding: 20px !important; }
+  table.data { display: block !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+}
+
+</style>
+</head>
+<body> <div class="topbar"> <div class="container"> <span>XTOMORROW &middot; A multi-asset, multi-jurisdiction investment platform</span> <span class="topbar-right"> <span class="locations">Dallas &middot; Albuquerque &middot; Singapore &middot; London &middot; Buenos Aires</span> <a href="../../member-portal.html" class="member-portal-btn">Members</a> </span> </div>
+</div>
+<header class="site-header"> <div class="nav-wrap"> <a href="../../index.html" class="brand"> <img src="../../assets/Long%20Logo.png" alt="X TOMORROW" /> </a> <nav class="primary"> <div class="nav-item"><a href="../../about.html">ABOUT</a> <div class="mega"> <div class="mega-grid"> <a href="../../about.html">Firm Overview<span class="label">Who we are</span></a> <a href="../../leadership.html">Leadership<span class="label">Principals &amp; advisors</span></a> <a href="../../history.html">History<span class="label">Three decades of platform-building</span></a> <a href="../../companies.html">Sister Companies<span class="label">XTOMORROW · IEP · BKWH · Geoenergy</span></a> <a href="../../locations.html">Locations<span class="label">Global presence</span></a> <a href="../../sustainability.html">Sustainability<span class="label">ESG &amp; impact</span></a> </div> </div> </div> <div class="nav-item"><a href="../../platform.html">PLATFORM</a> <div class="mega"> <div class="mega-grid"> <a href="../../platform.html">Approach<span class="label">How we operate</span></a> <a href="../../sto.html">STO Issuance &amp; Structuring<span class="label">Multi-jurisdiction</span></a> <a href="../../rwa.html">RWA Tokenization<span class="label">Real-world asset rails</span></a> <a href="../../acquisitions.html">Asset Acquisition &amp; Operations<span class="label">Mining · energy · real estate</span></a> <a href="../../capital-markets.html">Capital Markets<span class="label">De-SPAC · IPO · PIPE</span></a> <a href="../../sharia-halal.html">Sharia &amp; Halal Finance<span class="label">AAOIFI · MRHB certification</span></a> </div> </div> </div> <div class="nav-item"><a href="../../assets.html">ASSETS</a> <div class="mega"> <div class="mega-grid three"> <a href="../../mining.html">Mining &amp; Critical Minerals<span class="label">Au · Ag · PGM · Cu · Li · REE</span></a> <a href="../../energy.html">Energy<span class="label">Oil &amp; gas · geothermal · clean</span></a> <a href="../../real-estate.html">Real Estate<span class="label">Direct &amp; structured equity</span></a> <a href="../../equities.html">Public Equities<span class="label">Concentrated &amp; event-driven</span></a> <a href="../../fixed-income.html">Fixed Income<span class="label">Sovereign · credit</span></a> <a href="../../digital.html">Digital Assets<span class="label">Core blockchain</span></a> <a href="../../tokenized-funds.html">Tokenized Funds<span class="label">Wrapped exposures</span></a> <a href="../../nevada.html">Nevada Newcastle<span class="label">Multi-metal placer · PCE</span></a> <a href="../../argentina.html">Argentina Farallón Negro<span class="label">YMAD 60-yr PPP</span></a> </div> </div> </div> <div class="nav-item"><a href="../../markets.html">MARKETS</a> <div class="mega"> <div class="mega-grid"> <a href="../../markets.html">Markets Overview<span class="label">Macro framework</span></a> <a href="../../sto-outlook.html">STO Global Outlook<span class="label">Capital formation 2030</span></a> <a href="../../tokenization.html">Tokenization 2030<span class="label">$16T market thesis</span></a> <a href="../../crypto.html">Crypto · Web3 Future<span class="label">TradFi-Crypto hybrids</span></a> <a href="../../mining-markets.html">Mining Markets<span class="label">Commodities supercycle</span></a> <a href="../../macro.html">Macro Outlook<span class="label">Rates · FX · liquidity</span></a> <a href="../../markets-live.html">Live Crypto &amp; STO<span class="label">Real-time tokenized markets</span></a> <a href="../../commodities-live.html">Live Commodities<span class="label">Gold · Silver · Copper · Oil</span></a> </div> </div> </div> <div class="nav-item"><a href="../../regulation.html">REGULATION</a> <div class="mega"> <div class="mega-grid three"> <a href="../../regulation.html">Global Overview<span class="label">Top-10 jurisdictions</span></a> <a href="../../regulation-us.html">United States<span class="label">SEC · Reg D / A+ / S</span></a> <a href="../../regulation-europe.html">Europe<span class="label">MiCA · eWpG · DLT Pilot</span></a> <a href="../../regulation-uk.html">United Kingdom<span class="label">FCA · Digital Securities Sandbox</span></a> <a href="../../regulation-asia.html">Korea &amp; Asia<span class="label">FSC · MAS · SFC · FSA</span></a> <a href="../../regulation-mideast.html">Middle East<span class="label">ADGM · DIFC · VARA · CMA</span></a> <a href="../../regulation-sharia.html">Sharia &amp; Halal<span class="label">AAOIFI · MRHB</span></a> <a href="../../regulation-offshore.html">Offshore<span class="label">Cayman · BVI · Gibraltar</span></a> <a href="../../regulation-switzerland.html">Switzerland<span class="label">FINMA · DLT Act</span></a> </div> </div> </div> <div class="nav-item"><a href="../../technology.html">TECHNOLOGY</a> <div class="mega"> <div class="mega-grid"> <a href="../../technology.html">Technology Overview<span class="label">Stack &amp; integration</span></a> <a href="../../pce-technology.html">PCE Mining Technology<span class="label">Potential-Controlled Electrolysis</span></a> <a href="../../edmsu.html">EDMSU<span class="label">Dry magnetic separation</span></a> <a href="../../blockchain-infra.html">Blockchain Infrastructure<span class="label">ERC-3643 · Lumia · Base</span></a> <a href="../../custody.html">Custody &amp; Proof-of-Reserve<span class="label">Anchorage · Chainlink PoR</span></a> </div> </div> </div> <div class="nav-item"><a href="../../insights.html">INSIGHTS</a> <div class="mega right-aligned"> <div class="mega-grid"> <a href="../../insights.html">Insights<span class="label">Editorial</span></a> <a href="../../research.html">Research<span class="label">Long-form theses</span></a> <a href="../../press.html">Press<span class="label">News &amp; releases</span></a> <a href="../../reports.html">Reports<span class="label">White papers</span></a> </div> </div> </div> <div class="nav-item"><a href="../../contact.html" class="cta-btn">CONTACT</a></div> </nav> <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false"><span class="bar"></span></button> </div>
+</header> <section class="page-head with-image" style="background-image: linear-gradient(135deg, rgba(10,20,36,.78) 0%, rgba(6,13,26,.92) 100%), url('img/pexels-chart.jpg');"> <div class="container"> <div class="eyebrow">XTOMORROW Insights</div> <h1>The institutional <em>news feed</em>.</h1> <p class="lead">Updates from the firm, the platform's operating assets, the regulatory perimeter, and the broader institutional capital-formation industry — distilled into a single feed.</p> </div>
+</section> <section> <div class="container"> <div class="tabs" id="insights-tabs" style="margin-bottom:48px;"> <a href="#" class="active" data-filter="all">All</a> <a href="#" data-filter="Capital Markets">Capital Markets</a> <a href="#" data-filter="Mining">Mining</a> <a href="#" data-filter="Tokenization">Tokenization</a> <a href="#" data-filter="Sharia & Halal">Sharia & Halal</a> <a href="#" data-filter="Regulation">Regulation</a> <a href="#" data-filter="Technology">Technology</a> <a href="#" data-filter="Markets">Markets</a> <a href="#" data-filter="Sister Companies">Sister Companies</a> </div> <div class="feed-grid"> <div class="feed-list"> <article class="featured-block" data-category="Capital Markets"> <div class="eyebrow">Featured · May 14, 2026</div> <h3>XTOMORROW Phase I Anchor STO targets $500M from US and GCC anchor investors</h3> <p>The anchor tranche structures simultaneous Reg D 506(c) and Reg S issuance, with Sharia-compliant sub-tranches engineered for the GCC sovereign-wealth pool.</p> <a href="../../insights/capital-markets/xtomorrow-phase-i-anchor-sto-targets-500m-from-us-and-gcc-anchor-.html">Read full briefing →</a> </article> <article class="feed-item" data-category="Mining"> <a href="../../insights/mining/newcastle-claims-metallurgical-pilot-enters-commissioning-phase.html" class="feed-image"><img src="../../img/pexels-mining.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Mining</span> <span>May 13, 2026</span> </div> <h3>Newcastle Claims metallurgical pilot enters commissioning phase</h3> <p>The PCE pilot facility in Lincoln County, Nevada has completed its installation phase. First gold pour scheduled for Q3 — independent S-K 1300 verification underway.</p> <a href="../../insights/mining/newcastle-claims-metallurgical-pilot-enters-commissioning-phase.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Tokenization"> <a href="../../insights/tokenization/tokenized-us-treasury-market-crosses-usd-5-billion-aum.html" class="feed-image"><img src="../../img/pexels-screens.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Tokenization</span> <span>May 12, 2026</span> </div> <h3>Tokenized US Treasury market crosses USD 5 billion AUM</h3> <p>BlackRock BUIDL, Franklin BENJI, and Ondo OUSG together cross a key institutional milestone — establishing the rails XTOMORROW's RWA program will leverage.</p> <a href="../../insights/tokenization/tokenized-us-treasury-market-crosses-usd-5-billion-aum.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Sharia & Halal"> <a href="../../insights/sharia-halal/bkgt-secures-mrhb-v2-shariah-attestation-aaoifi-alignment-confirm.html" class="feed-image"><img src="../../img/pexels-dubai.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Sharia & Halal</span> <span>May 11, 2026</span> </div> <h3>BKGT secures MRHB v2 Shariah attestation; AAOIFI alignment confirmed</h3> <p>The updated attestation extends Sharia-compliance assurance to the weight-based gold-entitlement structure and the on-chain dashboard. IPFS-anchored opinion now live.</p> <a href="../../insights/sharia-halal/bkgt-secures-mrhb-v2-shariah-attestation-aaoifi-alignment-confirm.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Regulation"> <a href="../../insights/regulation/korea-fsc-publishes-q3-2026-sto-framework-implementation-roadmap.html" class="feed-image"><img src="../../img/pexels-nyc-real.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Regulation</span> <span>May 9, 2026</span> </div> <h3>Korea FSC publishes Q3 2026 STO framework implementation roadmap</h3> <p>Capital Markets Act amendments take effect 1 July 2026. KOSCOM and KRX will operate parallel pilot venues — XTOMORROW evaluating direct Korean institutional distribution.</p> <a href="../../insights/regulation/korea-fsc-publishes-q3-2026-sto-framework-implementation-roadmap.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Technology"> <a href="../../insights/technology/pce-technology-receives-third-independent-industrial-validation.html" class="feed-image"><img src="../../img/pexels-screens.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Technology</span> <span>May 8, 2026</span> </div> <h3>PCE technology receives third independent industrial validation</h3> <p>Elemental Poland 2025 validation confirms 90% gold yield on refractory feed and 20%+ cathode-mass uplift. Patent stack covers 14 jurisdictions including the US, EU, and KSA.</p> <a href="../../insights/technology/pce-technology-receives-third-independent-industrial-validation.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Capital Markets"> <a href="../../insights/capital-markets/gold-breaks-usd-3100oz-on-central-bank-buying-aisc-margins-re-rat.html" class="feed-image"><img src="../../img/pexels-chart.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Capital Markets</span> <span>May 7, 2026</span> </div> <h3>Gold breaks USD 3,100/oz on central-bank buying; AISC margins re-rated</h3> <p>Sustained official-sector accumulation and persistent fiscal dominance support gold structurally. Implication: producing assets with AISC under $2,500 see margin expansion of 35%+.</p> <a href="../../insights/capital-markets/gold-breaks-usd-3100oz-on-central-bank-buying-aisc-margins-re-rat.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Sister Companies"> <a href="../../insights/sister-companies/bober-khan-wealth-holdings-opens-tier-1-adgm-secondary-listing-di.html" class="feed-image"><img src="../../img/pexels-vault.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Sister Companies</span> <span>May 6, 2026</span> </div> <h3>Bober Khan Wealth Holdings opens Tier-1 ADGM secondary listing dialogue</h3> <p>Abu Dhabi Global Market's MTF licensing pathway under active evaluation. ADGM provides a high-trust regulated venue for institutional GCC and Asian distribution.</p> <a href="../../insights/sister-companies/bober-khan-wealth-holdings-opens-tier-1-adgm-secondary-listing-di.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Mining"> <a href="../../insights/mining/argentina-rigi-program-farallón-negro-qualifies-as-strategic-mini.html" class="feed-image"><img src="../../img/pexels-mining.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Mining</span> <span>May 5, 2026</span> </div> <h3>Argentina RIGI program: Farallón Negro qualifies as Strategic Mining Project</h3> <p>Federal RIGI status confers 30-year tax, FX, and export-repatriation stability — directly de-risking USD cash flow for international investors and lenders.</p> <a href="../../insights/mining/argentina-rigi-program-farallón-negro-qualifies-as-strategic-mini.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Tokenization"> <a href="../../insights/tokenization/erc-3643-permissioned-token-standard-adoption-accelerates-into-in.html" class="feed-image"><img src="../../img/pexels-screens.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Tokenization</span> <span>May 4, 2026</span> </div> <h3>ERC-3643 permissioned-token standard adoption accelerates into institutional-grade</h3> <p>Whitelisting, jurisdiction gating, and transfer restrictions enforced at the smart-contract layer. XTOMORROW's Phase I anchor token deploys on ERC-3643 by design.</p> <a href="../../insights/tokenization/erc-3643-permissioned-token-standard-adoption-accelerates-into-in.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Regulation"> <a href="../../insights/regulation/sec-division-of-corp-fin-issues-no-action-letter-on-tokenized-fun.html" class="feed-image"><img src="../../img/pexels-nyc-real.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Regulation</span> <span>May 2, 2026</span> </div> <h3>SEC Division of Corp Fin issues no-action letter on tokenized fund redemptions</h3> <p>Clarifies operational parameters under Reg D 506(c) for periodic redemption events in tokenized fund structures — a material easing for US institutional issuance.</p> <a href="../../insights/regulation/sec-division-of-corp-fin-issues-no-action-letter-on-tokenized-fun.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Markets"> <a href="../../insights/markets/silver-crosses-usd-50oz-industrial-demand-from-solar-pv-drives-th.html" class="feed-image"><img src="../../img/pexels-chart.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Markets</span> <span>May 1, 2026</span> </div> <h3>Silver crosses USD 50/oz; industrial demand from solar PV drives the move</h3> <p>Solar-PV installed-base growth and grid-scale battery demand combine to pull silver structurally above its long-cycle range. Gold:silver ratio compression continues.</p> <a href="../../insights/markets/silver-crosses-usd-50oz-industrial-demand-from-solar-pv-drives-th.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Sharia & Halal"> <a href="../../insights/sharia-halal/difc-tokenized-securities-sandbox-cohort-4-announced-xtomorrow-in.html" class="feed-image"><img src="../../img/pexels-dubai.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Sharia & Halal</span> <span>Apr 30, 2026</span> </div> <h3>DIFC tokenized-securities sandbox cohort 4 announced; XTOMORROW invited</h3> <p>DFSA confirms cohort 4 acceptance window opens 15 May. Tokenized-fund pilot applications now include Sharia-compliant structuring as standard.</p> <a href="../../insights/sharia-halal/difc-tokenized-securities-sandbox-cohort-4-announced-xtomorrow-in.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Capital Markets"> <a href="../../insights/capital-markets/family-office-allocation-to-tokenized-real-assets-reaches-inflect.html" class="feed-image"><img src="../../img/pexels-vault.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Capital Markets</span> <span>Apr 28, 2026</span> </div> <h3>Family-office allocation to tokenized real assets reaches inflection</h3> <p>Campden Wealth quarterly survey: 39% of single-family offices now report active or imminent allocation to tokenized RWA, up from 11% one year ago.</p> <a href="../../insights/capital-markets/family-office-allocation-to-tokenized-real-assets-reaches-inflect.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Technology"> <a href="../../insights/technology/chainlink-proof-of-reserve-integrates-with-hsbc-metals-vault-stan.html" class="feed-image"><img src="../../img/pexels-screens.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Technology</span> <span>Apr 26, 2026</span> </div> <h3>Chainlink Proof-of-Reserve integrates with HSBC Metals Vault standard</h3> <p>The PoR oracle layer now ingests directly from London Bullion Market Association-compatible vaults — enabling institutional-grade verifiability for gold-backed RWA tokens.</p> <a href="../../insights/technology/chainlink-proof-of-reserve-integrates-with-hsbc-metals-vault-stan.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Mining"> <a href="../../insights/mining/catamarca-governorate-signs-adjacent-concession-transfer-protocol.html" class="feed-image"><img src="../../img/pexels-mining.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Mining</span> <span>Apr 24, 2026</span> </div> <h3>Catamarca governorate signs adjacent-concession transfer protocol with YMAD</h3> <p>Provincial protocol formalizes the policy pathway for transfer of Capillitas and Cerro Atajo concessions — the first step in the Culampaja belt consolidation plan.</p> <a href="../../insights/mining/catamarca-governorate-signs-adjacent-concession-transfer-protocol.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Markets"> <a href="../../insights/markets/copper-deficit-forecast-widens-structural-undersupply-through-203.html" class="feed-image"><img src="../../img/pexels-chart.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Markets</span> <span>Apr 22, 2026</span> </div> <h3>Copper deficit forecast widens: structural undersupply through 2030</h3> <p>Permitted-reserve growth runs below 1% per year while demand from EVs, grid expansion, and data-center buildout compounds. Strategic positioning window remains open.</p> <a href="../../insights/markets/copper-deficit-forecast-widens-structural-undersupply-through-203.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Regulation"> <a href="../../insights/regulation/uk-fca-digital-securities-sandbox-expands-eligible-asset-types.html" class="feed-image"><img src="../../img/pexels-nyc-real.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Regulation</span> <span>Apr 20, 2026</span> </div> <h3>UK FCA Digital Securities Sandbox expands eligible asset types</h3> <p>Sandbox parameters extended to admit tokenized commodity-linked notes and structured products. XTOMORROW preparing UK distribution layer.</p> <a href="../../insights/regulation/uk-fca-digital-securities-sandbox-expands-eligible-asset-types.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Tokenization"> <a href="../../insights/tokenization/rwa-token-market-projected-at-16t-by-2030-bcgaddx-joint-update.html" class="feed-image"><img src="../../img/pexels-screens.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Tokenization</span> <span>Apr 18, 2026</span> </div> <h3>RWA token market projected at $16T by 2030 — BCG/ADDX joint update</h3> <p>Updated BCG-ADDX joint analysis maintains the $16T 2030 forecast while revising composition: tokenized real estate now expected at $4T, mining/metals $2T+.</p> <a href="../../insights/tokenization/rwa-token-market-projected-at-16t-by-2030-bcgaddx-joint-update.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Capital Markets"> <a href="../../insights/capital-markets/gcc-sovereign-wealth-steps-up-tokenized-gold-allocations-sub-segm.html" class="feed-image"><img src="../../img/pexels-vault.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Capital Markets</span> <span>Apr 16, 2026</span> </div> <h3>GCC sovereign wealth steps up tokenized-gold allocations; sub-segment scaling</h3> <p>Multiple GCC sovereign vehicles are reported to be moving from pilot to programmatic allocation into Sharia-compliant tokenized gold. Implications for BKGT pricing model.</p> <a href="../../insights/capital-markets/gcc-sovereign-wealth-steps-up-tokenized-gold-allocations-sub-segm.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Sister Companies"> <a href="../../insights/sister-companies/iep-argentina-sa-completes-catamarca-operations-office-build-out.html" class="feed-image"><img src="../../img/pexels-vault.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Sister Companies</span> <span>Apr 14, 2026</span> </div> <h3>iEP Argentina S.A. completes Catamarca operations office build-out</h3> <p>Buenos Aires HQ + Catamarca operating office now fully staffed. Geology, environmental, and community-relations team co-located with the YMAD partnership site.</p> <a href="../../insights/sister-companies/iep-argentina-sa-completes-catamarca-operations-office-build-out.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Mining"> <a href="../../insights/mining/tailings-reprocessing-pilot-at-farallón-negro-usd-523m-annual-ebi.html" class="feed-image"><img src="../../img/pexels-mining.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Mining</span> <span>Apr 12, 2026</span> </div> <h3>Tailings reprocessing pilot at Farallón Negro: USD 52.3M annual EBITDA confirmed</h3> <p>Conservative 4Mt historical-tailings reprocessing scenario validated by independent metallurgical review. PCE deployment locks the second EBITDA engine.</p> <a href="../../insights/mining/tailings-reprocessing-pilot-at-farallón-negro-usd-523m-annual-ebi.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Technology"> <a href="../../insights/technology/lumia-zkevm-layer-2-onboards-bkgt-to-its-institutional-rwa-mainne.html" class="feed-image"><img src="../../img/pexels-screens.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Technology</span> <span>Apr 10, 2026</span> </div> <h3>Lumia zkEVM Layer-2 onboards BKGT to its institutional RWA mainnet</h3> <p>Lumia provides institutional RWA-focused L2 capacity built on Polygon CDK with Avail DA. BKGT migration completes the Sharia-compliant gold token's production stack.</p> <a href="../../insights/technology/lumia-zkevm-layer-2-onboards-bkgt-to-its-institutional-rwa-mainne.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Markets"> <a href="../../insights/markets/platinum-group-metals-respond-to-hydrogen-economy-commitments.html" class="feed-image"><img src="../../img/pexels-chart.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Markets</span> <span>Apr 8, 2026</span> </div> <h3>Platinum group metals respond to hydrogen-economy commitments</h3> <p>Pt, Pd, Rh price action this quarter reflects hardening hydrogen-catalysis and EV-catalyst demand. Newcastle Claims PGM exposure becomes incrementally more valuable.</p> <a href="../../insights/markets/platinum-group-metals-respond-to-hydrogen-economy-commitments.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Sharia & Halal"> <a href="../../insights/sharia-halal/aaoifi-publishes-updated-shariah-standards-on-digital-assets.html" class="feed-image"><img src="../../img/pexels-dubai.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Sharia & Halal</span> <span>Apr 6, 2026</span> </div> <h3>AAOIFI publishes updated Shariah Standards on digital assets</h3> <p>Standard 60 on Tokenized Real Assets and Standard 61 on Sharia-Compliant Stablecoins now finalized. XTOMORROW Sharia tranches structured to anticipate both.</p> <a href="../../insights/sharia-halal/aaoifi-publishes-updated-shariah-standards-on-digital-assets.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Capital Markets"> <a href="../../insights/capital-markets/phase-i-anchor-allocation-190m-of-500m-target-indicated.html" class="feed-image"><img src="../../img/hero-gold.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Capital Markets</span> <span>Apr 4, 2026</span> </div> <h3>Phase I anchor allocation: $190M of $500M target indicated</h3> <p>Indicative commitments from accredited US LPs and three GCC sovereign vehicles cover $190M of the $500M anchor tranche, with Reg S sub-tranche oversubscribed.</p> <a href="../../insights/capital-markets/phase-i-anchor-allocation-190m-of-500m-target-indicated.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Regulation"> <a href="../../insights/regulation/liechtenstein-tvtg-cohort-xtomorrow-index-token-classification-ap.html" class="feed-image"><img src="../../img/pexels-nyc-real.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Regulation</span> <span>Apr 2, 2026</span> </div> <h3>Liechtenstein TVTG cohort: XTOMORROW Index Token classification approved</h3> <p>Liechtenstein FMA confirms favorable classification of the XTOMORROW Multi-Asset Index Token under the Token and TT Service Provider Act. EEA passporting enabled.</p> <a href="../../insights/regulation/liechtenstein-tvtg-cohort-xtomorrow-index-token-classification-ap.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Tokenization"> <a href="../../insights/tokenization/anchorage-digital-expands-qualified-custody-to-permissioned-rwa-t.html" class="feed-image"><img src="../../img/pexels-screens.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Tokenization</span> <span>Mar 30, 2026</span> </div> <h3>Anchorage Digital expands qualified custody to permissioned RWA tokens</h3> <p>Federally-chartered US digital-asset bank Anchorage now offers full qualified custody coverage for ERC-3643 permissioned RWA tokens — institutional cap-stack now complete.</p> <a href="../../insights/tokenization/anchorage-digital-expands-qualified-custody-to-permissioned-rwa-t.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Mining"> <a href="../../insights/mining/bkgt-v2-production-simulation-891m-cumulative-profit-on-100m-toke.html" class="feed-image"><img src="../../img/pexels-mining.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Mining</span> <span>Mar 28, 2026</span> </div> <h3>BKGT v2 production simulation: $89.1M cumulative profit on 100M-token tranche</h3> <p>Strategic-investor simulation published. 25% EBITDA distribution to BKGT holders, October 2025 baseline metals, 50% nanopowder output at 5× bullion premium.</p> <a href="../../insights/mining/bkgt-v2-production-simulation-891m-cumulative-profit-on-100m-toke.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Markets"> <a href="../../insights/markets/tradfi-crypto-hybrids-cryptocom-banking-charter-map-updated.html" class="feed-image"><img src="../../img/pexels-chart.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Markets</span> <span>Mar 26, 2026</span> </div> <h3>TradFi-Crypto hybrids: Crypto.com banking-charter map updated</h3> <p>Crypto.com adds two more EU member-state banking licenses to its hybrid stack. Reinforces the thesis: regulation-first onboarding then progressive DeFi layering.</p> <a href="../../insights/markets/tradfi-crypto-hybrids-cryptocom-banking-charter-map-updated.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Sister Companies"> <a href="../../insights/sister-companies/geoenergy-solutions-opens-saudi-arabia-regional-office.html" class="feed-image"><img src="../../img/pexels-screens.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Sister Companies</span> <span>Mar 24, 2026</span> </div> <h3>Geoenergy Solutions opens Saudi Arabia regional office</h3> <p>Riyadh-based regional office to support Vision 2030 mining-sector deployments. PCE technology in active discussion with Ma'aden as previously disclosed.</p> <a href="../../insights/sister-companies/geoenergy-solutions-opens-saudi-arabia-regional-office.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Capital Markets"> <a href="../../insights/capital-markets/pcaob-engagement-for-fy26-audit-confirmed.html" class="feed-image"><img src="../../img/pexels-vault.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Capital Markets</span> <span>Mar 22, 2026</span> </div> <h3>PCAOB engagement for FY26 audit confirmed</h3> <p>Big-Four PCAOB-registered auditor formally engaged for FY26 financial statements at the platform and operating-company level. Audit-ready data room online.</p> <a href="../../insights/capital-markets/pcaob-engagement-for-fy26-audit-confirmed.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Technology"> <a href="../../insights/technology/tokeny-fireblocks-integration-completed-for-xtomorrow-issuance-pl.html" class="feed-image"><img src="../../img/pexels-screens.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Technology</span> <span>Mar 20, 2026</span> </div> <h3>Tokeny + Fireblocks integration completed for XTOMORROW issuance platform</h3> <p>Tokeny powers the issuance & transfer-agent layer; Fireblocks manages operational custody. Combined stack handles end-to-end ERC-3643 lifecycle compliance.</p> <a href="../../insights/technology/tokeny-fireblocks-integration-completed-for-xtomorrow-issuance-pl.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Regulation"> <a href="../../insights/regulation/singapore-mas-project-guardian-phase-3-to-admit-rwa-mining-token-.html" class="feed-image"><img src="../../img/pexels-nyc-real.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Regulation</span> <span>Mar 18, 2026</span> </div> <h3>Singapore MAS Project Guardian phase 3 to admit RWA mining-token pilots</h3> <p>MAS confirms phase 3 of Project Guardian opens for mining-and-commodities-linked RWA pilots. XTOMORROW Singapore entity included in initial review cohort.</p> <a href="../../insights/regulation/singapore-mas-project-guardian-phase-3-to-admit-rwa-mining-token-.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Sharia & Halal"> <a href="../../insights/sharia-halal/saudi-cma-fintech-lab-tokenized-securities-deepens-regional-align.html" class="feed-image"><img src="../../img/pexels-dubai.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Sharia & Halal</span> <span>Mar 16, 2026</span> </div> <h3>Saudi CMA Fintech Lab: tokenized-securities deepens regional alignment</h3> <p>Saudi Capital Market Authority continues Vision 2030 alignment, expanding regulatory sandbox guidance for tokenized issuance, with explicit Sharia-conformity criteria.</p> <a href="../../insights/sharia-halal/saudi-cma-fintech-lab-tokenized-securities-deepens-regional-align.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Mining"> <a href="../../insights/mining/comparable-mine-update-alumbrera-referent-value-re-marked-to-65b.html" class="feed-image"><img src="../../img/pexels-mining.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Mining</span> <span>Mar 14, 2026</span> </div> <h3>Comparable-mine update: Alumbrera referent value re-marked to $65B</h3> <p>Updated Glencore disclosures re-mark the comparable Alumbrera Tier-1 asset to approximately $65B realized value. Implications for Peirano Block valuation framework.</p> <a href="../../insights/mining/comparable-mine-update-alumbrera-referent-value-re-marked-to-65b.html" class="read-more">Read full article →</a></a> </div> </article> <article class="feed-item" data-category="Capital Markets"> <a href="../../insights/capital-markets/bank-collateral-standards-bkgt-participation-certificates-draft-p.html" class="feed-image"><img src="../../img/pexels-vault.jpg" alt="" loading="lazy" /></a> <div> <div class="feed-meta"> <span class="category">Capital Markets</span> <span>Mar 12, 2026</span> </div> <h3>Bank Collateral standards: BKGT participation certificates draft proposal published</h3> <p>Draft proposal circulated to a banking committee for the acceptance of BKGT Digital Gold Mining Participation Certificates as eligible institutional collateral.</p> <a href="../../insights/capital-markets/bank-collateral-standards-bkgt-participation-certificates-draft-p.html" class="read-more">Read full article →</a></a> </div> </article> <div style="text-align:center; padding:40px 0 0;"> <a class="btn ghost" href="#">Load more articles →</a> </div> </div> <aside class="feed-sidebar"> <div> <h4>Trending This Week</h4> <a href="#" class="trending-item"> <span class="num">01</span> <h5>XTOMORROW Phase I Anchor STO targets $500M from US and GCC anchor investors</h5> </a> <a href="#" class="trending-item"> <span class="num">02</span> <h5>Newcastle Claims metallurgical pilot enters commissioning phase</h5> </a> <a href="#" class="trending-item"> <span class="num">03</span> <h5>Tokenized US Treasury market crosses USD 5 billion AUM</h5> </a> <a href="#" class="trending-item"> <span class="num">04</span> <h5>BKGT secures MRHB v2 Shariah attestation; AAOIFI alignment confirmed</h5> </a> <a href="#" class="trending-item"> <span class="num">05</span> <h5>Korea FSC publishes Q3 2026 STO framework implementation roadmap</h5> </a> <a href="#" class="trending-item"> <span class="num">06</span> <h5>PCE technology receives third independent industrial validation</h5> </a> </div> <div> <h4>Categories</h4> <div class="tag-cloud"> <a href="#">Capital Markets</a> <a href="#">Mining</a> <a href="#">Tokenization</a> <a href="#">Sharia & Halal</a> <a href="#">Regulation</a> <a href="#">Technology</a> <a href="#">Markets</a> <a href="#">Sister Companies</a> <a href="#">Macro</a> <a href="#">Web3</a> <a href="#">Stablecoins</a> <a href="#">PCE</a> <a href="#">EDMSU</a> <a href="#">Newcastle</a> <a href="#">Farallón Negro</a> <a href="#">BKGT</a> <a href="#">YMAD</a> </div> </div> <div> <h4>Get the briefing</h4> <p style="font-size:0.95rem; color:var(--ink-3); margin-bottom:14px;">Daily institutional-grade summary direct to your inbox. Sent at 06:30 ET Monday – Friday.</p> <form onsubmit="event.preventDefault; alert('Thank you. Subscription confirmation will be sent.');" style="display:flex; gap:8px;"> <input type="email" placeholder="your@institution.com" style="flex:1; padding:10px 12px; border:1px solid var(--line); border-radius:var(--radius); font-family:var(--font-sans); font-size:14px;" required /> <button type="submit" class="btn" style="border:0; padding:10px 18px; cursor:pointer;">Subscribe</button> </form> </div> <div> <h4>Live Markets</h4> <p style="font-size:0.95rem; color:var(--ink-3); margin-bottom:14px;">Real-time crypto, STO, and commodity data.</p> <a class="btn" href="../../markets-live.html" style="margin-bottom:8px; width:100%;">Crypto &amp; STO →</a> <a class="btn" href="../../commodities-live.html" style="background:var(--gold); width:100%;">Gold · Silver · Oil →</a> </div> </aside> </div> </div>
+</section> <footer class="site-footer"> <div class="container"> <div class="grid"> <div class="brand-block"> <img src="../../img/logo.png" alt="XTOMORROW" class="footer-mark" /> <p>A multi-asset, multi-jurisdiction investment platform built around Security Token Offerings (STOs), Real-World Asset (RWA) tokenization, and the next generation of capital formation.</p> <p style="margin-top:16px; font-size:12px; color:rgba(255,255,255,.5);">XTOMORROW LLC<br/>1209 Mountain Road PL NE, STE R<br/>Albuquerque, NM 87110<br/>+1 (917) 409-7083 &middot; info@xtomorrow.com</p> </div> <div> <h5>Platform</h5> <a href="../../platform.html">Approach</a> <a href="../../sto.html">STO Issuance</a> <a href="../../rwa.html">RWA Tokenization</a> <a href="../../acquisitions.html">Asset Acquisition</a> <a href="../../capital-markets.html">Capital Markets</a> <a href="../../sharia-halal.html">Sharia &amp; Halal</a> </div> <div> <h5>Asset Classes</h5> <a href="../../mining.html">Mining</a> <a href="../../energy.html">Energy</a> <a href="../../real-estate.html">Real Estate</a> <a href="../../equities.html">Equities</a> <a href="../../fixed-income.html">Fixed Income</a> <a href="../../digital.html">Digital Assets</a> <a href="../../tokenized-funds.html">Tokenized Funds</a> </div> <div> <h5>Regulation</h5> <a href="../../regulation-us.html">United States</a> <a href="../../regulation-europe.html">Europe</a> <a href="../../regulation-asia.html">Asia</a> <a href="../../regulation-mideast.html">Middle East</a> <a href="../../regulation-sharia.html">Sharia</a> <a href="../../regulation-offshore.html">Offshore</a> </div> <div> <h5>Engage</h5> <a href="../../about.html">About</a> <a href="../../leadership.html">Leadership</a> <a href="../../careers.html">Careers</a> <a href="../../partnerships.html">Partnerships</a> <a href="../../press.html">Press</a> <a href="../../contact.html">Contact</a> <a href="../../disclosures.html">Disclosures</a> </div> </div> <div class="legal"> <span>&copy; 2026 XTOMORROW LLC. All rights reserved.</span> <span><a href="../../disclosures.html">Disclosures</a> &middot; <a href="../../disclosures.html">Privacy</a> &middot; <a href="../../disclosures.html">Terms</a></span> </div> </div>
+</footer>
+<div class="disclosure"> <div class="container"> <span class="label">Important Notice &middot; Regulatory Disclosure</span> <p><strong>XTOMORROW LLC</strong> is a multi-asset, multi-jurisdiction investment platform. Nothing on this website constitutes an offer to sell, or a solicitation of an offer to buy, any security, fund, partnership interest, token, digital asset, or other financial instrument.</p> <p>Security tokens and tokenized real-world assets referenced on this site are made available exclusively to qualified, accredited, or institutional investors in jurisdictions where such offerings are permitted by applicable law, and only pursuant to definitive offering documents prepared in compliance with the relevant securities frameworks (including, where applicable, US Reg D 506(c) &middot; Reg S &middot; Reg A+ &middot; Rule 144A &middot; EU MiCA &middot; UK FCA Digital Securities Sandbox &middot; Singapore MAS &middot; UAE ADGM &middot; FINMA).</p> <p>All references to historical performance, asset valuations, projected returns, and portfolio composition are illustrative and subject to change without notice. Past performance is not indicative of future results. Forward-looking statements involve known and unknown risks that may cause actual results to differ materially. Investing involves substantial risk, including the risk of total loss of principal.</p> <p>Sharia-compliance references reflect attestations issued by independent bodies (MRHB, AAOIFI-aligned scholars) at the relevant date; compliance status may vary across products and tranches. Information presented on this website is intended for institutional and professional investors only.</p> </div>
+</div> <script>
+/* XTOMORROW mobile-nav inline (mirrors AXIOS EQUITY pattern) */
+(function(){
+  function init(){
+    var toggle = document.querySelector('button.mobile-toggle');
+    var menu = document.querySelector('nav.primary');
+    if(!toggle || !menu){ return; }
+    toggle.onclick = null;
+    toggle.removeAttribute('onclick');
+    if(!toggle.hasAttribute('aria-expanded')) toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-label','Open menu');
+    // If button still has the old 'Menu' text content, replace with bar span
+    if(!toggle.querySelector('.bar')) toggle.innerHTML = '<span class="bar"></span>';
+
+    function setOpen(open){
+      menu.classList.toggle('mobile-open', open);
+      document.body.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    toggle.addEventListener('click', function(e){
+      e.preventDefault();
+      setOpen(!menu.classList.contains('mobile-open'));
+    });
+
+    document.querySelectorAll('nav.primary > .nav-item > a').forEach(function(a){
+      a.addEventListener('click', function(e){
+        if(window.matchMedia('(max-width: 900px)').matches){
+          if(a.classList.contains('cta-btn')){ return; }
+          var li = a.parentElement;
+          if(li.querySelector('.mega')){
+            e.preventDefault();
+            Array.from(li.parentElement.children).forEach(function(sib){
+              if(sib !== li){ sib.classList.remove('is-open'); }
+            });
+            li.classList.toggle('is-open');
+          }
+        }
+      });
+    });
+    document.querySelectorAll('nav.primary .mega-grid a').forEach(function(a){
+      a.addEventListener('click', function(){ setOpen(false); });
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key==='Escape' && menu.classList.contains('mobile-open')) setOpen(false);
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<script>
+/* Insights tab filter */
+(function(){
+  function init(){
+    var tabs = document.querySelectorAll('#insights-tabs > a');
+    var items = document.querySelectorAll('.feed-list article');
+    if(!tabs.length || !items.length) return;
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(e){
+        e.preventDefault();
+        var filter = tab.getAttribute('data-filter');
+        tabs.forEach(function(t){ t.classList.remove('active'); });
+        tab.classList.add('active');
+        items.forEach(function(item){
+          var cat = item.getAttribute('data-category');
+          if(filter === 'all' || cat === filter){
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</body>
+</html><section class="page-head" style="padding: 90px 0 50px;">
+  <div class="container" style="max-width: 880px;">
+    <div style="font-family:'JetBrains Mono', monospace; font-size: 11px; letter-spacing:.18em; text-transform: uppercase; color: var(--sub); margin-bottom: 16px;">
+      <a href="../../reports.html" style="color: var(--sub); text-decoration: none; border-bottom: 1px solid var(--gold);">← Reports</a>
+      &nbsp;·&nbsp; Technology Dossier
+    </div>
+    <h1 style="font-size: clamp(2rem, 3.8vw, 3.4rem); line-height: 1.15;">PCE Technology Validation Dossier</h1>
+    <p class="lead" style="margin-top: 22px; font-size: 1.15rem;">Compiled industrial-validation results from KGHM Polska Miedź (2013), ENAMI Chile (2020), and Elemental Poland (2025) — with feed grades, recovery rates, and economic models.</p>
+    <div style="margin-top: 28px;">
+      <a href="mailto:reports@xtomorrow.com?subject=Report%20Request%3A%20PCE%20Technology%20Validation%20Dossier&amp;body=Please%20send%20the%20full%20%22PCE%20Technology%20Validation%20Dossier%22%20to%20my%20registered%20email%20under%20NDA.%0A%0ARequester%20name%3A%0AEntity%2Fjurisdiction%3A%0AAccreditation%20status%3A%0AIndicative%20interest%3A" class="btn gold">Request under NDA →</a>
+    </div>
+  </div>
+</section>
+<section style="padding: 30px 0 60px;">
+  <div class="container" style="max-width: 880px;">
+    <div style="font-family: var(--font-display); font-size: 1.4rem; line-height: 1.55; color: var(--ink); margin-bottom: 28px; padding-left: 24px; border-left: 3px solid var(--gold);">Compiled industrial-validation results from KGHM Polska Miedź (2013), ENAMI Chile (2020), and Elemental Poland (2025) — with feed grades, recovery rates, and economic models.</div>
+    <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin: 32px 0 12px;">Document type</h3>
+    <p><strong>Technology Dossier</strong> &mdash; institutional-grade, confidential, available to qualified investors and accredited partners under NDA. Watermarked to the authorised member upon release. Document tree refreshed on a rolling basis.</p>
+    <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin: 32px 0 12px;">How to obtain</h3>
+    <p>Submit a request via the button above or email <a href="mailto:reports@xtomorrow.com">reports@xtomorrow.com</a>. Our Investor Relations team verifies eligibility and issues an NDA-gated link within 2–3 business days. Materials can also be accessed directly through the Member Portal data room.</p>
+    <div style="margin-top: 56px; padding: 36px 40px; background: var(--cream); border-left: 3px solid var(--gold);">
+      <div style="font-family:'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px;">Continue</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+        <a href="../../reports.html" class="btn">All reports →</a>
+        <a href="../../member-portal.html" class="btn light">Request data room →</a>
+        <a href="../../contact.html" class="btn light">Contact IR →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="site-footer"> <div class="container"> <div class="grid"> <div class="brand-block"> <img src="../../img/logo.png" alt="XTOMORROW" class="footer-mark" /> <p>A multi-asset, multi-jurisdiction investment platform built around Security Token Offerings (STOs), Real-World Asset (RWA) tokenization, and the next generation of capital formation.</p> <p style="margin-top:16px; font-size:12px; color:rgba(255,255,255,.5);">XTOMORROW LLC<br/>1209 Mountain Road PL NE, STE R<br/>Albuquerque, NM 87110<br/>+1 (917) 409-7083 &middot; info@xtomorrow.com</p> </div> <div> <h5>Platform</h5> <a href="../../platform.html">Approach</a> <a href="../../sto.html">STO Issuance</a> <a href="../../rwa.html">RWA Tokenization</a> <a href="../../acquisitions.html">Asset Acquisition</a> <a href="../../capital-markets.html">Capital Markets</a> <a href="../../sharia-halal.html">Sharia &amp; Halal</a> </div> <div> <h5>Asset Classes</h5> <a href="../../mining.html">Mining</a> <a href="../../energy.html">Energy</a> <a href="../../real-estate.html">Real Estate</a> <a href="../../equities.html">Equities</a> <a href="../../fixed-income.html">Fixed Income</a> <a href="../../digital.html">Digital Assets</a> <a href="../../tokenized-funds.html">Tokenized Funds</a> </div> <div> <h5>Regulation</h5> <a href="../../regulation-us.html">United States</a> <a href="../../regulation-europe.html">Europe</a> <a href="../../regulation-asia.html">Asia</a> <a href="../../regulation-mideast.html">Middle East</a> <a href="../../regulation-sharia.html">Sharia</a> <a href="../../regulation-offshore.html">Offshore</a> </div> <div> <h5>Engage</h5> <a href="../../about.html">About</a> <a href="../../leadership.html">Leadership</a> <a href="../../careers.html">Careers</a> <a href="../../partnerships.html">Partnerships</a> <a href="../../press.html">Press</a> <a href="../../contact.html">Contact</a> <a href="../../disclosures.html">Disclosures</a> </div> </div> <div class="legal"> <span>&copy; 2026 XTOMORROW LLC. All rights reserved.</span> <span><a href="../../disclosures.html">Disclosures</a> &middot; <a href="../../disclosures.html">Privacy</a> &middot; <a href="../../disclosures.html">Terms</a></span> </div> </div>
+</footer>
+<div class="disclosure"> <div class="container"> <span class="label">Important Notice &middot; Regulatory Disclosure</span> <p><strong>XTOMORROW LLC</strong> is a multi-asset, multi-jurisdiction investment platform. Nothing on this website constitutes an offer to sell, or a solicitation of an offer to buy, any security, fund, partnership interest, token, digital asset, or other financial instrument.</p> <p>Security tokens and tokenized real-world assets referenced on this site are made available exclusively to qualified, accredited, or institutional investors in jurisdictions where such offerings are permitted by applicable law, and only pursuant to definitive offering documents prepared in compliance with the relevant securities frameworks (including, where applicable, US Reg D 506(c) &middot; Reg S &middot; Reg A+ &middot; Rule 144A &middot; EU MiCA &middot; UK FCA Digital Securities Sandbox &middot; Singapore MAS &middot; UAE ADGM &middot; FINMA).</p> <p>All references to historical performance, asset valuations, projected returns, and portfolio composition are illustrative and subject to change without notice. Past performance is not indicative of future results. Forward-looking statements involve known and unknown risks that may cause actual results to differ materially. Investing involves substantial risk, including the risk of total loss of principal.</p> <p>Sharia-compliance references reflect attestations issued by independent bodies (MRHB, AAOIFI-aligned scholars) at the relevant date; compliance status may vary across products and tranches. Information presented on this website is intended for institutional and professional investors only.</p> </div>
+</div> <script>
+/* XTOMORROW mobile-nav inline (mirrors AXIOS EQUITY pattern) */
+(function(){
+  function init(){
+    var toggle = document.querySelector('button.mobile-toggle');
+    var menu = document.querySelector('nav.primary');
+    if(!toggle || !menu){ return; }
+    toggle.onclick = null;
+    toggle.removeAttribute('onclick');
+    if(!toggle.hasAttribute('aria-expanded')) toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-label','Open menu');
+    // If button still has the old 'Menu' text content, replace with bar span
+    if(!toggle.querySelector('.bar')) toggle.innerHTML = '<span class="bar"></span>';
+
+    function setOpen(open){
+      menu.classList.toggle('mobile-open', open);
+      document.body.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    toggle.addEventListener('click', function(e){
+      e.preventDefault();
+      setOpen(!menu.classList.contains('mobile-open'));
+    });
+
+    document.querySelectorAll('nav.primary > .nav-item > a').forEach(function(a){
+      a.addEventListener('click', function(e){
+        if(window.matchMedia('(max-width: 900px)').matches){
+          if(a.classList.contains('cta-btn')){ return; }
+          var li = a.parentElement;
+          if(li.querySelector('.mega')){
+            e.preventDefault();
+            Array.from(li.parentElement.children).forEach(function(sib){
+              if(sib !== li){ sib.classList.remove('is-open'); }
+            });
+            li.classList.toggle('is-open');
+          }
+        }
+      });
+    });
+    document.querySelectorAll('nav.primary .mega-grid a').forEach(function(a){
+      a.addEventListener('click', function(){ setOpen(false); });
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key==='Escape' && menu.classList.contains('mobile-open')) setOpen(false);
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<script>
+/* Insights tab filter */
+(function(){
+  function init(){
+    var tabs = document.querySelectorAll('#insights-tabs > a');
+    var items = document.querySelectorAll('.feed-list article');
+    if(!tabs.length || !items.length) return;
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(e){
+        e.preventDefault();
+        var filter = tab.getAttribute('data-filter');
+        tabs.forEach(function(t){ t.classList.remove('active'); });
+        tab.classList.add('active');
+        items.forEach(function(item){
+          var cat = item.getAttribute('data-category');
+          if(filter === 'all' || cat === filter){
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</body>
+</html>
