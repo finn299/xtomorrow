@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/styles.css?v=53" />
+<link rel="stylesheet" href="assets/styles.css?v=54" />
 <style id="xt-overrides">
 /* Header logo - smaller, no distortion */
 header .brand img { height: 38px !important; width: auto !important; max-width: none !important; flex-shrink: 0 !important; }
@@ -339,7 +339,7 @@ img, video, iframe { max-width: 100% !important; height: auto !important; }
       <p>The patent envelope rests on <strong>controlled electrode potential</strong> driving selective metal deposition — a fundamentally different mechanism from galvanostatic (current-controlled) electrowinning. Pulse-waveform control of the cathode potential enables selectivity at the ion level: gold deposits, copper stays in solution, arsenic is rejected, neodymium reports separately from dysprosium — all in one cell.</p>
       <p>The underlying controlled-potential electrolysis principle was industrially validated at <strong>KGHM Polska Miedź in 2013</strong> on copper electrorefining. The technology platform is now adapted, patented, and being deployed for the recovery of gold, silver, PGMs, and rare-earth elements across XTOMORROW's mining-asset portfolio.</p>
     </div>
-    <div class="feature-image" style="aspect-ratio: 4/5; overflow:hidden;"><img src="img/pexels-mining.jpg" alt="PCE mining technology" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="feature-image" style="aspect-ratio: 4/5; overflow:hidden;"><img src="img/gold-pour.jpg" alt="PCE electrolysis — gold recovery" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
   </div>
 </div></section>
 
@@ -367,6 +367,60 @@ img, video, iframe { max-width: 100% !important; height: auto !important; }
       <div class="num">04</div><h3>High-Value Outputs</h3>
       <p>Bulk gold ingots, gold/silver powders, or <strong>10–60 nm nanopowders</strong> — the premium product, valued at $50–$2,000/kg vs. ~$80/g bullion (up to 25× bullion premium).</p>
     </div>
+  </div>
+
+  <!-- Process flow SVG diagram -->
+  <div style="margin-top: 48px;">
+    <svg viewBox="0 0 1200 240" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:1200px; height:auto; display:block; margin:0 auto;">
+      <defs>
+        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#D4AF6D"/><stop offset="100%" stop-color="#B8941F"/>
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#0A1424"/>
+        </marker>
+      </defs>
+      <!-- Stage boxes -->
+      <g font-family="Inter, sans-serif">
+        <rect x="20" y="60" width="240" height="120" fill="#F8F5EE" stroke="#0A1424" stroke-width="1.5" rx="2"/>
+        <text x="140" y="92" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="2" fill="#B8941F">STAGE 01</text>
+        <text x="140" y="118" text-anchor="middle" font-size="16" font-weight="600" fill="#0A1424">Mineral</text>
+        <text x="140" y="138" text-anchor="middle" font-size="16" font-weight="600" fill="#0A1424">Processing</text>
+        <text x="140" y="162" text-anchor="middle" font-size="11" fill="#666">0.1–10 g/t Au feed</text>
+        <text x="140" y="174" text-anchor="middle" font-size="11" fill="#666">Crush · grind · flotation</text>
+
+        <rect x="300" y="60" width="240" height="120" fill="#F8F5EE" stroke="#0A1424" stroke-width="1.5" rx="2"/>
+        <text x="420" y="92" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="2" fill="#B8941F">STAGE 02</text>
+        <text x="420" y="118" text-anchor="middle" font-size="16" font-weight="600" fill="#0A1424">Benign</text>
+        <text x="420" y="138" text-anchor="middle" font-size="16" font-weight="600" fill="#0A1424">Leaching</text>
+        <text x="420" y="162" text-anchor="middle" font-size="11" fill="#666">Thiourea · glycine</text>
+        <text x="420" y="174" text-anchor="middle" font-size="11" fill="#666">~90% Au yield · no CN</text>
+
+        <rect x="580" y="40" width="240" height="160" fill="url(#goldGrad)" stroke="#0A1424" stroke-width="2" rx="2"/>
+        <text x="700" y="76" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="2" fill="#FFF">STAGE 03 · CORE</text>
+        <text x="700" y="106" text-anchor="middle" font-size="18" font-weight="700" fill="#FFF">PCE</text>
+        <text x="700" y="128" text-anchor="middle" font-size="14" font-weight="600" fill="#FFF">Pulsed Electrolysis</text>
+        <text x="700" y="152" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.95)">Selective potential control</text>
+        <text x="700" y="166" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.95)">25–300 °C · &gt;98% current eff.</text>
+        <text x="700" y="184" text-anchor="middle" font-size="11" font-weight="700" fill="#FFF">99.9% PURE Au</text>
+
+        <rect x="860" y="60" width="240" height="120" fill="#0A1424" stroke="#0A1424" stroke-width="1.5" rx="2"/>
+        <text x="980" y="92" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="2" fill="#D4AF6D">STAGE 04</text>
+        <text x="980" y="118" text-anchor="middle" font-size="16" font-weight="600" fill="#FFF">High-Value</text>
+        <text x="980" y="138" text-anchor="middle" font-size="16" font-weight="600" fill="#FFF">Outputs</text>
+        <text x="980" y="162" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.7)">Bullion · powder · 10–60 nm nano</text>
+        <text x="980" y="174" text-anchor="middle" font-size="11" font-weight="700" fill="#D4AF6D">up to 25× premium</text>
+
+        <!-- Connectors -->
+        <line x1="260" y1="120" x2="300" y2="120" stroke="#0A1424" stroke-width="2" marker-end="url(#arrow)"/>
+        <line x1="540" y1="120" x2="580" y2="120" stroke="#0A1424" stroke-width="2" marker-end="url(#arrow)"/>
+        <line x1="820" y1="120" x2="860" y2="120" stroke="#0A1424" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <!-- Closed loop arrow back -->
+        <path d="M 980 60 Q 980 20, 600 20 L 140 20 Q 20 20, 20 60" fill="none" stroke="#B8941F" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <text x="560" y="14" text-anchor="middle" font-size="10" font-weight="600" letter-spacing="1" fill="#B8941F">CLOSED LOOP · &gt;80% WATER RECYCLE</text>
+      </g>
+    </svg>
   </div>
 </div></section>
 
@@ -429,7 +483,7 @@ img, video, iframe { max-width: 100% !important; height: auto !important; }
 <!-- ============ EDMSU + TIRS ============ -->
 <section style="padding: 100px 0;"><div class="container">
   <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
-    <div class="feature-image" style="aspect-ratio: 4/5; overflow:hidden;"><img src="img/pexels-mining-2.jpg" alt="EDMSU dry separation" loading="lazy" onerror="this.src='img/pexels-mining.jpg'" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div class="feature-image" style="aspect-ratio: 4/5; overflow:hidden;"><img src="img/excavator.jpg" alt="EDMSU dry separation" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
     <div>
       <div class="eyebrow">EDMSU + PCE = TIRS</div>
       <h2 style="margin-top:10px;">The <em>Total Integrated Recovery System</em>.</h2>
@@ -614,6 +668,306 @@ img, video, iframe { max-width: 100% !important; height: auto !important; }
     </tbody>
   </table>
   <p style="margin-top:18px;">Combined with the $1.5M drilling + S-K 1300 technical work, the $6.5M full de-risking program targets a <strong>7.5×–11× total valuation uplift</strong> — proving 90%+ recovery on a $317.5B gross in-situ PGM asset, on the back of the KGHM + ENAMI prior validations.</p>
+</div></section>
+
+<!-- ============ HOW PCE WORKS — TECHNICAL DEEP DIVE ============ -->
+<section class="cream" style="padding: 100px 0;"><div class="container">
+  <div class="section-head left">
+    <div class="eyebrow">Technical mechanism</div>
+    <h2>The physics behind the <em>99.9% recovery</em>.</h2>
+    <p class="lead" style="max-width:820px;">Conventional electrowinning fixes the cell current and lets cathode potential drift — accepting whatever ions reduce. PCE inverts that. The cathode potential is held precisely at the reduction potential of the target metal (Au, Ag, PGM, REE) via short anodic pulses, deposting only that target metal and rejecting matrix ions.</p>
+  </div>
+
+  <!-- Mechanism diagram -->
+  <div style="margin-top: 40px;">
+    <svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:1200px; height:auto; display:block; margin:0 auto;">
+      <defs>
+        <linearGradient id="electrolyteG" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#E8E2D0"/><stop offset="100%" stop-color="#C8BC9C"/>
+        </linearGradient>
+        <linearGradient id="pulseG" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#B8941F"/><stop offset="50%" stop-color="#D4AF6D"/><stop offset="100%" stop-color="#B8941F"/>
+        </linearGradient>
+        <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#0A1424"/>
+        </marker>
+      </defs>
+
+      <!-- LEFT: PCE cell schematic -->
+      <g font-family="Inter, sans-serif">
+        <!-- Cell tank -->
+        <rect x="60" y="80" width="280" height="220" fill="url(#electrolyteG)" stroke="#0A1424" stroke-width="2"/>
+        <text x="200" y="50" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="2" fill="#0A1424">PCE CELL · ELECTROLYTE</text>
+        <text x="200" y="68" text-anchor="middle" font-size="11" fill="#666">aqueous · molten salt · ionic liquid</text>
+
+        <!-- Anode -->
+        <rect x="100" y="100" width="22" height="180" fill="#666" stroke="#0A1424"/>
+        <text x="111" y="320" text-anchor="middle" font-size="11" font-weight="600" fill="#0A1424">ANODE (+)</text>
+
+        <!-- Cathode (gold target) -->
+        <rect x="278" y="100" width="22" height="180" fill="#D4AF6D" stroke="#0A1424"/>
+        <text x="289" y="320" text-anchor="middle" font-size="11" font-weight="600" fill="#0A1424">CATHODE (−)</text>
+        <text x="289" y="336" text-anchor="middle" font-size="10" fill="#B8941F" font-weight="700">99.9% pure Au</text>
+
+        <!-- Floating ions in solution -->
+        <g font-size="10" font-weight="700">
+          <circle cx="160" cy="140" r="11" fill="#D4AF6D"/><text x="160" y="144" text-anchor="middle" fill="#fff">Au⁺</text>
+          <circle cx="200" cy="170" r="9" fill="#A8A8A8"/><text x="200" y="174" text-anchor="middle" fill="#fff">Cu²⁺</text>
+          <circle cx="245" cy="145" r="9" fill="#A8A8A8"/><text x="245" y="149" text-anchor="middle" fill="#fff">Zn²⁺</text>
+          <circle cx="170" cy="220" r="9" fill="#A8A8A8"/><text x="170" y="224" text-anchor="middle" fill="#fff">Pb²⁺</text>
+          <circle cx="220" cy="250" r="11" fill="#D4AF6D"/><text x="220" y="254" text-anchor="middle" fill="#fff">Au⁺</text>
+          <circle cx="260" cy="220" r="9" fill="#A8A8A8"/><text x="260" y="224" text-anchor="middle" fill="#fff">As³⁺</text>
+          <circle cx="180" cy="270" r="11" fill="#D4AF6D"/><text x="180" y="274" text-anchor="middle" fill="#fff">Au⁺</text>
+        </g>
+
+        <!-- Selective deposition arrows -->
+        <g stroke="#B8941F" stroke-width="2" marker-end="url(#arr2)" fill="none">
+          <line x1="170" y1="140" x2="275" y2="120"/>
+          <line x1="230" y1="250" x2="275" y2="230"/>
+          <line x1="190" y1="270" x2="275" y2="260"/>
+        </g>
+        <text x="200" y="100" text-anchor="middle" font-size="10" font-weight="600" fill="#B8941F">Au⁺ selectively deposits</text>
+      </g>
+
+      <!-- CENTER: Pulse waveform -->
+      <g font-family="Inter, sans-serif" transform="translate(420, 0)">
+        <text x="180" y="50" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="2" fill="#0A1424">CONTROLLED PULSE</text>
+        <text x="180" y="68" text-anchor="middle" font-size="11" fill="#666">Voltage held at Au reduction potential</text>
+
+        <!-- Axes -->
+        <line x1="40" y1="180" x2="320" y2="180" stroke="#0A1424" stroke-width="1.5"/>
+        <line x1="40" y1="100" x2="40" y2="260" stroke="#0A1424" stroke-width="1.5"/>
+        <text x="20" y="180" text-anchor="end" font-size="10" fill="#666">0</text>
+        <text x="20" y="104" text-anchor="end" font-size="10" fill="#666">+V</text>
+        <text x="20" y="260" text-anchor="end" font-size="10" fill="#666">−V</text>
+        <text x="180" y="290" text-anchor="middle" font-size="10" fill="#666">time (μs)</text>
+        <text x="32" y="92" text-anchor="end" font-size="10" font-weight="700" fill="#0A1424">V</text>
+
+        <!-- Pulse waveform: rectangular -->
+        <path d="M 40 180 L 60 180 L 60 130 L 100 130 L 100 180 L 110 180 L 110 240 L 120 240 L 120 180 L 140 180 L 140 130 L 180 130 L 180 180 L 190 180 L 190 240 L 200 240 L 200 180 L 220 180 L 220 130 L 260 130 L 260 180 L 270 180 L 270 240 L 280 240 L 280 180 L 320 180" fill="none" stroke="url(#pulseG)" stroke-width="2.5"/>
+
+        <!-- Labels for cathodic / anodic -->
+        <text x="80" y="120" text-anchor="middle" font-size="9" fill="#B8941F" font-weight="700">deposit</text>
+        <text x="115" y="258" text-anchor="middle" font-size="9" fill="#666">anodic pulse</text>
+        <text x="115" y="270" text-anchor="middle" font-size="9" fill="#666">(shapes nano)</text>
+      </g>
+
+      <!-- RIGHT: Output -->
+      <g font-family="Inter, sans-serif" transform="translate(840, 0)">
+        <text x="180" y="50" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="2" fill="#0A1424">OUTPUT GRADES</text>
+
+        <!-- Output cards -->
+        <rect x="40" y="80" width="280" height="60" fill="#FFF" stroke="#0A1424" stroke-width="1"/>
+        <text x="60" y="105" font-size="13" font-weight="600" fill="#0A1424">Bullion ingot</text>
+        <text x="60" y="124" font-size="10" fill="#666">99.9% · ASTM B562 Grade 1 · ~$80/g</text>
+
+        <rect x="40" y="155" width="280" height="60" fill="#FFF" stroke="#0A1424" stroke-width="1"/>
+        <text x="60" y="180" font-size="13" font-weight="600" fill="#0A1424">Metal powder</text>
+        <text x="60" y="199" font-size="10" fill="#666">1–100 μm · $100–$500/kg</text>
+
+        <rect x="40" y="230" width="280" height="70" fill="#D4AF6D" stroke="#0A1424" stroke-width="1.5"/>
+        <text x="60" y="255" font-size="13" font-weight="700" fill="#FFF">Nanopowder ⚡</text>
+        <text x="60" y="274" font-size="10" fill="rgba(255,255,255,.95)">10–60 nm · $50–$2,000/kg</text>
+        <text x="60" y="290" font-size="10" font-weight="700" fill="#FFF">up to 25× bullion premium</text>
+      </g>
+    </svg>
+  </div>
+
+  <div style="margin-top: 48px; display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;">
+    <div>
+      <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--gold);">Selectivity at the ion level</h3>
+      <p>The cathode potential is held within millivolts of Au⁺'s reduction potential (≈ +1.5 V vs. SHE). Above that potential, only Au⁺ accepts electrons; Cu²⁺, Pb²⁺, Zn²⁺, As³⁺ remain in solution. The result is direct production of 99.9% pure gold from a complex polymetallic feed, without solvent extraction or ion exchange.</p>
+    </div>
+    <div>
+      <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--gold);">Pulse-shape engineering</h3>
+      <p>Short anodic pulses partially re-dissolve the deposited layer, controlling nucleation and grain growth. By tuning pulse frequency (kHz), duty cycle, and amplitude, the cell directly produces 10–60 nm nanoparticles, valued at $50–$2,000/kg vs. ~$80/g bullion — the same metal at up to 25× the price.</p>
+    </div>
+    <div>
+      <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--gold);">Low-temp electrochemistry</h3>
+      <p>Operating at 25–300 °C atmospheric, PCE bypasses pyrometallurgical smelting (1,000 °C+) entirely. Energy consumption drops 50%; greenhouse-gas emissions drop ~50%; the cell can run in any climate from arid desert to Arctic permafrost where wet-chemistry plants freeze or fail.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ VALUE UPLIFT PER MINE ============ -->
+<section style="padding: 100px 0;"><div class="container">
+  <div class="section-head left">
+    <div class="eyebrow">Per-mine value uplift</div>
+    <h2>What PCE adds to each <em>concession</em>.</h2>
+    <p class="lead" style="max-width:820px;">PCE is not a marginal upgrade. At Newcastle (Nevada), it transforms an exploration SPV worth $110–175M into a multi-billion-dollar producer within three years. At Farallón Negro (Argentina), it converts a 4.0 Mt tailings liability into a $52M+ annual EBITDA stream. All numbers below are sourced from internal Bober Khan Wealth / Geoenergy Solutions deployment models.</p>
+  </div>
+
+  <!-- ============ NEVADA UPLIFT TABLE + CHART ============ -->
+  <div style="margin-top: 56px;">
+    <div style="display:grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start;">
+      <div>
+        <p style="color:var(--gold); font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:600;">Case Study · Nevada</p>
+        <h3 style="font-family: var(--font-display); font-size: 2rem; margin-top: 8px;">Newcastle Claim · Lincoln County</h3>
+        <p style="margin-top: 16px;">A 12.5 kg/day (≈ 140,700 oz/yr) AuEq PCE production facility scaling at +30% annually. PCE delivers <strong>top-quartile capital efficiency</strong>: $410–$555 CapEx per annual AuEq oz vs. industry average $1,200+.</p>
+        <p><strong>From post-de-risking SPV ($110–$175M) → cash-flowing mid-tier producer ($3.7–$5.6B base case by 2029).</strong> That is a <strong>13–32× overall multiplication</strong> within three years — the single biggest valuation catalyst in the BKGT portfolio.</p>
+        <p style="margin-top: 16px;">CapEx footprint dramatically lower than the original 2020 NI 43-101 conventional plant ($192M for 2,000 tpd). The modular PCE route reaches the same scale at <strong>$106M cumulative through end-2029 — a 65% capital saving</strong>.</p>
+      </div>
+
+      <table class="data">
+        <thead><tr><th>Year</th><th>Daily AuEq</th><th>Annual oz</th><th>Revenue</th><th>EBITDA</th><th>Valuation</th></tr></thead>
+        <tbody>
+          <tr><td>2027</td><td>12.5 kg</td><td>140,700</td><td>$492M</td><td>$276M</td><td><strong>$2.2 – $3.3B</strong></td></tr>
+          <tr><td>2028</td><td>16.25 kg</td><td>182,900</td><td>$640M</td><td>$359M</td><td><strong>$2.9 – $4.3B</strong></td></tr>
+          <tr><td>2029</td><td>21.125 kg</td><td>237,800</td><td>$832M</td><td>$466M</td><td><strong>$3.7 – $5.6B</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Valuation uplift bar chart -->
+    <div style="margin-top: 56px;">
+      <svg viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:1200px; height:auto;">
+        <g font-family="Inter, sans-serif">
+          <text x="20" y="36" font-size="14" font-weight="700" letter-spacing="2" fill="#0A1424">VALUATION TRAJECTORY · NEWCASTLE PCE FACILITY</text>
+          <text x="20" y="56" font-size="11" fill="#666">Base case valuation by year ($B, 8–12× forward EBITDA)</text>
+
+          <!-- Axes -->
+          <line x1="80" y1="240" x2="1180" y2="240" stroke="#0A1424" stroke-width="1.5"/>
+          <line x1="80" y1="80" x2="80" y2="240" stroke="#0A1424" stroke-width="1.5"/>
+
+          <!-- Y labels -->
+          <text x="70" y="244" text-anchor="end" font-size="10" fill="#666">$0</text>
+          <text x="70" y="200" text-anchor="end" font-size="10" fill="#666">$2B</text>
+          <text x="70" y="160" text-anchor="end" font-size="10" fill="#666">$4B</text>
+          <text x="70" y="120" text-anchor="end" font-size="10" fill="#666">$6B</text>
+
+          <!-- Bars -->
+          <!-- 2026 SPV $110-175M -->
+          <rect x="180" y="232" width="120" height="8" fill="#999"/>
+          <text x="240" y="225" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1424">$110–175M</text>
+          <text x="240" y="260" text-anchor="middle" font-size="11" font-weight="600" fill="#666">2026 (pre-PCE SPV)</text>
+
+          <!-- 2027 $2.2-3.3B -->
+          <rect x="380" y="174" width="120" height="66" fill="#D4AF6D"/>
+          <text x="440" y="166" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1424">$2.2–3.3B</text>
+          <text x="440" y="260" text-anchor="middle" font-size="11" font-weight="600" fill="#666">2027 (12.5 kg/day)</text>
+
+          <!-- 2028 $2.9-4.3B -->
+          <rect x="580" y="154" width="120" height="86" fill="#C9A35A"/>
+          <text x="640" y="146" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1424">$2.9–4.3B</text>
+          <text x="640" y="260" text-anchor="middle" font-size="11" font-weight="600" fill="#666">2028 (16.25 kg/day)</text>
+
+          <!-- 2029 $3.7-5.6B -->
+          <rect x="780" y="128" width="120" height="112" fill="#B8941F"/>
+          <text x="840" y="120" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1424">$3.7–5.6B</text>
+          <text x="840" y="260" text-anchor="middle" font-size="11" font-weight="600" fill="#666">2029 (21.125 kg/day)</text>
+
+          <!-- Optimistic case -->
+          <rect x="980" y="104" width="120" height="136" fill="#0A1424"/>
+          <text x="1040" y="96" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1424">$6.5B+</text>
+          <text x="1040" y="260" text-anchor="middle" font-size="11" font-weight="600" fill="#666">Optimistic ($4k+/oz)</text>
+
+          <!-- Multiplier annotation -->
+          <text x="640" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#B8941F">13–32× value multiplication in 36 months</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ============ FARALLÓN NEGRO UPLIFT ============ -->
+  <div style="margin-top: 80px; padding-top: 80px; border-top: 1px solid var(--line);">
+    <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: start;">
+      <div>
+        <p style="color:var(--gold); font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:600;">Case Study · Argentina</p>
+        <h3 style="font-family: var(--font-display); font-size: 2rem; margin-top: 8px;">Farallón Negro · YMAD (60-year PPP)</h3>
+        <p style="margin-top: 16px;">Catamarca's existing operating mine produces an 8% Au-Ag semi-product through legacy cyanidation. PCE retrofits seamlessly into the existing electrowinning circuit — <strong>only rectifiers and controlled-potential software swap required, no new electrolyzer construction</strong>.</p>
+        <p>The strategic prize: <strong>4.0 million tons of historical tailings</strong> sitting on-site, dismissed as waste under cyanide economics but rich in "invisible" gold locked in pyrite. PCE recovers it. <strong>Conservative model: +$52.3M annual EBITDA from tailings reprocessing alone</strong>, on top of primary production.</p>
+        <p>Additional driver: the <strong>March 2024 Catamarca court injunction</strong> mandates EGIA (Integrated Cumulative Impact Study) and effectively bans new cyanide permits in the Los Patos River basin. PCE is the qualifying compliance pathway — no cyanide, &gt;80% closed-loop water in an arid Puna region.</p>
+      </div>
+
+      <div class="track-record" style="background: var(--paper); border-left: 3px solid var(--gold); padding: 32px;">
+        <h5>Farallón Negro PCE economics</h5>
+        <div class="entry"><div class="desc"><strong>Historical tailings stockpile</strong><br/>4.0 Mt previously written off under cyanide economics</div></div>
+        <div class="entry"><div class="desc"><strong>Conservative scenario EBITDA</strong><br/>+US$52.3M / year from tailings reprocessing (incremental)</div></div>
+        <div class="entry"><div class="desc"><strong>PCE pilot ROI</strong><br/>6–12 months payback</div></div>
+        <div class="entry"><div class="desc"><strong>EDMSU ROI</strong><br/>1 month – 1 year payback</div></div>
+        <div class="entry"><div class="desc"><strong>Reagent shift</strong><br/>Cyanide → thiourea / glycine (court-compliant)</div></div>
+        <div class="entry"><div class="desc"><strong>Water profile</strong><br/>EDMSU dry (0%) + PCE closed-loop (&gt;80% recycle)</div></div>
+        <div class="entry"><div class="desc"><strong>Backfill</strong><br/>EDMSU returns 70%+ of tailings as immediate dry backfill</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CAPEX SAVINGS VISUAL ============ -->
+  <div style="margin-top: 80px; padding-top: 80px; border-top: 1px solid var(--line);">
+    <div class="section-head left">
+      <div class="eyebrow">Capital efficiency</div>
+      <h3 style="font-family: var(--font-display); font-size: 2rem;">PCE modular vs. conventional fixed plant.</h3>
+      <p class="lead" style="max-width:820px;">Newcastle 140k oz/yr facility — original 2020 NI 43-101 conventional gravity/flotation/cyanidation plan vs. the modular PCE route. PCE delivers the same throughput at 35–65% lower capital intensity, with 3–6 month deployment vs. 24–36 months.</p>
+    </div>
+
+    <svg viewBox="0 0 1200 220" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:1200px; height:auto; margin-top: 32px;">
+      <g font-family="Inter, sans-serif">
+        <!-- Conventional bar -->
+        <text x="20" y="50" font-size="13" font-weight="700" letter-spacing="1" fill="#0A1424">Conventional NI 43-101 plan</text>
+        <text x="20" y="68" font-size="10" fill="#666">2,000 tpd · gravity/flotation/cyanidation · LoM CapEx</text>
+        <rect x="320" y="38" width="800" height="40" fill="#999"/>
+        <text x="730" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="#FFF">$192M</text>
+        <text x="1140" y="62" font-size="11" fill="#666">24–36 months deploy</text>
+
+        <!-- PCE bar -->
+        <text x="20" y="124" font-size="13" font-weight="700" letter-spacing="1" fill="#0A1424">PCE modular route</text>
+        <text x="20" y="142" font-size="10" fill="#666">Modular front-end + PCE refining cells · cumulative 2026–2029</text>
+        <rect x="320" y="112" width="442" height="40" fill="url(#goldGrad)"/>
+        <text x="540" y="136" text-anchor="middle" font-size="14" font-weight="700" fill="#FFF">$106M</text>
+        <text x="780" y="136" font-size="11" font-weight="700" fill="#B8941F">↓ 45% saving</text>
+
+        <!-- Pilot bar -->
+        <text x="20" y="198" font-size="13" font-weight="700" letter-spacing="1" fill="#0A1424">Phase 1 PCE Pilot only</text>
+        <text x="20" y="216" font-size="10" fill="#666">3-month demo plant on Newcastle ore</text>
+        <rect x="320" y="186" width="22" height="40" fill="#0A1424"/>
+        <text x="356" y="210" font-size="14" font-weight="700" fill="#0A1424">$5M</text>
+        <text x="430" y="210" font-size="11" font-weight="600" fill="#666">→ unlocks 3.5–5.5× SPV uplift</text>
+      </g>
+    </svg>
+
+    <div style="margin-top: 40px; display:grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+      <div style="padding: 24px; background: var(--paper); border: 1px solid var(--line);">
+        <div style="font-family: var(--font-display); font-size: 2rem; color: var(--gold); line-height:1;">$5M</div>
+        <div style="font-size: 10.5px; letter-spacing:.14em; text-transform:uppercase; color: var(--sub); margin-top: 8px;">Phase 1 pilot</div>
+        <p style="font-size: 13px; margin-top: 10px; color: #555;">3 months · full demo plant on Newcastle ore + metallurgical report</p>
+      </div>
+      <div style="padding: 24px; background: var(--paper); border: 1px solid var(--line);">
+        <div style="font-family: var(--font-display); font-size: 2rem; color: var(--gold); line-height:1;">$68M</div>
+        <div style="font-size: 10.5px; letter-spacing:.14em; text-transform:uppercase; color: var(--sub); margin-top: 8px;">Phase 2 initial facility</div>
+        <p style="font-size: 13px; margin-top: 10px; color: #555;">9–12 months · 12.5 kg/day = 140,700 oz/yr full modular plant</p>
+      </div>
+      <div style="padding: 24px; background: var(--paper); border: 1px solid var(--line);">
+        <div style="font-family: var(--font-display); font-size: 2rem; color: var(--gold); line-height:1;">$106M</div>
+        <div style="font-size: 10.5px; letter-spacing:.14em; text-transform:uppercase; color: var(--sub); margin-top: 8px;">Cumulative 2026–29</div>
+        <p style="font-size: 13px; margin-top: 10px; color: #555;">Full ramp through 21.125 kg/day = 237,800 oz/yr by 2029</p>
+      </div>
+      <div style="padding: 24px; background: #0A1424; color: #FFF; border: 1px solid #0A1424;">
+        <div style="font-family: var(--font-display); font-size: 2rem; color: var(--gold-2, #D4AF6D); line-height:1;">14–20 mo</div>
+        <div style="font-size: 10.5px; letter-spacing:.14em; text-transform:uppercase; color: rgba(255,255,255,.6); margin-top: 8px;">Payback period</div>
+        <p style="font-size: 13px; margin-top: 10px; color: rgba(255,255,255,.85);">At $3,500/oz AuEq with AISC $1,400/oz — top-quartile efficiency</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ NANOPOWDER SCENARIO ============ -->
+  <div style="margin-top: 80px; padding-top: 80px; border-top: 1px solid var(--line);">
+    <div class="section-head left">
+      <div class="eyebrow">Nanopowder scenario</div>
+      <h3 style="font-family: var(--font-display); font-size: 2rem;">When the same metal sells for <em>25× more</em>.</h3>
+      <p class="lead" style="max-width:820px;">A scaled-up Newcastle PCE plant producing 25 kg Au + 50 kg Ag + 25 kg Pt per day (365 days/year). At base spot prices the operation generates $1.10B/yr revenue. If 100% of output is nanopowder-grade, that figure scales to <strong>$27.6B/yr</strong> in theoretical maximum — the 25× nanopowder premium applied to an industrial-scale asset.</p>
+    </div>
+
+    <table class="data" style="margin-top: 28px;">
+      <thead><tr><th>Output mode</th><th>Annual production</th><th>Base revenue</th><th>2× premium</th><th>10× premium</th><th>25× premium (max)</th></tr></thead>
+      <tbody>
+        <tr><td>Au (25 kg/day)</td><td>9,125 kg/yr</td><td>$792M</td><td>$1.58B</td><td>$7.92B</td><td><strong>$19.8B</strong></td></tr>
+        <tr><td>Ag (50 kg/day)</td><td>18,250 kg/yr</td><td>$19M</td><td>$38M</td><td>$190M</td><td><strong>$470M</strong></td></tr>
+        <tr><td>Pt (25 kg/day)</td><td>9,125 kg/yr</td><td>$293M</td><td>$587M</td><td>$2.93B</td><td><strong>$7.34B</strong></td></tr>
+        <tr style="background: rgba(212,175,109,.08);"><td><strong>Total</strong></td><td>—</td><td><strong>$1.10B</strong></td><td><strong>$2.21B</strong></td><td><strong>$11.05B</strong></td><td><strong>$27.62B</strong></td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 14px; font-size: 12px; color: var(--sub);">Source: Bober Khan Wealth internal analysis 25 Oct 2025. Spot prices: Au $86,800/kg, Ag $1,030/kg, Pt $32,150/kg. Premiums depend on end-market: catalysts, electronics, biomedical, defense.</p>
+  </div>
 </div></section>
 
 <!-- ============ DEPLOYMENT TARGETS ============ -->
