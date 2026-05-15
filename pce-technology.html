@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/styles.css?v=57" />
+<link rel="stylesheet" href="assets/styles.css?v=63" />
 <style id="xt-overrides">
 /* Header logo - smaller, no distortion */
 header .brand img { height: 38px !important; width: auto !important; max-width: none !important; flex-shrink: 0 !important; }
@@ -118,6 +118,9 @@ nav.primary > .nav-item > a.cta-btn::after { display: none !important; }
 html { overflow-x: hidden !important; }
 body { overflow-x: hidden !important; position: relative !important; }
 img, video, iframe { max-width: 100% !important; height: auto !important; }
+/* Explicit sizes for branded logos (override global height:auto) */
+footer.site-footer .brand-block img.footer-mark { height: 44px !important; width: 44px !important; max-width: 44px !important; margin-bottom: 18px !important; filter: invert(1) brightness(2) !important; opacity: 0.92 !important; object-fit: contain !important; }
+header .brand img { height: 38px !important; width: auto !important; max-width: none !important; }
 
 @media (max-width: 900px) {
   /* Slim topbar: hide tagline + locations, keep MEMBERS button only */
@@ -339,7 +342,108 @@ img, video, iframe { max-width: 100% !important; height: auto !important; }
       <p>The patent envelope rests on <strong>controlled electrode potential</strong> driving selective metal deposition — a fundamentally different mechanism from galvanostatic (current-controlled) electrowinning. Pulse-waveform control of the cathode potential enables selectivity at the ion level: gold deposits, copper stays in solution, arsenic is rejected, neodymium reports separately from dysprosium — all in one cell.</p>
       <p>The underlying controlled-potential electrolysis principle was industrially validated at <strong>KGHM Polska Miedź in 2013</strong> on copper electrorefining. The technology platform is now adapted, patented, and being deployed for the recovery of gold, silver, PGMs, and rare-earth elements across XTOMORROW's mining-asset portfolio.</p>
     </div>
-    <div class="feature-image" style="aspect-ratio: 4/5; overflow:hidden;"><img src="img/desert-mining.jpg" alt="PCE electrolysis — secondary resource recovery" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+    <div style="aspect-ratio: 4/5; background: #0A1424; padding: 32px 28px; display:flex; align-items:center; justify-content:center;">
+  <svg viewBox="0 0 360 460" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+    <defs>
+      <linearGradient id="elec" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#1a2740"/><stop offset="100%" stop-color="#0A1424"/>
+      </linearGradient>
+      <linearGradient id="goldG2" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#D4AF6D"/><stop offset="100%" stop-color="#B8941F"/>
+      </linearGradient>
+      <radialGradient id="ionG" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#D4AF6D" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#D4AF6D" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <!-- Header label -->
+    <text x="180" y="32" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="3" fill="#D4AF6D">PCE ELECTROLYSIS CELL</text>
+    <line x1="80" y1="42" x2="280" y2="42" stroke="#D4AF6D" stroke-width="0.5" opacity="0.4"/>
+
+    <!-- Cell tank outline -->
+    <rect x="60" y="70" width="240" height="280" fill="url(#elec)" stroke="#D4AF6D" stroke-width="1.2" opacity="0.95"/>
+
+    <!-- Electrolyte fill effect -->
+    <rect x="62" y="100" width="236" height="248" fill="#1a2740" opacity="0.6"/>
+
+    <!-- Wire connections to power supply -->
+    <line x1="105" y1="70" x2="105" y2="45" stroke="#D4AF6D" stroke-width="1.5"/>
+    <line x1="255" y1="70" x2="255" y2="45" stroke="#D4AF6D" stroke-width="1.5"/>
+    <line x1="105" y1="45" x2="255" y2="45" stroke="#D4AF6D" stroke-width="1.5"/>
+    <circle cx="180" cy="45" r="3" fill="#D4AF6D"/>
+
+    <!-- Power source box (potentiostat) -->
+    <rect x="140" y="22" width="80" height="18" fill="#0A1424" stroke="#D4AF6D" stroke-width="1"/>
+    <text x="180" y="35" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#D4AF6D">POTENTIOSTAT</text>
+
+    <!-- Cathode and Anode polarity labels -->
+    <text x="105" y="63" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#FF6B6B">+</text>
+    <text x="255" y="63" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#6DBEFF">−</text>
+
+    <!-- ANODE (left) -->
+    <rect x="95" y="100" width="20" height="220" fill="#666" stroke="#D4AF6D" stroke-width="0.8"/>
+    <text x="105" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#fff">ANODE</text>
+
+    <!-- CATHODE (right) — gold-tinted with deposited Au layer -->
+    <rect x="245" y="100" width="20" height="220" fill="url(#goldG2)" stroke="#D4AF6D" stroke-width="0.8"/>
+    <text x="255" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#D4AF6D">CATHODE</text>
+    <text x="255" y="354" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="rgba(212,175,109,.85)">99.9% Au</text>
+
+    <!-- Ions floating in electrolyte -->
+    <!-- Gold ions (move toward cathode) -->
+    <circle cx="180" cy="160" r="11" fill="url(#ionG)"/>
+    <circle cx="180" cy="160" r="7" fill="#D4AF6D"/>
+    <text x="180" y="164" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" font-weight="700" fill="#0A1424">Au⁺</text>
+
+    <circle cx="220" cy="220" r="11" fill="url(#ionG)"/>
+    <circle cx="220" cy="220" r="7" fill="#D4AF6D"/>
+    <text x="220" y="224" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" font-weight="700" fill="#0A1424">Au⁺</text>
+
+    <circle cx="155" cy="260" r="7" fill="#D4AF6D"/>
+    <text x="155" y="264" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" font-weight="700" fill="#0A1424">Au⁺</text>
+
+    <!-- Rejected impurity ions (stay in solution / drift away) -->
+    <circle cx="155" cy="140" r="6" fill="#666"/>
+    <text x="155" y="143" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#fff">Cu²⁺</text>
+
+    <circle cx="200" cy="200" r="6" fill="#666"/>
+    <text x="200" y="203" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#fff">Zn²⁺</text>
+
+    <circle cx="155" cy="200" r="6" fill="#666"/>
+    <text x="155" y="203" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#fff">Pb²⁺</text>
+
+    <circle cx="220" cy="280" r="6" fill="#666"/>
+    <text x="220" y="283" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#fff">As³⁺</text>
+
+    <!-- Selective deposition arrows (gold ions toward cathode) -->
+    <g stroke="#D4AF6D" stroke-width="1.2" fill="none" opacity="0.7" marker-end="url(#a1)">
+      <line x1="190" y1="160" x2="240" y2="140"/>
+      <line x1="230" y1="220" x2="240" y2="220"/>
+      <line x1="165" y1="260" x2="240" y2="260"/>
+    </g>
+
+    <defs>
+      <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M0,0 L10,5 L0,10 z" fill="#D4AF6D"/>
+      </marker>
+    </defs>
+
+    <!-- Bottom labels -->
+    <line x1="60" y1="370" x2="300" y2="370" stroke="#D4AF6D" stroke-width="0.5" opacity="0.3"/>
+
+    <text x="60" y="395" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1.5" fill="rgba(255,255,255,.55)">CONTROL</text>
+    <text x="60" y="412" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#fff">Potentiostatic</text>
+    <text x="60" y="426" font-family="Inter, sans-serif" font-size="10" fill="rgba(255,255,255,.7)">Cathode V held at Au⁺ E°</text>
+
+    <text x="180" y="395" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1.5" fill="rgba(255,255,255,.55)">REAGENT</text>
+    <text x="180" y="412" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#fff">Electrons</text>
+    <text x="180" y="426" font-family="Inter, sans-serif" font-size="10" fill="rgba(255,255,255,.7)">No cyanide · no acids</text>
+
+    <text x="60" y="448" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1.5" fill="rgba(255,255,255,.55)">TEMP &amp; YIELD</text>
+    <text x="60" y="462" font-family="Inter, sans-serif" font-size="11" fill="rgba(212,175,109,.95)" font-weight="600">25–300 °C · &gt;98% current efficiency · 99.9% pure Au</text>
+  </svg>
+</div>
   </div>
 </div></section>
 
@@ -1521,7 +1625,7 @@ img, video, iframe { max-width: 100% !important; height: auto !important; }
       <a href="contact.html" class="btn">Contact technical team →</a>
     </div>
   </div>
-</div></section> <footer class="site-footer"> <div class="container"> <div class="grid"> <div class="brand-block"> <img src="assets/Long%20Logo.png" alt="X TOMORROW" /> <p>A multi-asset, multi-jurisdiction investment platform built around Security Token Offerings (STOs), Real-World Asset (RWA) tokenization, and the next generation of capital formation.</p> <p style="margin-top:16px; font-size:12px; color:rgba(255,255,255,.5);">XTOMORROW LLC<br/>1209 Mountain Road PL NE, STE R<br/>Albuquerque, NM 87110<br/>+1 (917) 409-7083 &middot; info@xtomorrow.com</p> </div> <div> <h5>Platform</h5> <a href="platform.html">Approach</a> <a href="sto.html">STO Issuance</a> <a href="rwa.html">RWA Tokenization</a> <a href="acquisitions.html">Asset Acquisition</a> <a href="capital-markets.html">Capital Markets</a> <a href="sharia-halal.html">Sharia &amp; Halal</a> </div> <div> <h5>Asset Classes</h5> <a href="mining.html">Mining</a> <a href="energy.html">Energy</a> <a href="real-estate.html">Real Estate</a> <a href="equities.html">Equities</a> <a href="fixed-income.html">Fixed Income</a> <a href="digital.html">Digital Assets</a> <a href="tokenized-funds.html">Tokenized Funds</a> </div> <div> <h5>Regulation</h5> <a href="regulation-us.html">United States</a> <a href="regulation-europe.html">Europe</a> <a href="regulation-asia.html">Asia</a> <a href="regulation-mideast.html">Middle East</a> <a href="regulation-sharia.html">Sharia</a> <a href="regulation-offshore.html">Offshore</a> </div> <div> <h5>Engage</h5> <a href="about.html">About</a> <a href="leadership.html">Leadership</a> <a href="careers.html">Careers</a> <a href="partnerships.html">Partnerships</a> <a href="press.html">Press</a> <a href="contact.html">Contact</a> <a href="disclosures.html">Disclosures</a> </div> </div> <div class="legal"> <span>&copy; 2026 XTOMORROW LLC. All rights reserved.</span> <span><a href="disclosures.html">Disclosures</a> &middot; <a href="disclosures.html">Privacy</a> &middot; <a href="disclosures.html">Terms</a></span> </div> </div>
+</div></section> <footer class="site-footer"> <div class="container"> <div class="grid"> <div class="brand-block"> <img src="img/logo.png" alt="XTOMORROW" class="footer-mark" /> <p>A multi-asset, multi-jurisdiction investment platform built around Security Token Offerings (STOs), Real-World Asset (RWA) tokenization, and the next generation of capital formation.</p> <p style="margin-top:16px; font-size:12px; color:rgba(255,255,255,.5);">XTOMORROW LLC<br/>1209 Mountain Road PL NE, STE R<br/>Albuquerque, NM 87110<br/>+1 (917) 409-7083 &middot; info@xtomorrow.com</p> </div> <div> <h5>Platform</h5> <a href="platform.html">Approach</a> <a href="sto.html">STO Issuance</a> <a href="rwa.html">RWA Tokenization</a> <a href="acquisitions.html">Asset Acquisition</a> <a href="capital-markets.html">Capital Markets</a> <a href="sharia-halal.html">Sharia &amp; Halal</a> </div> <div> <h5>Asset Classes</h5> <a href="mining.html">Mining</a> <a href="energy.html">Energy</a> <a href="real-estate.html">Real Estate</a> <a href="equities.html">Equities</a> <a href="fixed-income.html">Fixed Income</a> <a href="digital.html">Digital Assets</a> <a href="tokenized-funds.html">Tokenized Funds</a> </div> <div> <h5>Regulation</h5> <a href="regulation-us.html">United States</a> <a href="regulation-europe.html">Europe</a> <a href="regulation-asia.html">Asia</a> <a href="regulation-mideast.html">Middle East</a> <a href="regulation-sharia.html">Sharia</a> <a href="regulation-offshore.html">Offshore</a> </div> <div> <h5>Engage</h5> <a href="about.html">About</a> <a href="leadership.html">Leadership</a> <a href="careers.html">Careers</a> <a href="partnerships.html">Partnerships</a> <a href="press.html">Press</a> <a href="contact.html">Contact</a> <a href="disclosures.html">Disclosures</a> </div> </div> <div class="legal"> <span>&copy; 2026 XTOMORROW LLC. All rights reserved.</span> <span><a href="disclosures.html">Disclosures</a> &middot; <a href="disclosures.html">Privacy</a> &middot; <a href="disclosures.html">Terms</a></span> </div> </div>
 </footer>
 <div class="disclosure"> <div class="container"> <span class="label">Important Notice &middot; Regulatory Disclosure</span> <p><strong>XTOMORROW LLC</strong> is a multi-asset, multi-jurisdiction investment platform. Nothing on this website constitutes an offer to sell, or a solicitation of an offer to buy, any security, fund, partnership interest, token, digital asset, or other financial instrument.</p> <p>Security tokens and tokenized real-world assets referenced on this site are made available exclusively to qualified, accredited, or institutional investors in jurisdictions where such offerings are permitted by applicable law, and only pursuant to definitive offering documents prepared in compliance with the relevant securities frameworks (including, where applicable, US Reg D 506(c) &middot; Reg S &middot; Reg A+ &middot; Rule 144A &middot; EU MiCA &middot; UK FCA Digital Securities Sandbox &middot; Singapore MAS &middot; UAE ADGM &middot; FINMA).</p> <p>All references to historical performance, asset valuations, projected returns, and portfolio composition are illustrative and subject to change without notice. Past performance is not indicative of future results. Forward-looking statements involve known and unknown risks that may cause actual results to differ materially. Investing involves substantial risk, including the risk of total loss of principal.</p> <p>Sharia-compliance references reflect attestations issued by independent bodies (MRHB, AAOIFI-aligned scholars) at the relevant date; compliance status may vary across products and tranches. Information presented on this website is intended for institutional and professional investors only.</p> </div>
 </div> <script>
