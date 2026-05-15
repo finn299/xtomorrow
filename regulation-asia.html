@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/styles.css?v=47" />
+<link rel="stylesheet" href="assets/styles.css?v=49" />
 <style id="xt-overrides">
 /* Header logo - smaller, no distortion */
 header .brand img { height: 38px !important; width: auto !important; max-width: none !important; flex-shrink: 0 !important; }
@@ -113,206 +113,199 @@ nav.primary > .nav-item > a.cta-btn {
 nav.primary > .nav-item > a.cta-btn:hover { background: #1a2740 !important; }
 nav.primary > .nav-item > a.cta-btn::after { display: none !important; }
 
-/* MOBILE — Axios-style polish (v2 — robust) */
+/* MOBILE — AXIOS-pattern port (v4) */
 
-/* GLOBAL: kill horizontal scroll bug on every page */
-html, body { overflow-x: hidden !important; max-width: 100vw !important; }
-body * { max-width: 100vw; }
-img, video, iframe, svg { max-width: 100% !important; height: auto; }
+/* Kill horizontal scroll safely */
+html { overflow-x: hidden !important; }
+body { overflow-x: hidden !important; position: relative !important; }
+img, video, iframe { max-width: 100% !important; height: auto !important; }
+
+/* Hamburger button — always 44x44, with animated bars (AXIOS) */
+button.mobile-toggle {
+  display: none;
+  width: 44px !important;
+  height: 44px !important;
+  border: 1px solid rgba(10,10,10,.2) !important;
+  background: #FFFFFF !important;
+  cursor: pointer !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  border-radius: 2px !important;
+  -webkit-tap-highlight-color: rgba(212,175,109,.3) !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  touch-action: manipulation !important;
+  z-index: 1100 !important;
+  font-size: 0 !important;
+  color: transparent !important;
+}
+button.mobile-toggle .bar,
+button.mobile-toggle .bar::before,
+button.mobile-toggle .bar::after {
+  display: block !important;
+  width: 18px !important;
+  height: 2px !important;
+  background: #0A0A0A !important;
+  transition: transform .25s, opacity .15s !important;
+  content: '' !important;
+}
+button.mobile-toggle .bar { position: relative !important; }
+button.mobile-toggle .bar::before { position: absolute !important; left: 0 !important; top: -6px !important; }
+button.mobile-toggle .bar::after  { position: absolute !important; left: 0 !important; top:  6px !important; }
+button.mobile-toggle[aria-expanded="true"] .bar { background: transparent !important; }
+button.mobile-toggle[aria-expanded="true"] .bar::before { transform: translateY(6px) rotate(45deg) !important; }
+button.mobile-toggle[aria-expanded="true"] .bar::after  { transform: translateY(-6px) rotate(-45deg) !important; }
 
 @media (max-width: 900px) {
-  /* === TOPBAR: single thin line, no wrap, no locations === */
-  .topbar { min-height: 34px !important; }
-  .topbar .container {
-    padding: 0 0 0 14px !important;
-    min-height: 34px !important;
-    height: 34px !important;
-    gap: 8px !important;
-    align-items: stretch !important;
-    flex-wrap: nowrap !important;
-    overflow: hidden !important;
-  }
-  .topbar .container > span:first-child {
-    font-size: 10.5px !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-    padding: 0 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-  }
-  .topbar .topbar-right .locations { display: none !important; }
-  .topbar .topbar-right { gap: 0 !important; flex: 0 0 auto !important; }
-  .topbar .member-portal-btn {
-    padding: 0 14px !important;
-    font-size: 10px !important;
-    letter-spacing: .12em !important;
-    height: 34px !important;
-  }
+  /* TOPBAR hidden (AXIOS approach) */
+  .topbar { display: none !important; }
 
-  /* === HEADER: slim, no wrap === */
+  /* HEADER slim */
+  header.site-header { position: relative !important; }
   header.site-header .nav-wrap {
-    padding: 12px 16px !important;
+    padding: 14px 16px !important;
+    height: 64px !important;
+    display: flex !important;
     align-items: center !important;
+    justify-content: space-between !important;
     flex-wrap: nowrap !important;
   }
-  header .brand img { height: 28px !important; }
+  header .brand img { height: 30px !important; }
 
-  /* === HAMBURGER BUTTON: 44x44 explicit hit target, iOS-safe === */
-  button.mobile-toggle {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: transparent !important;
-    color: #0A0A0A !important;
-    border: 0 !important;
-    padding: 0 !important;
-    width: 44px !important;
-    height: 44px !important;
-    min-width: 44px !important;
-    font-size: 0 !important;
-    line-height: 1 !important;
-    text-indent: -9999px !important;
-    overflow: hidden !important;
-    position: relative !important;
-    z-index: 1100 !important;
-    -webkit-tap-highlight-color: rgba(0,0,0,0.06) !important;
-    touch-action: manipulation !important;
-    cursor: pointer !important;
-  }
-  button.mobile-toggle::before {
-    content: '' !important;
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 22px !important;
-    height: 16px !important;
-    background-image:
-      linear-gradient(#0A0A0A,#0A0A0A),
-      linear-gradient(#0A0A0A,#0A0A0A),
-      linear-gradient(#0A0A0A,#0A0A0A) !important;
-    background-size: 22px 2px !important;
-    background-position: 0 0, 0 7px, 0 14px !important;
-    background-repeat: no-repeat !important;
-    text-indent: 0 !important;
-    font-size: 0 !important;
-  }
-  body.menu-open button.mobile-toggle::before {
-    width: 22px !important;
-    height: 22px !important;
-    background-image:
-      linear-gradient(#0A0A0A,#0A0A0A),
-      linear-gradient(#0A0A0A,#0A0A0A) !important;
-    background-size: 22px 2px !important;
-    background-position: center center, center center !important;
-    background-repeat: no-repeat !important;
-    transform: translate(-50%, -50%) !important;
-  }
-  body.menu-open button.mobile-toggle::before {
-    background:
-      linear-gradient(45deg, transparent 45%, #0A0A0A 45%, #0A0A0A 55%, transparent 55%),
-      linear-gradient(-45deg, transparent 45%, #0A0A0A 45%, #0A0A0A 55%, transparent 55%) !important;
-    width: 22px !important;
-    height: 22px !important;
-  }
+  /* Show hamburger */
+  button.mobile-toggle { display: inline-flex !important; }
 
-  /* === MOBILE MENU DRAWER === */
-  nav.primary.mobile-open {
+  /* DRAWER — full-screen below header (AXIOS pattern) */
+  nav.primary {
+    display: none !important;
+    position: fixed !important;
+    top: 64px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    flex-direction: column !important;
     background: #FFFFFF !important;
-    padding: 72px 22px 40px !important;
-    width: min(380px, 100vw) !important;
-    z-index: 999 !important;
-  }
-  nav.primary.mobile-open > .nav-item {
+    padding: 8px 20px 40px !important;
+    margin: 0 !important;
+    z-index: 1050 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 0 !important;
     width: 100% !important;
-    border-bottom: 1px solid rgba(0,0,0,.08) !important;
+    max-width: 100vw !important;
   }
-  nav.primary.mobile-open > .nav-item > a {
+  nav.primary.mobile-open { display: flex !important; }
+  body.menu-open { overflow: hidden !important; }
+
+  nav.primary > .nav-item {
+    width: 100% !important;
+    border-bottom: 1px solid rgba(0,0,0,.10) !important;
+  }
+  nav.primary > .nav-item > a {
     display: block !important;
-    color: #0A0A0A !important;
+    padding: 16px 0 !important;
     font-size: 13.5px !important;
     font-weight: 600 !important;
     letter-spacing: .08em !important;
-    padding: 16px 0 !important;
+    color: #0A0A0A !important;
     text-transform: uppercase !important;
     border-bottom: 0 !important;
     background: transparent !important;
   }
-  nav.primary.mobile-open > .nav-item > a::after { display: none !important; }
-  nav.primary.mobile-open .mega {
-    display: block !important;
+  /* Chevron for items with sub-mega */
+  nav.primary > .nav-item > a::after {
+    content: '' !important;
+    display: inline-block !important;
+    float: right !important;
+    width: 7px !important;
+    height: 7px !important;
+    border-right: 1.5px solid #555 !important;
+    border-bottom: 1.5px solid #555 !important;
+    transform: rotate(45deg) !important;
+    margin-top: 8px !important;
+    transition: transform .2s !important;
+    opacity: 1 !important;
+  }
+  nav.primary > .nav-item.is-open > a::after { transform: rotate(225deg) !important; margin-top: 12px !important; }
+  nav.primary > .nav-item > a.cta-btn::after { display: none !important; }
+
+  /* MEGA becomes accordion panel — hidden by default, shown when parent .is-open */
+  nav.primary .mega {
+    display: none !important;
     position: static !important;
+    transform: none !important;
     visibility: visible !important;
     opacity: 1 !important;
-    transform: none !important;
     box-shadow: none !important;
-    background: transparent !important;
+    background: var(--cream-2, #F8F5EE) !important;
     border: 0 !important;
-    padding: 0 0 12px 0 !important;
+    padding: 4px 0 14px !important;
     width: 100% !important;
     min-width: 0 !important;
+    margin: 0 0 6px !important;
   }
-  nav.primary.mobile-open .mega-grid,
-  nav.primary.mobile-open .mega-grid.three {
+  nav.primary > .nav-item.is-open .mega { display: block !important; }
+  /* Override hover-show on desktop CSS */
+  nav.primary > .nav-item:hover .mega,
+  nav.primary > .nav-item:focus-within .mega { display: none !important; }
+  nav.primary > .nav-item.is-open:hover .mega,
+  nav.primary > .nav-item.is-open .mega { display: block !important; }
+
+  nav.primary .mega-grid,
+  nav.primary .mega-grid.three {
     display: block !important;
     grid-template-columns: 1fr !important;
     gap: 0 !important;
-    min-width: 0 !important;
   }
-  nav.primary.mobile-open .mega-grid a {
+  nav.primary .mega-grid a {
     display: block !important;
-    padding: 11px 14px !important;
+    padding: 11px 12px !important;
     font-size: 12.5px !important;
     color: #444 !important;
     text-transform: none !important;
     letter-spacing: 0 !important;
-    border-bottom: 0 !important;
-    background: rgba(0,0,0,.025) !important;
-    margin-bottom: 4px !important;
-    border-radius: 2px !important;
+    border-bottom: 1px solid rgba(0,0,0,.06) !important;
+    background: transparent !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
     font-weight: 500 !important;
   }
-  nav.primary.mobile-open .mega-grid a:hover { background: rgba(212,175,109,.12) !important; color: #0A0A0A !important; }
-  nav.primary.mobile-open .mega-grid a .label {
+  nav.primary .mega-grid a:last-child { border-bottom: 0 !important; }
+  nav.primary .mega-grid a .label {
     display: block !important;
     font-size: 10px !important;
     color: #999 !important;
     margin-top: 2px !important;
     font-weight: 400 !important;
   }
-  nav.primary.mobile-open > .nav-item > a.cta-btn {
+
+  nav.primary > .nav-item > a.cta-btn {
     background: #0A1424 !important;
     color: #FFFFFF !important;
     text-align: center !important;
-    margin-top: 20px !important;
+    margin: 20px 0 0 !important;
     padding: 14px 18px !important;
-    border-bottom: 0 !important;
     border-radius: 2px !important;
   }
-  nav.primary.mobile-open > .nav-item > a.cta-btn::after { display: none !important; }
 
-  /* Body lock when menu open */
-  body.menu-open { overflow: hidden !important; position: fixed !important; width: 100% !important; }
-}
+  /* Container padding */
+  .container { padding-left: 16px !important; padding-right: 16px !important; }
+  section.hero > .container { padding: 56px 16px 40px !important; }
+  section.hero > .container > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  section.hero aside { max-width: 100% !important; width: 100% !important; padding: 20px !important; }
 
-@media (max-width: 480px) {
-  .topbar .container > span:first-child { font-size: 10px !important; }
-  .topbar .member-portal-btn { padding: 0 10px !important; font-size: 9.5px !important; }
-}
-
-/* === Hero/Aside on mobile: force stack, no horizontal overflow === */
-@media (max-width: 900px) {
-  section.hero > .container { padding: 0 16px !important; }
-  section.hero aside { width: 100% !important; max-width: 100% !important; }
+  /* Tables horizontally scroll */
+  table.data { display: block !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
 }
 </style>
 </head>
 <body> <div class="topbar"> <div class="container"> <span>XTOMORROW &middot; A multi-asset, multi-jurisdiction investment platform</span> <span class="topbar-right"> <span class="locations">Dallas &middot; Albuquerque &middot; Singapore &middot; London &middot; Buenos Aires</span> <a href="member-portal.html" class="member-portal-btn">Members</a> </span> </div>
 </div>
-<header class="site-header"> <div class="nav-wrap"> <a href="index.html" class="brand"> <img src="assets/Long%20Logo.png" alt="X TOMORROW" /> </a> <nav class="primary"> <div class="nav-item"><a href="about.html">ABOUT</a> <div class="mega"> <div class="mega-grid"> <a href="about.html">Firm Overview<span class="label">Who we are</span></a> <a href="leadership.html">Leadership<span class="label">Principals &amp; advisors</span></a> <a href="history.html">History<span class="label">Three decades of platform-building</span></a> <a href="companies.html">Sister Companies<span class="label">XTOMORROW · IEP · BKWH · Geoenergy</span></a> <a href="locations.html">Locations<span class="label">Global presence</span></a> <a href="sustainability.html">Sustainability<span class="label">ESG &amp; impact</span></a> </div> </div> </div> <div class="nav-item"><a href="platform.html">PLATFORM</a> <div class="mega"> <div class="mega-grid"> <a href="platform.html">Approach<span class="label">How we operate</span></a> <a href="sto.html">STO Issuance &amp; Structuring<span class="label">Multi-jurisdiction</span></a> <a href="rwa.html">RWA Tokenization<span class="label">Real-world asset rails</span></a> <a href="acquisitions.html">Asset Acquisition &amp; Operations<span class="label">Mining · energy · real estate</span></a> <a href="capital-markets.html">Capital Markets<span class="label">De-SPAC · IPO · PIPE</span></a> <a href="sharia-halal.html">Sharia &amp; Halal Finance<span class="label">AAOIFI · MRHB certification</span></a> </div> </div> </div> <div class="nav-item"><a href="assets.html">ASSETS</a> <div class="mega"> <div class="mega-grid three"> <a href="mining.html">Mining &amp; Critical Minerals<span class="label">Au · Ag · PGM · Cu · Li · REE</span></a> <a href="energy.html">Energy<span class="label">Oil &amp; gas · geothermal · clean</span></a> <a href="real-estate.html">Real Estate<span class="label">Direct &amp; structured equity</span></a> <a href="equities.html">Public Equities<span class="label">Concentrated &amp; event-driven</span></a> <a href="fixed-income.html">Fixed Income<span class="label">Sovereign · credit</span></a> <a href="digital.html">Digital Assets<span class="label">Core blockchain</span></a> <a href="tokenized-funds.html">Tokenized Funds<span class="label">Wrapped exposures</span></a> <a href="nevada.html">Nevada Newcastle<span class="label">Multi-metal placer · PCE</span></a> <a href="argentina.html">Argentina Farallón Negro<span class="label">YMAD 60-yr PPP</span></a> </div> </div> </div> <div class="nav-item"><a href="markets.html">MARKETS</a> <div class="mega"> <div class="mega-grid"> <a href="markets.html">Markets Overview<span class="label">Macro framework</span></a> <a href="sto-outlook.html">STO Global Outlook<span class="label">Capital formation 2030</span></a> <a href="tokenization.html">Tokenization 2030<span class="label">$16T market thesis</span></a> <a href="crypto.html">Crypto · Web3 Future<span class="label">TradFi-Crypto hybrids</span></a> <a href="mining-markets.html">Mining Markets<span class="label">Commodities supercycle</span></a> <a href="macro.html">Macro Outlook<span class="label">Rates · FX · liquidity</span></a> <a href="markets-live.html">Live Crypto &amp; STO<span class="label">Real-time tokenized markets</span></a> <a href="commodities-live.html">Live Commodities<span class="label">Gold · Silver · Copper · Oil</span></a> </div> </div> </div> <div class="nav-item"><a href="regulation.html">REGULATION</a> <div class="mega"> <div class="mega-grid three"> <a href="regulation.html">Global Overview<span class="label">Top-10 jurisdictions</span></a> <a href="regulation-us.html">United States<span class="label">SEC · Reg D / A+ / S</span></a> <a href="regulation-europe.html">Europe<span class="label">MiCA · eWpG · DLT Pilot</span></a> <a href="regulation-uk.html">United Kingdom<span class="label">FCA · Digital Securities Sandbox</span></a> <a href="regulation-asia.html">Korea &amp; Asia<span class="label">FSC · MAS · SFC · FSA</span></a> <a href="regulation-mideast.html">Middle East<span class="label">ADGM · DIFC · VARA · CMA</span></a> <a href="regulation-sharia.html">Sharia &amp; Halal<span class="label">AAOIFI · MRHB</span></a> <a href="regulation-offshore.html">Offshore<span class="label">Cayman · BVI · Gibraltar</span></a> <a href="regulation-switzerland.html">Switzerland<span class="label">FINMA · DLT Act</span></a> </div> </div> </div> <div class="nav-item"><a href="technology.html">TECHNOLOGY</a> <div class="mega"> <div class="mega-grid"> <a href="technology.html">Technology Overview<span class="label">Stack &amp; integration</span></a> <a href="pce-technology.html">PCE Mining Technology<span class="label">Potential-Controlled Electrolysis</span></a> <a href="edmsu.html">EDMSU<span class="label">Dry magnetic separation</span></a> <a href="blockchain-infra.html">Blockchain Infrastructure<span class="label">ERC-3643 · Lumia · Base</span></a> <a href="custody.html">Custody &amp; Proof-of-Reserve<span class="label">Anchorage · Chainlink PoR</span></a> </div> </div> </div> <div class="nav-item"><a href="insights.html">INSIGHTS</a> <div class="mega right-aligned"> <div class="mega-grid"> <a href="insights.html">Insights<span class="label">Editorial</span></a> <a href="research.html">Research<span class="label">Long-form theses</span></a> <a href="press.html">Press<span class="label">News &amp; releases</span></a> <a href="reports.html">Reports<span class="label">White papers</span></a> </div> </div> </div> <div class="nav-item"><a href="contact.html" class="cta-btn">CONTACT</a></div> </nav> <button class="mobile-toggle" onclick="(function(b){var n=document.querySelector('nav.primary');n.classList.toggle('mobile-open');document.body.classList.toggle('menu-open');b.innerHTML=n.classList.contains('mobile-open')?'Close':'Menu';})(this)">Menu</button> </div>
+<header class="site-header"> <div class="nav-wrap"> <a href="index.html" class="brand"> <img src="assets/Long%20Logo.png" alt="X TOMORROW" /> </a> <nav class="primary"> <div class="nav-item"><a href="about.html">ABOUT</a> <div class="mega"> <div class="mega-grid"> <a href="about.html">Firm Overview<span class="label">Who we are</span></a> <a href="leadership.html">Leadership<span class="label">Principals &amp; advisors</span></a> <a href="history.html">History<span class="label">Three decades of platform-building</span></a> <a href="companies.html">Sister Companies<span class="label">XTOMORROW · IEP · BKWH · Geoenergy</span></a> <a href="locations.html">Locations<span class="label">Global presence</span></a> <a href="sustainability.html">Sustainability<span class="label">ESG &amp; impact</span></a> </div> </div> </div> <div class="nav-item"><a href="platform.html">PLATFORM</a> <div class="mega"> <div class="mega-grid"> <a href="platform.html">Approach<span class="label">How we operate</span></a> <a href="sto.html">STO Issuance &amp; Structuring<span class="label">Multi-jurisdiction</span></a> <a href="rwa.html">RWA Tokenization<span class="label">Real-world asset rails</span></a> <a href="acquisitions.html">Asset Acquisition &amp; Operations<span class="label">Mining · energy · real estate</span></a> <a href="capital-markets.html">Capital Markets<span class="label">De-SPAC · IPO · PIPE</span></a> <a href="sharia-halal.html">Sharia &amp; Halal Finance<span class="label">AAOIFI · MRHB certification</span></a> </div> </div> </div> <div class="nav-item"><a href="assets.html">ASSETS</a> <div class="mega"> <div class="mega-grid three"> <a href="mining.html">Mining &amp; Critical Minerals<span class="label">Au · Ag · PGM · Cu · Li · REE</span></a> <a href="energy.html">Energy<span class="label">Oil &amp; gas · geothermal · clean</span></a> <a href="real-estate.html">Real Estate<span class="label">Direct &amp; structured equity</span></a> <a href="equities.html">Public Equities<span class="label">Concentrated &amp; event-driven</span></a> <a href="fixed-income.html">Fixed Income<span class="label">Sovereign · credit</span></a> <a href="digital.html">Digital Assets<span class="label">Core blockchain</span></a> <a href="tokenized-funds.html">Tokenized Funds<span class="label">Wrapped exposures</span></a> <a href="nevada.html">Nevada Newcastle<span class="label">Multi-metal placer · PCE</span></a> <a href="argentina.html">Argentina Farallón Negro<span class="label">YMAD 60-yr PPP</span></a> </div> </div> </div> <div class="nav-item"><a href="markets.html">MARKETS</a> <div class="mega"> <div class="mega-grid"> <a href="markets.html">Markets Overview<span class="label">Macro framework</span></a> <a href="sto-outlook.html">STO Global Outlook<span class="label">Capital formation 2030</span></a> <a href="tokenization.html">Tokenization 2030<span class="label">$16T market thesis</span></a> <a href="crypto.html">Crypto · Web3 Future<span class="label">TradFi-Crypto hybrids</span></a> <a href="mining-markets.html">Mining Markets<span class="label">Commodities supercycle</span></a> <a href="macro.html">Macro Outlook<span class="label">Rates · FX · liquidity</span></a> <a href="markets-live.html">Live Crypto &amp; STO<span class="label">Real-time tokenized markets</span></a> <a href="commodities-live.html">Live Commodities<span class="label">Gold · Silver · Copper · Oil</span></a> </div> </div> </div> <div class="nav-item"><a href="regulation.html">REGULATION</a> <div class="mega"> <div class="mega-grid three"> <a href="regulation.html">Global Overview<span class="label">Top-10 jurisdictions</span></a> <a href="regulation-us.html">United States<span class="label">SEC · Reg D / A+ / S</span></a> <a href="regulation-europe.html">Europe<span class="label">MiCA · eWpG · DLT Pilot</span></a> <a href="regulation-uk.html">United Kingdom<span class="label">FCA · Digital Securities Sandbox</span></a> <a href="regulation-asia.html">Korea &amp; Asia<span class="label">FSC · MAS · SFC · FSA</span></a> <a href="regulation-mideast.html">Middle East<span class="label">ADGM · DIFC · VARA · CMA</span></a> <a href="regulation-sharia.html">Sharia &amp; Halal<span class="label">AAOIFI · MRHB</span></a> <a href="regulation-offshore.html">Offshore<span class="label">Cayman · BVI · Gibraltar</span></a> <a href="regulation-switzerland.html">Switzerland<span class="label">FINMA · DLT Act</span></a> </div> </div> </div> <div class="nav-item"><a href="technology.html">TECHNOLOGY</a> <div class="mega"> <div class="mega-grid"> <a href="technology.html">Technology Overview<span class="label">Stack &amp; integration</span></a> <a href="pce-technology.html">PCE Mining Technology<span class="label">Potential-Controlled Electrolysis</span></a> <a href="edmsu.html">EDMSU<span class="label">Dry magnetic separation</span></a> <a href="blockchain-infra.html">Blockchain Infrastructure<span class="label">ERC-3643 · Lumia · Base</span></a> <a href="custody.html">Custody &amp; Proof-of-Reserve<span class="label">Anchorage · Chainlink PoR</span></a> </div> </div> </div> <div class="nav-item"><a href="insights.html">INSIGHTS</a> <div class="mega right-aligned"> <div class="mega-grid"> <a href="insights.html">Insights<span class="label">Editorial</span></a> <a href="research.html">Research<span class="label">Long-form theses</span></a> <a href="press.html">Press<span class="label">News &amp; releases</span></a> <a href="reports.html">Reports<span class="label">White papers</span></a> </div> </div> </div> <div class="nav-item"><a href="contact.html" class="cta-btn">CONTACT</a></div> </nav> <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false"><span class="bar"></span></button> </div>
 </header>
 <section class="page-head with-image" style="background-image: linear-gradient(135deg, rgba(10,20,36,.78) 0%, rgba(6,13,26,.92) 100%), url('img/pexels-nyc-real.jpg');"> <div class="container"> <div class="eyebrow">Korea &amp; Asia</div> <h1>The <em>fastest-moving block</em> in institutional tokenization.</h1> <p class="lead">Korea's STO framework, Singapore's Project Guardian, Hong Kong's tokenized-bond programme, and Japan's evolving security-token regime collectively form the world's most active institutional tokenization corridor.</p> </div>
 </section>
@@ -323,5 +316,6 @@ img, video, iframe, svg { max-width: 100% !important; height: auto; }
 <footer class="site-footer"> <div class="container"> <div class="grid"> <div class="brand-block"> <img src="assets/Long%20Logo.png" alt="X TOMORROW" /> <p>A multi-asset, multi-jurisdiction investment platform built around Security Token Offerings (STOs), Real-World Asset (RWA) tokenization, and the next generation of capital formation.</p> <p style="margin-top:16px; font-size:12px; color:rgba(255,255,255,.5);">XTOMORROW LLC<br/>1209 Mountain Road PL NE, STE R<br/>Albuquerque, NM 87110<br/>+1 (917) 409-7083 &middot; info@xtomorrow.com</p> </div> <div> <h5>Platform</h5> <a href="platform.html">Approach</a> <a href="sto.html">STO Issuance</a> <a href="rwa.html">RWA Tokenization</a> <a href="acquisitions.html">Asset Acquisition</a> <a href="capital-markets.html">Capital Markets</a> <a href="sharia-halal.html">Sharia &amp; Halal</a> </div> <div> <h5>Asset Classes</h5> <a href="mining.html">Mining</a> <a href="energy.html">Energy</a> <a href="real-estate.html">Real Estate</a> <a href="equities.html">Equities</a> <a href="fixed-income.html">Fixed Income</a> <a href="digital.html">Digital Assets</a> <a href="tokenized-funds.html">Tokenized Funds</a> </div> <div> <h5>Regulation</h5> <a href="regulation-us.html">United States</a> <a href="regulation-europe.html">Europe</a> <a href="regulation-asia.html">Asia</a> <a href="regulation-mideast.html">Middle East</a> <a href="regulation-sharia.html">Sharia</a> <a href="regulation-offshore.html">Offshore</a> </div> <div> <h5>Engage</h5> <a href="about.html">About</a> <a href="leadership.html">Leadership</a> <a href="careers.html">Careers</a> <a href="partnerships.html">Partnerships</a> <a href="press.html">Press</a> <a href="contact.html">Contact</a> <a href="disclosures.html">Disclosures</a> </div> </div> <div class="legal"> <span>&copy; 2026 XTOMORROW LLC. All rights reserved.</span> <span><a href="disclosures.html">Disclosures</a> &middot; <a href="disclosures.html">Privacy</a> &middot; <a href="disclosures.html">Terms</a></span> </div> </div>
 </footer>
 <div class="disclosure"> <div class="container"> <span class="label">Important Notice &middot; Regulatory Disclosure</span> <p><strong>XTOMORROW LLC</strong> is a multi-asset, multi-jurisdiction investment platform. Nothing on this website constitutes an offer to sell, or a solicitation of an offer to buy, any security, fund, partnership interest, token, digital asset, or other financial instrument.</p> <p>Security tokens and tokenized real-world assets referenced on this site are made available exclusively to qualified, accredited, or institutional investors in jurisdictions where such offerings are permitted by applicable law, and only pursuant to definitive offering documents prepared in compliance with the relevant securities frameworks (including, where applicable, US Reg D 506(c) &middot; Reg S &middot; Reg A+ &middot; Rule 144A &middot; EU MiCA &middot; UK FCA Digital Securities Sandbox &middot; Singapore MAS &middot; UAE ADGM &middot; FINMA).</p> <p>All references to historical performance, asset valuations, projected returns, and portfolio composition are illustrative and subject to change without notice. Past performance is not indicative of future results. Forward-looking statements involve known and unknown risks that may cause actual results to differ materially. Investing involves substantial risk, including the risk of total loss of principal.</p> <p>Sharia-compliance references reflect attestations issued by independent bodies (MRHB, AAOIFI-aligned scholars) at the relevant date; compliance status may vary across products and tranches. Information presented on this website is intended for institutional and professional investors only.</p> </div>
-</div> </body>
+</div> <script src="assets/mobile-nav.js?v=1" defer></script>
+</body>
 </html>
