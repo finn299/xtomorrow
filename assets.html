@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/styles.css?v=49" />
+<link rel="stylesheet" href="assets/styles.css?v=50" />
 <style id="xt-overrides">
 /* Header logo - smaller, no distortion */
 header .brand img { height: 38px !important; width: auto !important; max-width: none !important; flex-shrink: 0 !important; }
@@ -318,6 +318,58 @@ button.mobile-toggle[aria-expanded="true"] .bar::after  { transform: translateY(
 </section> <footer class="site-footer"> <div class="container"> <div class="grid"> <div class="brand-block"> <img src="assets/Long%20Logo.png" alt="X TOMORROW" /> <p>A multi-asset, multi-jurisdiction investment platform built around Security Token Offerings (STOs), Real-World Asset (RWA) tokenization, and the next generation of capital formation.</p> <p style="margin-top:16px; font-size:12px; color:rgba(255,255,255,.5);">XTOMORROW LLC<br/>1209 Mountain Road PL NE, STE R<br/>Albuquerque, NM 87110<br/>+1 (917) 409-7083 &middot; info@xtomorrow.com</p> </div> <div> <h5>Platform</h5> <a href="platform.html">Approach</a> <a href="sto.html">STO Issuance</a> <a href="rwa.html">RWA Tokenization</a> <a href="acquisitions.html">Asset Acquisition</a> <a href="capital-markets.html">Capital Markets</a> <a href="sharia-halal.html">Sharia &amp; Halal</a> </div> <div> <h5>Asset Classes</h5> <a href="mining.html">Mining</a> <a href="energy.html">Energy</a> <a href="real-estate.html">Real Estate</a> <a href="equities.html">Equities</a> <a href="fixed-income.html">Fixed Income</a> <a href="digital.html">Digital Assets</a> <a href="tokenized-funds.html">Tokenized Funds</a> </div> <div> <h5>Regulation</h5> <a href="regulation-us.html">United States</a> <a href="regulation-europe.html">Europe</a> <a href="regulation-asia.html">Asia</a> <a href="regulation-mideast.html">Middle East</a> <a href="regulation-sharia.html">Sharia</a> <a href="regulation-offshore.html">Offshore</a> </div> <div> <h5>Engage</h5> <a href="about.html">About</a> <a href="leadership.html">Leadership</a> <a href="careers.html">Careers</a> <a href="partnerships.html">Partnerships</a> <a href="press.html">Press</a> <a href="contact.html">Contact</a> <a href="disclosures.html">Disclosures</a> </div> </div> <div class="legal"> <span>&copy; 2026 XTOMORROW LLC. All rights reserved.</span> <span><a href="disclosures.html">Disclosures</a> &middot; <a href="disclosures.html">Privacy</a> &middot; <a href="disclosures.html">Terms</a></span> </div> </div>
 </footer>
 <div class="disclosure"> <div class="container"> <span class="label">Important Notice &middot; Regulatory Disclosure</span> <p><strong>XTOMORROW LLC</strong> is a multi-asset, multi-jurisdiction investment platform. Nothing on this website constitutes an offer to sell, or a solicitation of an offer to buy, any security, fund, partnership interest, token, digital asset, or other financial instrument.</p> <p>Security tokens and tokenized real-world assets referenced on this site are made available exclusively to qualified, accredited, or institutional investors in jurisdictions where such offerings are permitted by applicable law, and only pursuant to definitive offering documents prepared in compliance with the relevant securities frameworks (including, where applicable, US Reg D 506(c) &middot; Reg S &middot; Reg A+ &middot; Rule 144A &middot; EU MiCA &middot; UK FCA Digital Securities Sandbox &middot; Singapore MAS &middot; UAE ADGM &middot; FINMA).</p> <p>All references to historical performance, asset valuations, projected returns, and portfolio composition are illustrative and subject to change without notice. Past performance is not indicative of future results. Forward-looking statements involve known and unknown risks that may cause actual results to differ materially. Investing involves substantial risk, including the risk of total loss of principal.</p> <p>Sharia-compliance references reflect attestations issued by independent bodies (MRHB, AAOIFI-aligned scholars) at the relevant date; compliance status may vary across products and tranches. Information presented on this website is intended for institutional and professional investors only.</p> </div>
-</div> <script src="assets/mobile-nav.js?v=1" defer></script>
+</div> <script>
+/* XTOMORROW mobile-nav inline (mirrors AXIOS EQUITY pattern) */
+(function(){
+  function init(){
+    var toggle = document.querySelector('button.mobile-toggle');
+    var menu = document.querySelector('nav.primary');
+    if(!toggle || !menu){ return; }
+    toggle.onclick = null;
+    toggle.removeAttribute('onclick');
+    if(!toggle.hasAttribute('aria-expanded')) toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-label','Open menu');
+    // If button still has the old 'Menu' text content, replace with bar span
+    if(!toggle.querySelector('.bar')) toggle.innerHTML = '<span class="bar"></span>';
+
+    function setOpen(open){
+      menu.classList.toggle('mobile-open', open);
+      document.body.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    toggle.addEventListener('click', function(e){
+      e.preventDefault();
+      setOpen(!menu.classList.contains('mobile-open'));
+    });
+
+    document.querySelectorAll('nav.primary > .nav-item > a').forEach(function(a){
+      a.addEventListener('click', function(e){
+        if(window.matchMedia('(max-width: 900px)').matches){
+          if(a.classList.contains('cta-btn')){ return; }
+          var li = a.parentElement;
+          if(li.querySelector('.mega')){
+            e.preventDefault();
+            Array.from(li.parentElement.children).forEach(function(sib){
+              if(sib !== li){ sib.classList.remove('is-open'); }
+            });
+            li.classList.toggle('is-open');
+          }
+        }
+      });
+    });
+    document.querySelectorAll('nav.primary .mega-grid a').forEach(function(a){
+      a.addEventListener('click', function(){ setOpen(false); });
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key==='Escape' && menu.classList.contains('mobile-open')) setOpen(false);
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 </body>
 </html>
